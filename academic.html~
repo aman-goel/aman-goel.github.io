@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0048)http://www.ee.iitm.ac.in/~ee11b087/academic.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="description" content="Your description goes here">
+	<meta name="keywords" content="your,keywords,goes,here">
+	<meta name="author" content="Aman Goel">
+	<link href="./academic_files/css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="./academic_files/origo.css" title="Origo" media="all">
+	<title>Aman - Academics</title>
+<script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script><style type="text/css"></style></head>
+
+<body class="light blue smaller freestyle01">
+<div id="layout">
+ 
+	<div class="row smaller">
+		<div class="col c5 smaller">
+			<h1><a href="http://www.ee.iitm.ac.in/~ee11b087/index.html">Aman Goel</a></h1>
+		</div>
+		
+		<div class="col c7 aligncenter">
+			<p class="slogan">“*Insert deep sounding quote*”
+
+― Me </p>
+		</div>
+	</div>
+  
+	<div class="row">
+		<div class="col c12 aligncenter">
+			<img src="./academic_files/math.jpg" width="960" height="240" alt="">
+		</div>
+	</div>
+ 
+	<div class="row">
+		<div class="col c2 alignleft">
+			<ul class="menu">
+			<li><a href="http://www.ee.iitm.ac.in/~ee11b087/index.html">Home</a></li>
+			<li><a href="http://www.ee.iitm.ac.in/~ee11b087/Aman_CV.pdf">Resume/CV</a></li>
+			<li><a href="http://www.ee.iitm.ac.in/~ee11b087/academics.html">Academics</a></li>
+			<li><a href="http://www.ee.iitm.ac.in/~ee11b087/projects.html">Projects</a></li>
+			<li><a href="http://www.ee.iitm.ac.in/~ee11b087/publications.html">Publications</a></li>
+			<li><a href="http://www.ee.iitm.ac.in/~ee11b087/extras.html">Miscellaneous</a>
+		</li></ul>
+		</div>
+ 
+		<div class="col c8">
+			<h2>Academics</h2>
+
+			<h3>Education</h3>
+			<p>I am currently pursuing my B.Tech &amp; M.Tech dual degree in Electrical Engineering with specialization in Microelectronics and VLSI, with minor in Industrial Engineering, at IIT Madras. I studied in St. Mary's Academy, Meerut upto 10th standard and then completed my 11th and 12th standards at City Vocational Public School, Meerut.</p>
+			
+			<h3>Projects</h3>
+			<p>The details of my projects can be found <a href="http://www.ee.iitm.ac.in/~ee11b087/projects.html" target="_blank"><b>here</b></a>.</p>
+			
+			<h3>Skills</h3>
+			<p><b>Programming Languages: </b>C, Python, Verilog HDL, CUDA</p>
+            		<p><b>Tools: </b> MATLAB, GNURadio, Wireshark, <gcb-math formula="ff\Latex"></gcb-math></p>
+            		
+            		<h3>Courses</h3>
+            <p>The following is a list of all the courses that I have completed at IIT Madras..</p>
+            
+            <h4>Electrical Engineering (Undergraduate)</h4>
+            <div id="section">
+            <ul style="padding:12px">
+            <li>Networks and Systems</li>
+            <li>Analog and Digital Signal Processing</li>
+            <li>Communication Systems</li>
+            <li>Electromagnetic Fields</li>
+            <li>Control Engineering</li>	
+			<li>Electrical and Magnetic Circuits</li>
+            <li>Digital Systems</li>
+            <li>Computer Organization and Microprocessors</li>
+            <li>Solid State Devices</li>
+            <li>Analog Circuits</li>
+			<li>Electrical Machines</li>
+            <li>Power Systems Practice</li>
+            <li>Principles of Measurement</li>
+			<li>Device Modeling</li>
+            </ul>
+            </div>
+                  
+		    <h4>Electrical Engineering (Advanced)</h4>
+            <div id="section">
+            <ul style="padding:12px">
+            <li> Error Control Coding </li>
+            <li>Advanced Topics in Communication</li>
+			<li>Advanced Electrical Networks</li>
+			<li>Image Signal Processing</li>
+	        <li>Analog IC Design</li>
+            <li>Digital IC Design</li>		
+			<li>VLSI Techonology</li>
+            </ul>
+            </div>
+            
+
+            <h4>Laboratory courses in EE</h4>
+            <div id="section">
+            <ul style="padding:12px">
+            <li>Computer aided design and simulation for EE</li>
+            <li>Digital Circuits Lab</li>
+            <li>Microprocessor Lab</li>
+            <li>Electrical Machines Lab</li>
+            <li>Analog Circuits Lab</li>
+            <li>Advanced EE lab</li>
+            <li>Advanced Microelelectronics Lab 1 &amp; 2</li>
+            </ul>
+            </div>
+            
+            <h4>Physics</h4>
+            <div id="section">
+            <ul style="padding:12px">
+	        <li>Physics I</li>
+            <li>Physics II</li>
+            <li>Classical Physics</li>
+            <li>Quantum Physics</li>
+			<li>Qunatum Computation and Quantum Information</li>
+			<li>Quantum Mechanics II</li>
+			<li>Statistical Physics</li>
+			<li>Advanced Statistical Physics</li>
+            <li>Classical Field Theory</li>
+			<li>Quantum Field Theory</li>
+	        <li>Physical Applications of Stochastic Processes</li>
+            </ul>
+            </div>
+            
+            <h4>Mathematics</h4>
+            <div id="section">
+            <ul style="padding:12px">
+            <li>Calculus of One Variable (Introductory Real Analysis)</li>
+            <li>Calculus of Several Variables</li>
+            <li>Complex Variables and Transform Techniques</li>
+            <li>Linear Algebra and Numerical Analysis</li>
+            <li>Algebra 1 (Groups, Rings, Modules and Fields)</li>
+	        <li>Topology</li>
+	        <li>Functional Analysis*</li>
+            </ul>
+            </div>
+		</div>
+ 
+		<div class="col c2">
+			<h3>Current Status:</h3>
+			<p>I am in the final year of the B.Tech &amp; M.tech dual degree program in <a href="http://www.ee.iitm.ac.in/" target="_blank">Electrical Engineering</a> at <a href="https://www.iitm.ac.in/" target="_blank">IIT Madras</a>.</p>
+
+			<h3>Contact me:</h3>
+			<p><a href="mailto:ee11b087@ee.iitm.ac.in">Email</a></p>
+		</div>
+	</div>
+ 
+	<div id="footer" class="row">
+		<div class="col c12 aligncenter">
+			<h3>©2015 Aman Goel</h3>
+			<p><a href="http://andreasviklund.com/templates/origo/">Template design</a> by <a href="http://andreasviklund.com/">Andreas Viklund</a><br>
+		</p></div>
+	</div>
+ </div>
+
+
+
+</body></html>

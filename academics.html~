@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0048)http://www.ee.iitm.ac.in/~ee11b087/academic.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="description" content="Your description goes here">
+	<meta name="keywords" content="your,keywords,goes,here">
+	<meta name="author" content="Aman Goel">
+	<link href="./academics_files/css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="./academics_files/origo.css" title="Origo" media="all">
+	<title>Aman - Academics</title>
+<script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script><style type="text/css"></style>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-71543611-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body class="light blue smaller freestyle01">
+<div id="layout">
+ 
+	<div class="row smaller">
+		<div class="col c5 smaller">
+			<h1><a href="http://www.ee.iitm.ac.in/~ee11b087/index.html">Aman Goel</a></h1>
+		</div>
+		
+		<div class="col c7 aligncenter">
+			<p class="slogan">“It's not a Bug, It's a feature”</p>
+		</div>
+	</div>
+  
+	<div class="row">
+		<div class="col c12 aligncenter">
+			<img src="./academics_files/coding.png" width="960" height="240" alt="">
+		</div>
+	</div>
+ 
+	<div class="row">
+		<div class="col c2 alignleft">
+			<ul class="menu">
+			<li><a href="http://www.ee.iitm.ac.in/~ee11b087/index.html">Home</a></li>
+			<li><a href="http://www.ee.iitm.ac.in/~ee11b087/Aman_CV.pdf">Resume/CV</a></li>
+			<li><a href="http://www.ee.iitm.ac.in/~ee11b087/academics.html">Academics</a></li>
+			<li><a href="http://www.ee.iitm.ac.in/~ee11b087/projects.html">Projects</a></li>
+			<li><a href="http://www.ee.iitm.ac.in/~ee11b087/publications.html">Publications</a></li>
+			<li><a href="http://www.ee.iitm.ac.in/~ee11b087/extras.html">Awards & Misc</a>
+		</li></ul>
+		</div>
+ 
+		<div class="col c8">
+			<h2>Academics</h2>
+
+			<h3>Education</h3>
+			<p>I am currently pursuing my B.Tech &amp; M.Tech dual degree in Electrical Engineering with specialization in Microelectronics and VLSI, with minor in Industrial Engineering, at IIT Madras. I studied in St. Mary's Academy, Meerut upto 10th standard and then completed my 11th and 12th standards at City Vocational Public School, Meerut.</p>
+			
+			<h3>Projects</h3>
+			<p>The details of my projects can be found <a href="http://www.ee.iitm.ac.in/~ee11b087/projects.html" target="_blank"><b>here</b></a>.</p>
+			
+			<h3>Skills</h3>
+
+            <h4>Languages</h4>
+            <div id="section">
+            <ul style="padding:12px">
+            <li>Good knowledge of C++, C, Verilog, Python, Bluespec</li>
+            <li>Working knowledge of Java, Shell Scripting and HTML</li>
+            </ul>
+            </div>
+
+            <h5>Packages & Tools</h5>
+            <div id="section">
+            <ul style="padding:12px">
+            <li>Eclipse, MATLAB, Xilinx ISE, PlanAhead, Vivado, Spice, Magic, LaTeX</li>
+            <li>Working knowledge of ARM, MSP430, ModelSim, Keil</li>
+            </ul>
+            </div>
+
+<!--			<p><b>Languages: </b>Good knowledge of C++, C, Verilog, Python, Bluespec</p>
+            		<p><b>Tools: </b> MATLAB, GNURadio, Wireshark, <gcb-math formula="ff\Latex"></gcb-math></p>
+-->            		
+       		<h3>Relevant Courses</h3>
+            <p>The following is a list of all the courses that I have completed at IIT Madras..</p>
+            
+            <h4>Electrical</h4>
+            <div id="section">
+            <ul style="padding:12px">
+            <li>Computer Organisation & Microprocessors</li>
+            <li>Mathematical Methods in Circuit Analysis</li>
+            <li>Mapping Signal Processing Algorithms to DSP Architectures</li>
+            <li>Digital IC Design</li>
+            <li>Analog IC Design</li>
+            <li>Digital Systems</li>
+            <li>VLSI Technology</li>
+            <li>Networks and Systems</li>
+            <li>Analog and Digital Signal Processing</li>
+            <li>Communication Systems</li>
+            <li>Electromagnetic Fields</li>
+            <li>Control Engineering</li>	
+            <li>Digital Systems</li>
+            <li>Solid State Devices</li>
+            <li>Analog Circuits</li>
+            <li>Power Systems Practice</li>
+            <li>Principles of Measurement</li>
+			<li>Device Modeling</li>
+            </ul>
+            </div>
+                  
+		    <h4>Computer Science</h4>
+            <div id="section">
+            <ul style="padding:12px">
+            <li>Computer-aided Design for VLSI Systems</li>
+            <li>Digital Design Verification</li>
+            <li>Digital Systems Testing & Testable Designs</li>
+            <li>Data Structures & Algorithms</li>
+            <li>Computational Engineering</li>
+            </ul>
+            </div>
+            
+            <h4>Mathematics</h4>
+            <div id="section">
+            <ul style="padding:12px">
+            <li>Combinatorial Optimization</li>
+            <li>Fundamentals of Operational Research</li>
+            <li>Decision Modelling</li>
+            <li>Probability Foundations for EE</li>
+            <li>Linear Algebra & Numerical Analysis</li>
+            <li>Calculus of Several Variables</li>
+            <li>Complex Variables and Transform Techniques</li>
+            <li>Linear Algebra and Numerical Analysis</li>
+            </ul>
+            </div>
+ 
+            <h4>Laboratory experience</h4>
+            <div id="section">
+            <ul style="padding:12px">
+            <li>VLSI Design Lab</li>
+            <li>Microprocessor Lab</li>
+            <li>Advanced Microelectronics Lab</li>
+            <li>Computer aided design and simulation for EE</li>
+            <li>Digital Circuits Lab</li>
+            <li>Analog Circuits Lab</li>
+            <li>Electrical Machines Lab</li>
+            <li>Advanced EE lab</li>
+            </ul>
+            </div>
+		</div>
+                       
+		<div class="col c2">
+			<h3>Current Status:</h3>
+			<p>I am in the final year of the B.Tech &amp; M.tech dual degree program in <a href="http://www.ee.iitm.ac.in/" target="_blank">Electrical Engineering</a> at <a href="https://www.iitm.ac.in/" target="_blank">IIT Madras</a>.</p>
+
+			<h3>Find me on</h3>
+			<p><a href="mailto:ee11b087@ee.iitm.ac.in">Email</a><br>
+
+			<a href="https://in.linkedin.com/pub/aman-goel/46/a86/a55"><img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_profile_bluetxt_80x15.png" width="80" height="15" border="0" alt="View Aman Goel's profile on LinkedIn">	</a>    
+
+			<a href="https://twitter.com/tukuaman" class="twitter-follow-button" data-show-count="false">Follow @tukuaman</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+              </a>
+			
+			</p></div>
+	</div>
+ 
+	<div id="footer" class="row">
+		<div class="col c12 aligncenter">
+			<h3>©2015 Aman Goel</h3>
+			<p><a href="http://andreasviklund.com/templates/origo/">Template design</a> by <a href="http://andreasviklund.com/">Andreas Viklund</a><br>
+		</p></div>
+	</div>
+ </div>
+
+
+
+</body></html>
