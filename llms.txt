@@ -1,0 +1,28 @@
+# Aman Goel
+
+> Senior Applied Scientist, AWS Automated Reasoning Group. Neurosymbolic AI and formal
+> verification: making LLMs safer and more reliable (formal verification of outputs,
+> hallucination detection, red teaming), after a PhD on automatic verification of hardware
+> and distributed protocols — the first fully automatic proof of Lamport's Paxos (to our
+> knowledge) and a hardware model checker that won HWMCC 2020. Views his own.
+
+Every page and essay has a Markdown twin; agents should prefer the .md URLs below.
+
+## Start here
+- [Home (Markdown)](https://amangoel.ai/index.md): bio, news & highlights, selected work — who I am and the thesis of the work
+- [llms-full.txt](https://amangoel.ai/llms-full.txt): the whole site — every page and essay — in one Markdown file
+
+## Essays
+
+## Research & CV
+- [Research (Markdown)](https://amangoel.ai/research.md): full publications, talks, service, teaching
+- [CV (PDF)](https://amangoel.ai/assets/cv.pdf): two-page curriculum vitae
+- [RSS feed](https://amangoel.ai/feed.xml): full-text feed of new essays
+
+## Optional
+- [Home (HTML)](https://amangoel.ai/): bio, news & highlights, selected work
+- [Research (HTML)](https://amangoel.ai/research.html): full publications, talks, service, teaching
+- [Writing (HTML)](https://amangoel.ai/blog/): notes on LLM internals and verification
+- [Google Scholar](https://scholar.google.com/citations?user=iFCl5vEAAAAJ)
+- [ORCID](https://orcid.org/0000-0003-0520-8890)
+- [GitHub](https://github.com/aman-goel)

@@ -1,14 +1,211 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-	<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Aman Goel</title>
-		<link rel="canonical" href="https://aman-goel.github.io/">
-	</head>
-	<body>
-		<iframe
-			src="https://drive.google.com/file/d/1_LClyBsDfdDO-vZ78vnkj-dJkvHZnyiK/preview"
-			style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; scrolling:no;">
-			<a href="https://drive.google.com/file/d/1_LClyBsDfdDO-vZ78vnkj-dJkvHZnyiK/preview">Aman Goel</a>
-		</iframe>
-	</body>
+<!DOCTYPE html>
+<!-- Aman Goel — personal site (home). -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aman Goel</title>
+<meta name="description" content="Aman Goel — Senior Applied Scientist, AWS Automated Reasoning Group. LLMs can't be trusted without proofs: neurosymbolic verification of LLM outputs, hallucination detection, red teaming; earlier, automatic verification of hardware and distributed protocols.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Aman Goel">
+<meta property="og:description" content="Senior Applied Scientist, AWS Automated Reasoning Group. Neurosymbolic AI and formal verification.">
+<meta property="og:url" content="https://amangoel.ai/">
+<meta property="og:site_name" content="Aman Goel">
+<meta property="og:image" content="https://amangoel.ai/assets/photo.jpg">
+<meta property="og:image:width" content="396">
+<meta property="og:image:height" content="512">
+<meta property="og:image:alt" content="Aman Goel">
+<meta property="og:locale" content="en_US">
+<meta property="profile:first_name" content="Aman">
+<meta property="profile:last_name" content="Goel">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://amangoel.ai/">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#FBFAF6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161512" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}document.documentElement.classList.add('js');})();</script>
+<link rel="alternate" type="text/markdown" href="index.md">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://amangoel.ai/#aman-goel",
+  "name": "Aman Goel",
+  "url": "https://amangoel.ai/",
+  "jobTitle": "Senior Applied Scientist",
+  "worksFor": { "@type": "Organization", "name": "AWS Automated Reasoning Group, Amazon Web Services" },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "University of Michigan" },
+    { "@type": "CollegeOrUniversity", "name": "IIT Madras" }
+  ],
+  "knowsAbout": ["Formal verification", "Automated reasoning", "Neurosymbolic AI", "Large language models", "SMT solving", "Model checking", "Distributed protocols"],
+  "sameAs": [
+    "https://scholar.google.com/citations?user=iFCl5vEAAAAJ",
+    "https://orcid.org/0000-0003-0520-8890",
+    "https://github.com/aman-goel"
+  ]
+}
+</script>
+<link rel="alternate" type="application/rss+xml" title="Aman Goel — Writing" href="feed.xml">
+<script data-goatcounter="https://amangoel.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script src="assets/site.js" defer></script>
+</head>
+<body>
+<canvas id="proofrain" aria-hidden="true"></canvas>
+
+<div class="wrap">
+
+  <div class="toplink"><a href="research.html">Research</a><a href="blog/index.html">Writing</a><a href="https://scholar.google.com/citations?user=iFCl5vEAAAAJ">Scholar</a><a href="https://github.com/aman-goel">GitHub</a><a href="assets/cv.pdf">CV</a><button class="themetoggle" id="themetoggle" aria-label="Toggle lamplight mode">☾</button></div>
+
+  <!-- INTRO -->
+  <header class="intro">
+    <h1>Aman Goel</h1>
+    <div class="role">Senior Applied Scientist · <a href="https://aws.amazon.com/security/provable-security/">AWS Automated Reasoning Group</a> · Seattle</div>
+    <p class="stmt">LLMs can&rsquo;t be trusted without proofs. I work on what formal verification can &mdash; and cannot &mdash; do about that: neurosymbolic guardrails that check LLM outputs against formal logic (deployed in Amazon Bedrock), hallucination detection that needs no ground truth, and automated red teaming. Before that: automatic correctness proofs for hardware and distributed protocols, including the first automatic proof of Lamport&rsquo;s Paxos.</p>
+  </header>
+
+  <!-- PROOF DEMO -->
+  <section class="proofdemo reveal" aria-label="Illustration: a claim being checked against a policy">
+    <h2>The idea, running</h2>
+    <div class="proof" id="proofdemo">
+      <span class="ptag">illustration</span>
+      <div class="pline p-policy"><span class="plabel">policy</span><span class="ptext">Refunds up to $500, within 24 hours of booking.</span></div>
+      <div class="pline p-claim"><span class="plabel">claim</span><span class="ptext">“You’ll get the full $620 back.”</span></div>
+      <div class="pline p-check"><span class="plabel">check</span><span class="ptext">refund ≤ 500 ∧ hours ≤ 24 &nbsp;⊢&nbsp; refund = 620 ?</span></div>
+      <div class="pverdict bad">✗ refuted — counterexample: refund = 620 &gt; 500</div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- NEWS -->
+  <section class="news reveal">
+    <h2>News &amp; highlights</h2>
+    <div class="row"><div class="when">Jul 2026</div><div class="what">“A Neurosymbolic Approach to Natural Language Formalization and Verification” (arXiv 2511.09008), to appear at <a href="https://conferences.i-cav.org/2026/accepted/">CAV 2026</a> (Lisbon, Jul 26–29) — the approach ships in Amazon Bedrock Guardrails as Automated Reasoning checks.</div></div>
+    <div class="row"><div class="when">May 2026</div><div class="what">Panelist, ACL mentorship session “What AI tools and skills to prioritize for meaningful learning and career growth” (<a href="https://www.youtube.com/watch?v=ATw0LkMkqm4">recording</a>).</div></div>
+    <div class="row"><div class="when">Nov 2025</div><div class="what">“Zero-Knowledge LLM Hallucination Detection and Mitigation through Fine-Grained Cross-Model Consistency” (arXiv 2508.14314), <a href="https://2025.emnlp.org/">EMNLP 2025</a> Industry Track (Suzhou, Nov 4–9).</div></div>
+    <div class="row"><div class="when">Oct 2025</div><div class="what">AVR won a silver medal (word-level arrays) at <a href="https://hwmcc.github.io/2025/">HWMCC 2025</a>, announced at FMCAD 2025 (Menlo Park).</div></div>
+    <div class="row"><div class="when">Aug 2025</div><div class="what">Automated Reasoning checks became <a href="https://aws.amazon.com/about-aws/whats-new/2025/08/automated-reasoning-checks-amazon-bedrock-guardrails/">generally available</a> in Amazon Bedrock Guardrails.</div></div>
+    <div class="row"><div class="when">Jul 2025</div><div class="what">“QSM-Cutoff: Systematic Derivation of Quantified Cutoff Formulas for Distributed Protocols” (Luo, Goel, Sakallah), <a href="https://doi.org/10.1007/978-3-031-98682-6_14">CAV 2025</a>; also served on the CAV 2025 program committee.</div></div>
+    <div class="row"><div class="when">Apr 2025</div><div class="what">“TurboFuzzLLM” (arXiv 2502.18504), oral at <a href="https://2025.naacl.org/">NAACL 2025</a> (Albuquerque, Apr 29–May 4); open-sourced.</div></div>
+    <div class="row"><div class="when">Dec 2024</div><div class="what">Automated Reasoning checks — a research contribution from the AWS Automated Reasoning Group — <a href="https://aws.amazon.com/about-aws/whats-new/2024/12/amazon-bedrock-guardrails-automated-reasoning-checks-preview/">announced in preview</a> in Amazon Bedrock Guardrails at re:Invent.</div></div>
+    <div class="row"><div class="when">Oct 2024</div><div class="what">AVR won gold (word-level bit-vectors + arrays) and silver (word-level bit-vectors) at <a href="https://hwmcc.github.io/2024/">HWMCC 2024</a> — announced at FMCAD 2024 (Prague, Oct 14–18).</div></div>
+    <div class="row"><div class="when">Oct 2021</div><div class="what">Completed the PhD at Michigan (advisor <a href="https://web.eecs.umich.edu/~karem/">Karem Sakallah</a>). “Towards an Automatic Proof of Lamport’s Paxos” (<a href="https://fmcad.org/FMCAD21/">FMCAD 2021</a>, Oct 19–22, held online) — the first fully automatic proof of Lamport’s Paxos — reached the <a href="https://news.ycombinator.com/item?id=29018988">Hacker News front page</a> (159 points) and was covered by <a href="https://cse.engin.umich.edu/stories/famous-paxos-distributed-protocol-automatically-determined-safe-and-secure">Michigan Engineering</a>. Joined the AWS Automated Reasoning Group the following month.</div></div>
+    <div class="more"><a href="research.html#timeline">full timeline, 2013–2026 →</a></div>
+  </section>
+
+  <hr>
+
+  <!-- SELECTED WORK -->
+  <section class="reveal">
+    <h2>Selected work — Neurosymbolic AI safety</h2>
+    <p class="lede">Formal methods applied to LLM outputs: checking whether an answer is correct, detecting hallucinations, and adversarially stress-testing the models.</p>
+
+    <div class="pub">
+      <div class="title">A Neurosymbolic Approach to Natural Language Formalization and Verification</div>
+      <div class="auth">Chenyang An, Sam Bayless, Stefano Buliani, and 27 others (alphabetical, incl. <span class="me">Aman Goel</span>)</div>
+      <div class="venue"><span class="tag">CAV · 2026</span> &nbsp;·&nbsp; shipped in Amazon Bedrock Guardrails</div>
+      <div class="desc">An LLM translates natural-language policies into formal logic; an SMT solver checks whether an answer satisfies them — catching hallucinations pure-LLM checks miss.</div>
+      <div class="res">99.2% soundness (2.5% false-positive rate)</div>
+      <div class="links"><a href="https://arxiv.org/abs/2511.09008">arXiv</a><a href="https://www.amazon.science/publications/a-neurosymbolic-approach-to-natural-language-formalization-and-verification">Amazon Science</a><a href="https://aws.amazon.com/about-aws/whats-new/2025/08/automated-reasoning-checks-amazon-bedrock-guardrails/">AWS</a></div>
+    </div>
+
+    <div class="pub">
+      <div class="title">Zero-Knowledge LLM Hallucination Detection and Mitigation through Fine-Grained Cross-Model Consistency</div>
+      <div class="auth"><span class="me">Aman Goel</span>, Daniel Schwartz, Yanjun Qi</div>
+      <div class="venue"><span class="tag">EMNLP · 2025</span> &nbsp;·&nbsp; Industry</div>
+      <div class="desc">Detects and mitigates hallucinations by measuring fine-grained consistency across models — no reference data, knowledge base, or ground truth required.</div>
+      <div class="res">+39% F1 over baselines · +9pp GPQA-diamond · 5 benchmarks · 8 models</div>
+      <div class="links"><a href="https://arxiv.org/abs/2508.14314">arXiv</a></div>
+    </div>
+
+    <div class="pub">
+      <div class="title">TurboFuzzLLM: Mutation-Based Fuzzing for Jailbreaking LLMs in Practice</div>
+      <div class="auth"><span class="me">Aman Goel</span>, Xian Carrie Wu, Zhe Wang, Dmitriy Bespalov, Yanjun Qi</div>
+      <div class="venue"><span class="tag">NAACL · 2025</span> &nbsp;·&nbsp; oral &nbsp;·&nbsp; open-sourced</div>
+      <div class="desc">An automated red team that finds jailbreaks via mutation-based fuzzing with RL-guided selection, used to surface vulnerabilities before deployment.</div>
+      <div class="res">≥95% attack success on GPT-4o / GPT-4 Turbo · 3× fewer queries</div>
+      <div class="links"><a href="https://arxiv.org/abs/2502.18504">arXiv</a><a href="https://github.com/amazon-science/TurboFuzzLLM">code</a></div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2>Selected work — Automated verification of systems &amp; protocols</h2>
+    <p class="lede">Automatic correctness proofs for distributed protocols and hardware — detecting bugs or proving their absence without manually supplied invariants.</p>
+
+    <div class="pub">
+      <div class="title">Towards an Automatic Proof of Lamport’s Paxos</div>
+      <div class="auth"><span class="me">Aman Goel</span>, Karem Sakallah</div>
+      <div class="venue"><span class="tag">FMCAD · 2021</span> &nbsp;·&nbsp; IC3PO</div>
+      <div class="desc">Lamport’s Paxos is a notoriously intricate consensus protocol; existing correctness proofs were hand-written, and earlier automation had reached only simpler protocols and Paxos variants. IC3PO produced the first fully automatic proof of Lamport’s Paxos, via a symmetry-aware algorithm for infinite-state verification.</div>
+      <div class="res">enabled Sift (ATC’22), Bakery proof (FORTE’23)</div>
+      <div class="links"><a href="https://doi.org/10.34727/2021/isbn.978-3-85448-046-4_20">PDF</a><a href="https://github.com/aman-goel/ic3po">code</a><a href="https://youtu.be/nPwlj6w6EXU">talk</a></div>
+    </div>
+
+    <div class="pub">
+      <div class="title">AVR: Abstractly Verifying Reachability</div>
+      <div class="auth"><span class="me">Aman Goel</span>, Karem Sakallah</div>
+      <div class="venue"><span class="tag">TACAS · 2020</span> &nbsp;·&nbsp; 1st place HWMCC 2020 (7 gold) · medals at HWMCC 2024 &amp; 2025</div>
+      <div class="desc">A word-level hardware model checker using abstraction-refinement and SMT; evaluated on 1000+ industrial designs and placed first at HWMCC 2020.</div>
+      <div class="links"><a href="https://link.springer.com/chapter/10.1007/978-3-030-45190-5_23">PDF</a><a href="https://github.com/aman-goel/avr">code</a><a href="https://fmv.jku.at/hwmcc20/">HWMCC</a></div>
+    </div>
+
+    <div class="pub">
+      <div class="title">Sift: Using Refinement-Guided Automation to Verify Complex Distributed Systems</div>
+      <div class="auth">Haojun Ma, Hammad Ahmad, <span class="me">Aman Goel</span>, Eli Goldweber, Jean-Baptiste Jeannin, Manos Kapritsos, Baris Kasikci</div>
+      <div class="venue"><span class="tag">USENIX ATC · 2022</span></div>
+      <div class="desc">Verified complex distributed-system implementations by combining refinement with IC3PO’s automatic invariant inference — evidence the automation transfers beyond its home lab.</div>
+      <div class="links"><a href="https://www.usenix.org/conference/atc22/presentation/ma">PDF</a></div>
+    </div>
+    <div class="more">+ 11 more — I4 (SOSP’19), reTLA, Bakery proof (FORTE’23), DATE, ICCAD … &nbsp;<a href="research.html#publications">all publications, talks &amp; service →</a></div>
+  </section>
+
+  <hr>
+
+  <!-- SOFTWARE -->
+  <section class="reveal">
+    <h2>Software</h2>
+    <p class="plain"><a href="https://github.com/aman-goel/ic3po">IC3PO</a> — automatic verifier for distributed protocols; produced the first automatic proof of Lamport’s Paxos.<br>
+    <a href="https://github.com/aman-goel/avr">AVR</a> — word-level hardware model checker; 1st at HWMCC 2020, medals at HWMCC 2024 &amp; 2025.<br>
+    <a href="https://github.com/amazon-science/TurboFuzzLLM">TurboFuzzLLM</a> — open-source LLM red-teaming fuzzer; ≥95% attack success on GPT-4o and GPT-4 Turbo.</p>
+  </section>
+
+  <hr>
+
+  <!-- WRITING -->
+  <section class="reveal">
+    <h2>Writing</h2>
+    <p class="plain">Coming soon.</p>
+  </section>
+
+  <hr>
+
+  <!-- HONORS + SERVICE -->
+  <section class="honors reveal">
+    <h2>Honors &amp; service</h2>
+    <p>First fully automatic proof of Lamport’s Paxos · 1st place HWMCC 2020 (7 gold) · medals at HWMCC 2024 &amp; 2025 · Rackham Predoctoral Fellow · Best Student Research Award (Michigan CSE) · IIT Madras Silver Medalist · National Award for the Empowerment of Persons with Disabilities (Govt. of India, 2013).</p>
+    <p class="mono" style="font-size:13px; color:var(--soft); margin-top:10px;">Program committee — CAV 2025; FMCAD 2022 (student forum). &nbsp; Reviewer — TOCL, TCAD. &nbsp; Artifact evaluation — SOSP, CAV, OSDI, MICRO, VMCAI.</p>
+  </section>
+
+  <hr>
+
+  <!-- ABOUT -->
+  <section class="about reveal">
+    <img class="ph" src="assets/photo.jpg" alt="Aman Goel" width="88" height="88">
+    <p>I’ve spent ten years on one question: how do you get a machine to prove a system correct? First hardware (AVR), then distributed protocols (IC3PO and the Paxos proof), now LLM outputs (the guardrails behind Amazon Bedrock’s Automated Reasoning checks). PhD from the <a href="https://cse.engin.umich.edu/">University of Michigan</a> with <a href="https://web.eecs.umich.edu/~karem/">Karem Sakallah</a>; before AWS, SMT solving at SRI (Yices&nbsp;2) and formal verification at Cadence (JasperGold). Based in Seattle. Email me about neurosymbolic verification, hallucination detection, red teaming, or speaking — <a href="mailto:aman@amangoel.ai">aman@amangoel.ai</a>.</p>
+  </section>
+
+  <footer>
+    <div class="updated">Last updated July 2026.</div>
+    <div class="flinks"><a href="https://scholar.google.com/citations?user=iFCl5vEAAAAJ">Google Scholar</a><a href="https://github.com/aman-goel">GitHub</a><a href="assets/cv.pdf">CV (PDF)</a><a href="mailto:aman@amangoel.ai">aman@amangoel.ai</a></div>
+  </footer>
+
+</div>
+</body>
 </html>

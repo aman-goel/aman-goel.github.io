@@ -1,0 +1,203 @@
+<!-- Markdown twin. Canonical HTML: https://amangoel.ai/research.html -->
+
+# Aman Goel — Research
+
+*Publications · software · talks · press · service · timeline*
+
+## Publications
+
+Reverse-chronological. Also on [Google Scholar](https://scholar.google.com/citations?user=iFCl5vEAAAAJ).
+
+- **A Neurosymbolic Approach to Natural Language Formalization and Verification**
+  Chenyang An, Sam Bayless, Stefano Buliani, and 27 others (alphabetical, incl. Aman Goel)
+  CAV · 2026 · to appear · shipped in Amazon Bedrock Guardrails as Automated Reasoning checks
+  Links: [arXiv](https://arxiv.org/abs/2511.09008) · [Amazon Science](https://www.amazon.science/publications/a-neurosymbolic-approach-to-natural-language-formalization-and-verification) · [AWS](https://aws.amazon.com/about-aws/whats-new/2025/08/automated-reasoning-checks-amazon-bedrock-guardrails/)
+
+- **Zero-Knowledge LLM Hallucination Detection and Mitigation through Fine-Grained Cross-Model Consistency**
+  Aman Goel, Daniel Schwartz, Yanjun Qi
+  EMNLP · 2025 · Industry Track
+  Links: [PDF](https://aclanthology.org/2025.emnlp-industry.139/) · [arXiv](https://arxiv.org/abs/2508.14314)
+
+- **TurboFuzzLLM: Turbocharging Mutation-based Fuzzing for Effectively Jailbreaking Large Language Models in Practice**
+  Aman Goel, Xian Carrie Wu, Zhe Wang, Dmitriy Bespalov, Yanjun Qi
+  NAACL · 2025 · Industry Track · oral · open-sourced
+  Links: [PDF](https://aclanthology.org/2025.naacl-industry.43/) · [arXiv](https://arxiv.org/abs/2502.18504) · [code](https://github.com/amazon-science/TurboFuzzLLM)
+
+- **QSM-Cutoff: Systematic Derivation of Quantified Cutoff Formulas for Distributed Protocols**
+  Yun-Rong Luo, Aman Goel, Karem Sakallah
+  CAV · 2025
+  Links: [PDF](https://doi.org/10.1007/978-3-031-98682-6_14) · [bib](https://dblp.org/rec/conf/cav/LuoGS25.html?view=bibtex)
+
+- **SAT-Based Quantified Symmetric Minimization of the Reachable States of Distributed Protocols: An Update**
+  Yun-Rong Luo, Aman Goel, Karem Sakallah
+  ISoLA · 2024
+  Links: [PDF](https://doi.org/10.1007/978-3-031-75380-0_21) · [bib](https://dblp.org/rec/conf/isola/LuoGS24.html?view=bibtex)
+
+- **SAT-Based Quantified Symmetric Minimization of the Reachable States of Distributed Protocols**
+  Katalin Fazekas, Aman Goel, Karem Sakallah
+  FMCAD · 2023
+  Links: [PDF](https://repositum.tuwien.at/handle/20.500.12708/188822)
+
+- **Towards an Automatic Proof of the Bakery Algorithm**
+  Aman Goel, Stephan Merz, Karem Sakallah
+  FORTE · 2023
+  Links: [PDF](https://link.springer.com/chapter/10.1007/978-3-031-35355-0_2)
+
+- **Regularity and Quantification: A New Approach to Verify Distributed Protocols**
+  Aman Goel, Karem Sakallah
+  ISSE · 2022 · journal (Innovations in Systems and Software Engineering, a NASA journal); online first 2022, journal issue 2023; extended version of the NFM 2021 paper
+  Links: [PDF](https://link.springer.com/article/10.1007/s11334-022-00460-8)
+
+- **Sift: Using Refinement-Guided Automation to Verify Complex Distributed Systems**
+  Haojun Ma, Hammad Ahmad, Aman Goel, Eli Goldweber, Jean-Baptiste Jeannin, Manos Kapritsos, Baris Kasikci
+  USENIX ATC · 2022
+  Links: [PDF](https://www.usenix.org/conference/atc22/presentation/ma) · [bib](https://dblp.org/rec/conf/usenix/MaAGGJKK22.html?view=bibtex)
+
+- **reTLA: Towards an Automatic Transpiler from TLA+ to VMT**
+  Jure Kukovec, Aman Goel, Igor Konnov, Stephan Merz, Karem Sakallah
+  TLA+ Conference · 2022
+  Links: [PDF](https://conf.tlapl.us/2022/sub7.pdf)
+
+- **Towards an Automatic Proof of Lamport’s Paxos**
+  Aman Goel, Karem Sakallah
+  FMCAD · 2021 · first fully automatic proof of Lamport’s Paxos (to our knowledge) · Hacker News front page
+  Links: [PDF](https://doi.org/10.34727/2021/isbn.978-3-85448-046-4_20) · [code](https://github.com/aman-goel/ic3po) · [talk](https://youtu.be/nPwlj6w6EXU) · [HN](https://news.ycombinator.com/item?id=29018988) · [bib](https://dblp.org/rec/conf/fmcad/GoelS21.html?view=bibtex)
+
+- **On Symmetry and Quantification: A New Approach to Verify Distributed Protocols**
+  Aman Goel, Karem Sakallah
+  NFM · 2021
+  Links: [PDF](https://link.springer.com/chapter/10.1007/978-3-030-76384-8_9) · [talk](https://youtu.be/e0pr3P2BrEU) · [bib](https://dblp.org/rec/conf/nfm/GoelS21.html?view=bibtex)
+
+- **AVR: Abstractly Verifying Reachability**
+  Aman Goel, Karem Sakallah
+  TACAS · 2020 · 1st place HWMCC 2020 · medals at HWMCC 2024 & 2025
+  Links: [PDF](https://link.springer.com/chapter/10.1007/978-3-030-45190-5_23) · [code](https://github.com/aman-goel/avr) · [bib](https://dblp.org/rec/conf/tacas/GoelS20.html?view=bibtex)
+
+- **Model Checking of Verilog RTL Using IC3 with Syntax-Guided Abstraction**
+  Aman Goel, Karem Sakallah
+  NFM · 2019
+  Links: [PDF](https://link.springer.com/chapter/10.1007/978-3-030-20652-9_11)
+
+- **I4: Incremental Inference of Inductive Invariants for Verification of Distributed Protocols**
+  Haojun Ma, Aman Goel, Jean-Baptiste Jeannin, Manos Kapritsos, Baris Kasikci, Karem Sakallah
+  SOSP · 2019
+  Links: [PDF](https://dl.acm.org/doi/10.1145/3341301.3359651)
+
+- **Towards Automatic Inference of Inductive Invariants**
+  Haojun Ma, Aman Goel, Jean-Baptiste Jeannin, Manos Kapritsos, Baris Kasikci, Karem Sakallah
+  HotOS · 2019
+  Links: [PDF](https://dl.acm.org/doi/10.1145/3317550.3321451)
+
+- **Empirical Evaluation of IC3-Based Model Checking Techniques on Verilog RTL Designs**
+  Aman Goel, Karem Sakallah
+  DATE · 2019
+  Links: [PDF](https://ieeexplore.ieee.org/abstract/document/8715289)
+
+- **iitRACE: A Memory Efficient Engine for Fast Incremental Timing Analysis**
+  Chaitanya Peddawad, Aman Goel, B. Dheeraj, Nitin Chandrachoodan
+  ICCAD · 2015 · international 3rd place, TAU Contest
+  Links: [PDF](https://ieeexplore.ieee.org/abstract/document/7372667)
+
+Dissertation: [From Finite to Infinite: Scalable Automatic Verification of Hardware Designs and Distributed Protocols](https://deepblue.lib.umich.edu/handle/2027.42/171355) (University of Michigan, 2021).
+
+Earlier: [a solar charger for hearing-aid batteries](http://www.ijesit.com/Volume%202/Issue%205/IJESIT201305_16.pdf) (IJESIT 2013) — received the National Award for the Empowerment of Persons with Disabilities (Govt. of India, 2013).
+
+## Software
+
+[IC3PO](https://github.com/aman-goel/ic3po) — automatic verifier for distributed protocols; produced the first fully automatic proof of Lamport’s Paxos and enabled follow-on work including Sift (ATC’22) and the Bakery proof (FORTE’23).
+
+[AVR](https://github.com/aman-goel/avr) — word-level hardware model checker; 1st place at HWMCC 2020 (7 gold), medals at HWMCC 2024 & 2025; evaluated on 1000+ industrial designs; used in industry and academia.
+
+[TurboFuzzLLM](https://github.com/amazon-science/TurboFuzzLLM) — open-source LLM red-teaming fuzzer; ≥95% attack success on GPT-4o and GPT-4 Turbo with 3× fewer queries.
+
+Contributor to [Yices 2](https://github.com/SRI-CSL/yices2) (SMT solver) and [Yosys](https://github.com/YosysHQ/yosys) (synthesis).
+
+## Talks
+
+- **May 2026** — Panelist, ACL mentorship session “What AI tools and skills to prioritize for meaningful learning and career growth” ([recording](https://www.youtube.com/watch?v=ATw0LkMkqm4)).
+- **Oct 2021** — “Towards an Automatic Proof of Lamport’s Paxos,” FMCAD 2021 ([recording](https://youtu.be/nPwlj6w6EXU)).
+- **Jul 2021** — “On Symmetry and Quantification,” SMT Workshop ([recording](https://www.youtube.com/watch?v=A6tP_21k03Y)).
+- **Jun 2021** — “Push-Button Verification with Provable Assurance,” AWS Automated Reasoning Group.
+- **May 2021** — “On Symmetry and Quantification: A New Approach to Verify Distributed Protocols,” NFM 2021 ([recording](https://youtu.be/e0pr3P2BrEU)).
+- **Aug 2020** — “E-matching + Reinforcement Learning for Quantified UF Solving in Yices,” SRI CSL.
+- **Jul 2020** — “One-click Verification with Provable Assurance,” SRI CSL.
+- **Aug 2019** — “Evaluation of Word-level Model Checking Engine AVR in JasperGold,” Cadence SVG, Haifa.
+- **May 2019** — “Model Checking of Verilog RTL Using IC3 with Syntax-Guided Abstraction,” NFM 2019, Houston.
+- **Mar 2019** — “Empirical Evaluation of IC3-Based Model Checking Techniques on Verilog RTL Designs,” DATE 2019, Florence.
+
+## Press
+
+- **Aug 2025** — AWS News Blog — [“Minimize AI hallucinations and deliver up to 99% verification accuracy with Automated Reasoning checks: now available.”](https://aws.amazon.com/blogs/aws/minimize-ai-hallucinations-and-deliver-up-to-99-verification-accuracy-with-automated-reasoning-checks-now-available/)
+- **Oct 2021** — Michigan Engineering — [“Famous Paxos distributed protocol automatically determined safe and secure.”](https://cse.engin.umich.edu/stories/famous-paxos-distributed-protocol-automatically-determined-safe-and-secure)
+- **Oct 2021** — [Hacker News](https://news.ycombinator.com/item?id=29018988) — the Paxos proof reached the front page (159 points, 68 comments).
+- **Jun 2021** — U-M CSE [Code Blue](https://cse.engin.umich.edu/news/magazine/code-blue/) magazine — feature on the AVR and I4 tools.
+- **Oct 2020** — Michigan Engineering — [“Hardware model checker takes gold at international competition.”](https://cse.engin.umich.edu/stories/hardware-model-checker-takes-gold-at-international-competition)
+- **Mar 2020** — Michigan Engineering — [“Predoctoral Fellowship for mathematically provable hardware design.”](https://cse.engin.umich.edu/stories/predoctoral-fellowship-for-mathematically-provable-hardware-design)
+- **2015** — IIT Madras newsletter — team iitRACE wins 3rd place at the TAU Contest programming competition.
+
+## Service
+
+Program committee — CAV 2025; FMCAD 2022 (Student Forum).
+Reviewer — TOCL (2023), TCAD (2023).
+Artifact evaluation — SOSP 2023, CAV 2023, SOSP 2021, OSDI 2021, MICRO 2021, VMCAI 2021, OOPSLA 2020, CAV 2020.
+
+## Teaching
+
+University of Michigan (graduate student instructor) — EECS 492 Introduction to Artificial Intelligence (W’20); EECS 579 Digital System Testing (F’19); EECS 478 Logic Synthesis & Optimization (W’18); EECS 281 Data Structures & Algorithms (F’17, F’18).
+IIT Madras (teaching assistant) — EE 5332 Mapping Signal Processing Algorithms to DSP Architectures (2016); EE 5311 Digital IC Design (2015).
+
+## Education
+
+PhD, Computer Science & Engineering, University of Michigan, 2016–2021 (advisor [Karem Sakallah](https://web.eecs.umich.edu/~karem/)).
+B.Tech, Electrical Engineering (Silver Medalist) + M.Tech, Microelectronics & VLSI, IIT Madras, 2011–2016.
+
+## Timeline
+
+The complete running log — papers, talks, milestones, awards, 2013–2026. Committee service is listed under [Service](#service).
+
+- **Jul 2026** — “A Neurosymbolic Approach to Natural Language Formalization and Verification” (arXiv 2511.09008), to appear at [CAV 2026](https://conferences.i-cav.org/2026/accepted/) (Lisbon, Jul 26–29) — the approach ships in Amazon Bedrock Guardrails as Automated Reasoning checks.
+- **May 2026** — Panelist, ACL mentorship session “What AI tools and skills to prioritize for meaningful learning and career growth” ([recording](https://www.youtube.com/watch?v=ATw0LkMkqm4)).
+- **Nov 2025** — “Zero-Knowledge LLM Hallucination Detection and Mitigation through Fine-Grained Cross-Model Consistency” (arXiv 2508.14314), [EMNLP 2025](https://2025.emnlp.org/) Industry Track (Suzhou, Nov 4–9).
+- **Oct 2025** — AVR won a silver medal (word-level arrays) at [HWMCC 2025](https://hwmcc.github.io/2025/), announced at FMCAD 2025 (Menlo Park).
+- **Aug 2025** — Automated Reasoning checks became [generally available](https://aws.amazon.com/about-aws/whats-new/2025/08/automated-reasoning-checks-amazon-bedrock-guardrails/) in Amazon Bedrock Guardrails.
+- **Jul 2025** — “QSM-Cutoff: Systematic Derivation of Quantified Cutoff Formulas for Distributed Protocols” (Luo, Goel, Sakallah), [CAV 2025](https://doi.org/10.1007/978-3-031-98682-6_14).
+- **Jul 2025** — Program committee, CAV 2025.
+- **Apr 2025** — “TurboFuzzLLM” (arXiv 2502.18504), oral at [NAACL 2025](https://2025.naacl.org/) (Albuquerque, Apr 29–May 4); open-sourced.
+- **Dec 2024** — Automated Reasoning checks — a research contribution from the AWS Automated Reasoning Group — [announced in preview](https://aws.amazon.com/about-aws/whats-new/2024/12/amazon-bedrock-guardrails-automated-reasoning-checks-preview/) in Amazon Bedrock Guardrails at re:Invent.
+- **Oct 2024** — “SAT-Based Quantified Symmetric Minimization of the Reachable States of Distributed Protocols: An Update” (Luo, Goel, Sakallah), [ISoLA 2024](https://doi.org/10.1007/978-3-031-75380-0_21).
+- **Oct 2024** — AVR won gold (word-level bit-vectors + arrays) and silver (word-level bit-vectors) at [HWMCC 2024](https://hwmcc.github.io/2024/) — announced at FMCAD 2024 (Prague, Oct 14–18).
+- **Oct 2023** — “SAT-Based Quantified Symmetric Minimization of the Reachable States of Distributed Protocols” (Fazekas, Goel, Sakallah), [FMCAD 2023](https://fmcad.org/FMCAD23/) (Ames, Iowa, Oct 23–27).
+- **Jun 2023** — “Towards an Automatic Proof of the Bakery Algorithm” (Goel, Merz, Sakallah), [FORTE 2023](https://link.springer.com/chapter/10.1007/978-3-031-35355-0_2) at DisCoTec (Lisbon, Jun 19–23).
+- **Sep 2022** — Journal article “Regularity and quantification: a new approach to verify distributed protocols” (Goel, Sakallah), [Innovations in Systems and Software Engineering](https://link.springer.com/article/10.1007/s11334-022-00460-8) (a NASA journal) — an extended version of the NFM 2021 paper.
+- **Sep 2022** — “reTLA: towards an automatic transpiler from TLA+ to VMT” (Kukovec, Goel, Konnov, Merz, Sakallah), [TLA+ Conference 2022](https://conf.tlapl.us/2022/sub7.pdf) (St. Louis, Sep 22–24).
+- **Jul 2022** — “Sift” (Ma, Ahmad, Goel, Goldweber, Jeannin, Kapritsos, Kasikci), [USENIX ATC 2022](https://www.usenix.org/conference/atc22) (Carlsbad, Jul 11–13).
+- **Nov 2021** — Joined the AWS Automated Reasoning Group as an Applied Scientist, Seattle.
+- **Oct 2021** — “Towards an Automatic Proof of Lamport’s Paxos” (Goel, Sakallah), [FMCAD 2021](https://fmcad.org/FMCAD21/) (Oct 19–22, held online) — the first fully automatic proof of Lamport’s Paxos (manual proofs existed previously, and earlier automation reached only simpler protocols or Paxos variants).
+- **Oct 2021** — Conference talk, “Towards an Automatic Proof of Lamport’s Paxos,” FMCAD 2021 ([recording](https://youtu.be/nPwlj6w6EXU)).
+- **Oct 2021** — Completed PhD in Computer Science & Engineering, University of Michigan (advisor [Karem Sakallah](https://web.eecs.umich.edu/~karem/)).
+- **Oct 2021** — Michigan Engineering, [“Famous Paxos distributed protocol automatically determined safe and secure.”](https://cse.engin.umich.edu/stories/famous-paxos-distributed-protocol-automatically-determined-safe-and-secure)
+- **Oct 2021** — The Paxos proof reached the front page of [Hacker News](https://news.ycombinator.com/item?id=29018988) (159 points, 68 comments).
+- **Jul 2021** — Workshop talk, “On Symmetry and Quantification,” SMT Workshop.
+- **Jun 2021** — Talk to the AWS Automated Reasoning Group, “Push-Button Verification with Provable Assurance.”
+- **Jun 2021** — U-M CSE magazine Code Blue featured the AVR and I4 tools.
+- **May 2021** — “On Symmetry and Quantification: A New Approach to Verify Distributed Protocols” (Goel, Sakallah), [NFM 2021](https://shemesh.larc.nasa.gov/nfm2021/) (May 24–28); also a conference talk.
+- **Jan 2021** — Invited visiting graduate student, [Simons Institute for the Theory of Computing](https://simons.berkeley.edu/people/aman-goel) (UC Berkeley), Spring 2021.
+- **Oct 2020** — Michigan Engineering, [“Hardware model checker takes gold at international competition.”](https://cse.engin.umich.edu/stories/hardware-model-checker-takes-gold-at-international-competition)
+- **Sep 2020** — AVR (Goel, Sakallah) won 1st place overall at the [Hardware Model Checking Competition (HWMCC) 2020](https://fmv.jku.at/hwmcc20/) — 7 gold, 1 silver, 1 bronze — announced at FMCAD 2020 (Sep 22–24).
+- **Aug 2020** — Intern talk to the SRI CSL team on e-matching and reinforcement learning for quantified UF solving in Yices.
+- **Jul 2020** — Talk to the SRI CSL team, “One-click Verification with Provable Assurance.”
+- **May 2020** — Research intern, Computer Science Laboratory, SRI International — Yices 2 SMT solver (through Aug 2020).
+- **Apr 2020** — “AVR: Abstractly Verifying Reachability” (Goel, Sakallah), [TACAS 2020](https://dblp.org/db/conf/tacas/tacas2020-1.html) at ETAPS (Dublin, Apr 25–30; held remotely).
+- **Mar 2020** — Awarded the Rackham Predoctoral Fellowship, University of Michigan — Michigan Engineering, [“Predoctoral Fellowship for mathematically provable hardware design.”](https://cse.engin.umich.edu/stories/predoctoral-fellowship-for-mathematically-provable-hardware-design)
+- **Nov 2019** — Best Student Research Award (hardware discipline), University of Michigan CSE Graduate Student Honors Competition.
+- **Oct 2019** — “I4: Incremental Inference of Inductive Invariants” (Ma, Goel, et al.), [SOSP 2019](https://sosp19.rcs.uwaterloo.ca/) (Huntsville, Ontario, Oct 27–30).
+- **Aug 2019** — Talk to the Cadence SVG team (Haifa) on evaluating the word-level model checker AVR in JasperGold.
+- **May 2019** — “Model checking of Verilog RTL using IC3 with syntax-guided abstraction” (Goel, Sakallah), [NFM 2019](https://www.nasa.gov/general/nfm-2019-11th-annual-nasa-formal-methods-symposium/) (Houston, May 7–9); also a conference talk.
+- **May 2019** — “Towards Automatic Inference of Inductive Invariants” (Ma, Goel, et al.), [HotOS 2019](https://dblp.org/db/conf/hotos/hotos2019.html) (Bertinoro, Italy, May 13–15).
+- **May 2019** — Research intern, Systems Verification Group, Cadence (Israel) — JasperGold formal verification platform (through Sep 2019).
+- **Mar 2019** — “Empirical evaluation of IC3-based model checking techniques on Verilog RTL designs” (Goel, Sakallah), [DATE 2019](https://dblp.org/rec/conf/date/2019.html) (Florence, Mar 25–29); also a conference talk.
+- **May 2018** — Invited participant, SRI Summer School on Formal Techniques.
+- **Sep 2016** — Dwight F. Benton Fellowship, University of Michigan (2016–17).
+- **May 2016** — B.Tech in Electrical Engineering (Silver Medalist, branch rank 2) and M.Tech in Microelectronics & VLSI, IIT Madras.
+- **Nov 2015** — “iitRACE: A memory efficient engine for fast incremental timing analysis” (Peddawad, Goel, Dheeraj, Chandrachoodan), [ICCAD 2015](https://dblp.org/rec/conf/iccad/2015.html) (Austin, Nov 2–6) — international 3rd place in the TAU Contest.
+- **Dec 2013** — Received the [National Award for the Empowerment of Persons with Disabilities](https://depwd.gov.in/en/brief-about-national-awards/) (Govt. of India) for a solar charger for hearing-aid devices.

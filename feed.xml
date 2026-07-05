@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<channel>
+  <title>Aman Goel — Writing</title>
+  <link>https://amangoel.ai/blog/</link>
+  <atom:link href="https://amangoel.ai/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>Notes on LLM internals, fine-tuning, evaluation, and formal verification.</description>
+  <language>en-us</language>
+  <lastBuildDate>Sun, 05 Jul 2026 00:00:00 GMT</lastBuildDate>
+
+</channel>
+</rss>
