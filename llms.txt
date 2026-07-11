@@ -1,10 +1,10 @@
 # Aman Goel
 
-> Senior Applied Scientist, AWS Automated Reasoning Group. Neurosymbolic AI and formal
-> verification: making LLMs safer and more reliable (formal verification of outputs,
-> hallucination detection, red teaming), after a PhD on automatic verification of hardware
-> and distributed protocols — the first fully automatic proof of Lamport's Paxos (to our
-> knowledge) and a hardware model checker that won HWMCC 2020. Views his own.
+> Senior Applied Scientist, AWS Automated Reasoning Group. Neurosymbolic AI, agentic AI,
+> LLM post-training, and AI safety: making LLMs safer and more reliable (formal verification
+> of outputs, hallucination detection, red teaming), after a PhD on automatic verification of
+> hardware and distributed protocols — the first fully automatic proof of Lamport's Paxos (to
+> our knowledge) and a hardware model checker that won HWMCC 2020. Views his own.
 
 Every page and essay has a Markdown twin; agents should prefer the .md URLs below.
 

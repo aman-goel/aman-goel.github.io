@@ -4,7 +4,7 @@
 
 *Senior Applied Scientist · [AWS Automated Reasoning Group](https://aws.amazon.com/security/provable-security/) · Seattle*
 
-LLMs can’t be trusted without proofs. I work on what formal verification can — and cannot — do about that: neurosymbolic guardrails that check LLM outputs against formal logic (deployed in Amazon Bedrock), hallucination detection that needs no ground truth, and automated red teaming. Before that: automatic correctness proofs for hardware and distributed protocols, including the first automatic proof of Lamport’s Paxos.
+LLMs can’t be trusted without proofs. I work on what formal verification can — and cannot — do about that: neurosymbolic guardrails that check LLM outputs against formal logic (deployed in Amazon Bedrock), hallucination detection that needs no ground truth, and automated red teaming. Lately that spans agentic AI and LLM post-training — teaching models to reason, then checking that they did. Before that: automatic correctness proofs for hardware and distributed protocols, including the first automatic proof of Lamport’s Paxos.
 
 ## The idea, running
 
