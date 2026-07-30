@@ -9,17 +9,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<meta property="og:type" content="profile">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Research — Aman Goel">
 <meta property="og:description" content="Publications, talks, software, service, and the full timeline.">
 <meta property="og:url" content="https://amangoel.ai/research.html">
 <meta property="og:site_name" content="Aman Goel">
-<meta property="og:image" content="https://amangoel.ai/assets/photo.jpg">
-<meta property="og:image:width" content="396">
-<meta property="og:image:height" content="512">
-<meta property="og:image:alt" content="Aman Goel">
+<meta property="og:image" content="https://amangoel.ai/assets/og-banner-2x.png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1254">
+<meta property="og:image:alt" content="Aman Goel — LLMs, agents, and the proofs that keep them honest. Neurosymbolic AI, Agentic AI, LLM Post-Training, AI Safety, Amazon Automated Reasoning.">
 <meta property="og:locale" content="en_US">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Research — Aman Goel">
+<meta name="twitter:description" content="Publications, talks, software, service, and the full timeline.">
+<meta name="twitter:image" content="https://amangoel.ai/assets/og-banner-2x.png">
 <link rel="canonical" href="https://amangoel.ai/research.html">
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -41,7 +44,7 @@
     { "@type": "CollegeOrUniversity", "name": "University of Michigan" },
     { "@type": "CollegeOrUniversity", "name": "IIT Madras" }
   ],
-  "knowsAbout": ["Formal verification", "Automated reasoning", "Neurosymbolic AI", "Large language models", "SMT solving", "Model checking", "Distributed protocols"],
+  "knowsAbout": ["Neurosymbolic AI", "Agentic AI", "LLM post-training", "AI safety", "Red teaming", "Formal verification", "Automated reasoning", "Large language models", "SMT solving", "Model checking", "Distributed protocols"],
   "sameAs": [
     "https://scholar.google.com/citations?user=iFCl5vEAAAAJ",
     "https://orcid.org/0000-0003-0520-8890",
@@ -60,7 +63,9 @@
       "author": [
         { "@type": "Person", "name": "Chenyang An" },
         { "@type": "Person", "name": "Sam Bayless" },
-        { "@id": "https://amangoel.ai/#aman-goel" }
+        { "@type": "Person", "name": "Stefano Buliani" },
+        { "@id": "https://amangoel.ai/#aman-goel" },
+        { "@type": "Person", "name": "and 27 others (alphabetical, incl. Aman Goel)" }
       ],
       "datePublished": "2025-11",
       "sameAs": "https://arxiv.org/abs/2511.09008",
@@ -99,16 +104,103 @@
     },
     {
       "@type": "ScholarlyArticle",
+      "@id": "https://amangoel.ai/research.html#qsm-cutoff-cav2025",
+      "headline": "QSM-Cutoff: Systematic Derivation of Quantified Cutoff Formulas for Distributed Protocols",
+      "author": [
+        { "@type": "Person", "name": "Yun-Rong Luo" },
+        { "@id": "https://amangoel.ai/#aman-goel" },
+        { "@type": "Person", "name": "Karem Sakallah" }
+      ],
+      "datePublished": "2025-07",
+      "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.1007/978-3-031-98682-6_14" },
+      "isPartOf": { "@type": "Periodical", "name": "CAV 2025" },
+      "url": "https://doi.org/10.1007/978-3-031-98682-6_14"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://amangoel.ai/research.html#qsm-isola2024",
+      "headline": "SAT-Based Quantified Symmetric Minimization of the Reachable States of Distributed Protocols: An Update",
+      "author": [
+        { "@type": "Person", "name": "Yun-Rong Luo" },
+        { "@id": "https://amangoel.ai/#aman-goel" },
+        { "@type": "Person", "name": "Karem Sakallah" }
+      ],
+      "datePublished": "2024-10",
+      "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.1007/978-3-031-75380-0_21" },
+      "isPartOf": { "@type": "Periodical", "name": "ISoLA 2024" },
+      "url": "https://doi.org/10.1007/978-3-031-75380-0_21"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://amangoel.ai/research.html#qsm-fmcad2023",
+      "headline": "SAT-Based Quantified Symmetric Minimization of the Reachable States of Distributed Protocols",
+      "author": [
+        { "@type": "Person", "name": "Katalin Fazekas" },
+        { "@id": "https://amangoel.ai/#aman-goel" },
+        { "@type": "Person", "name": "Karem Sakallah" }
+      ],
+      "datePublished": "2023-10",
+      "isPartOf": { "@type": "Periodical", "name": "FMCAD 2023" },
+      "url": "https://repositum.tuwien.at/handle/20.500.12708/188822"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://amangoel.ai/research.html#bakery-forte2023",
+      "headline": "Towards an Automatic Proof of the Bakery Algorithm",
+      "author": [
+        { "@id": "https://amangoel.ai/#aman-goel" },
+        { "@type": "Person", "name": "Stephan Merz" },
+        { "@type": "Person", "name": "Karem Sakallah" }
+      ],
+      "datePublished": "2023-06",
+      "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.1007/978-3-031-35355-0_2" },
+      "isPartOf": { "@type": "Periodical", "name": "FORTE 2023" },
+      "url": "https://link.springer.com/chapter/10.1007/978-3-031-35355-0_2"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://amangoel.ai/research.html#regularity-isse2022",
+      "headline": "Regularity and Quantification: A New Approach to Verify Distributed Protocols",
+      "author": [
+        { "@id": "https://amangoel.ai/#aman-goel" },
+        { "@type": "Person", "name": "Karem Sakallah" }
+      ],
+      "datePublished": "2022-09",
+      "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.1007/s11334-022-00460-8" },
+      "isPartOf": { "@type": "Periodical", "name": "Innovations in Systems and Software Engineering" },
+      "url": "https://link.springer.com/article/10.1007/s11334-022-00460-8"
+    },
+    {
+      "@type": "ScholarlyArticle",
       "@id": "https://amangoel.ai/research.html#sift-atc2022",
       "headline": "Sift: Using Refinement-Guided Automation to Verify Complex Distributed Systems",
       "author": [
         { "@type": "Person", "name": "Haojun Ma" },
         { "@type": "Person", "name": "Hammad Ahmad" },
-        { "@id": "https://amangoel.ai/#aman-goel" }
+        { "@id": "https://amangoel.ai/#aman-goel" },
+        { "@type": "Person", "name": "Eli Goldweber" },
+        { "@type": "Person", "name": "Jean-Baptiste Jeannin" },
+        { "@type": "Person", "name": "Manos Kapritsos" },
+        { "@type": "Person", "name": "Baris Kasikci" }
       ],
       "datePublished": "2022-07",
       "isPartOf": { "@type": "Periodical", "name": "USENIX ATC 2022" },
       "url": "https://www.usenix.org/conference/atc22/presentation/ma"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://amangoel.ai/research.html#retla-tlaplus2022",
+      "headline": "reTLA: Towards an Automatic Transpiler from TLA+ to VMT",
+      "author": [
+        { "@type": "Person", "name": "Jure Kukovec" },
+        { "@id": "https://amangoel.ai/#aman-goel" },
+        { "@type": "Person", "name": "Igor Konnov" },
+        { "@type": "Person", "name": "Stephan Merz" },
+        { "@type": "Person", "name": "Karem Sakallah" }
+      ],
+      "datePublished": "2022-09",
+      "isPartOf": { "@type": "Periodical", "name": "TLA+ Conference 2022" },
+      "url": "https://conf.tlapl.us/2022/sub7.pdf"
     },
     {
       "@type": "ScholarlyArticle",
@@ -125,6 +217,19 @@
     },
     {
       "@type": "ScholarlyArticle",
+      "@id": "https://amangoel.ai/research.html#symmetry-nfm2021",
+      "headline": "On Symmetry and Quantification: A New Approach to Verify Distributed Protocols",
+      "author": [
+        { "@id": "https://amangoel.ai/#aman-goel" },
+        { "@type": "Person", "name": "Karem Sakallah" }
+      ],
+      "datePublished": "2021-05",
+      "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.1007/978-3-030-76384-8_9" },
+      "isPartOf": { "@type": "Periodical", "name": "NFM 2021" },
+      "url": "https://link.springer.com/chapter/10.1007/978-3-030-76384-8_9"
+    },
+    {
+      "@type": "ScholarlyArticle",
       "@id": "https://amangoel.ai/research.html#avr-tacas2020",
       "headline": "AVR: Abstractly Verifying Reachability",
       "author": [
@@ -138,16 +243,76 @@
     },
     {
       "@type": "ScholarlyArticle",
+      "@id": "https://amangoel.ai/research.html#modelchecking-nfm2019",
+      "headline": "Model Checking of Verilog RTL Using IC3 with Syntax-Guided Abstraction",
+      "author": [
+        { "@id": "https://amangoel.ai/#aman-goel" },
+        { "@type": "Person", "name": "Karem Sakallah" }
+      ],
+      "datePublished": "2019-05",
+      "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.1007/978-3-030-20652-9_11" },
+      "isPartOf": { "@type": "Periodical", "name": "NFM 2019" },
+      "url": "https://link.springer.com/chapter/10.1007/978-3-030-20652-9_11"
+    },
+    {
+      "@type": "ScholarlyArticle",
       "@id": "https://amangoel.ai/research.html#i4-sosp2019",
       "headline": "I4: Incremental Inference of Inductive Invariants for Verification of Distributed Protocols",
       "author": [
         { "@type": "Person", "name": "Haojun Ma" },
-        { "@id": "https://amangoel.ai/#aman-goel" }
+        { "@id": "https://amangoel.ai/#aman-goel" },
+        { "@type": "Person", "name": "Jean-Baptiste Jeannin" },
+        { "@type": "Person", "name": "Manos Kapritsos" },
+        { "@type": "Person", "name": "Baris Kasikci" },
+        { "@type": "Person", "name": "Karem Sakallah" }
       ],
       "datePublished": "2019-10",
       "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.1145/3341301.3359651" },
       "isPartOf": { "@type": "Periodical", "name": "SOSP 2019" },
       "url": "https://dl.acm.org/doi/10.1145/3341301.3359651"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://amangoel.ai/research.html#towards-hotos2019",
+      "headline": "Towards Automatic Inference of Inductive Invariants",
+      "author": [
+        { "@type": "Person", "name": "Haojun Ma" },
+        { "@id": "https://amangoel.ai/#aman-goel" },
+        { "@type": "Person", "name": "Jean-Baptiste Jeannin" },
+        { "@type": "Person", "name": "Manos Kapritsos" },
+        { "@type": "Person", "name": "Baris Kasikci" },
+        { "@type": "Person", "name": "Karem Sakallah" }
+      ],
+      "datePublished": "2019-05",
+      "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.1145/3317550.3321451" },
+      "isPartOf": { "@type": "Periodical", "name": "HotOS 2019" },
+      "url": "https://dl.acm.org/doi/10.1145/3317550.3321451"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://amangoel.ai/research.html#empirical-date2019",
+      "headline": "Empirical Evaluation of IC3-Based Model Checking Techniques on Verilog RTL Designs",
+      "author": [
+        { "@id": "https://amangoel.ai/#aman-goel" },
+        { "@type": "Person", "name": "Karem Sakallah" }
+      ],
+      "datePublished": "2019-03",
+      "isPartOf": { "@type": "Periodical", "name": "DATE 2019" },
+      "url": "https://ieeexplore.ieee.org/abstract/document/8715289"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://amangoel.ai/research.html#iitrace-iccad2015",
+      "headline": "iitRACE: A Memory Efficient Engine for Fast Incremental Timing Analysis",
+      "author": [
+        { "@type": "Person", "name": "Chaitanya Peddawad" },
+        { "@id": "https://amangoel.ai/#aman-goel" },
+        { "@type": "Person", "name": "B. Dheeraj" },
+        { "@type": "Person", "name": "Nitin Chandrachoodan" }
+      ],
+      "datePublished": "2015-11",
+      "isPartOf": { "@type": "Periodical", "name": "ICCAD 2015" },
+      "url": "https://ieeexplore.ieee.org/abstract/document/7372667"
     },
     {
       "@type": "Thesis",
@@ -157,6 +322,15 @@
       "datePublished": "2021",
       "sourceOrganization": { "@type": "CollegeOrUniversity", "name": "University of Michigan" },
       "url": "https://deepblue.lib.umich.edu/handle/2027.42/171355"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://amangoel.ai/research.html#solar-charger-ijesit2013",
+      "headline": "A solar charger for hearing-aid batteries",
+      "author": { "@id": "https://amangoel.ai/#aman-goel" },
+      "datePublished": "2013",
+      "isPartOf": { "@type": "Periodical", "name": "IJESIT 2013" },
+      "url": "https://www.ijesit.com/Volume%202/Issue%205/IJESIT201305_16.pdf"
     }
   ]
 }
@@ -170,12 +344,14 @@
 
 <div class="wrap">
 
-  <div class="toplink"><a href="index.html">Home</a><a class="here" href="research.html" aria-current="page">Research</a><a href="blog/index.html">Writing</a><a href="https://scholar.google.com/citations?user=iFCl5vEAAAAJ">Scholar</a><a href="https://github.com/aman-goel">GitHub</a><a href="assets/cv.pdf">CV</a><button class="themetoggle" id="themetoggle" aria-label="Toggle lamplight mode">☾</button></div>
+  <nav class="toplink" aria-label="Primary"><a href="index.html">Home</a><a class="here" href="research.html" aria-current="page">Research</a><a href="blog/index.html">Writing</a><a href="https://scholar.google.com/citations?user=iFCl5vEAAAAJ">Scholar</a><a href="https://github.com/aman-goel">GitHub</a><a href="assets/cv.pdf">CV</a><button class="themetoggle" id="themetoggle" aria-label="Toggle lamplight mode">☾</button></nav>
 
   <header class="intro">
     <h1><a href="index.html">Aman Goel</a> — Research</h1>
     <div class="role">Publications · software · talks · press · service · timeline</div>
   </header>
+
+  <main>
 
   <hr>
 
@@ -311,7 +487,7 @@
     </div>
 
     <div class="more">Dissertation: <a href="https://deepblue.lib.umich.edu/handle/2027.42/171355">From Finite to Infinite: Scalable Automatic Verification of Hardware Designs and Distributed Protocols</a> (University of Michigan, 2021).</div>
-    <div class="more">Earlier: <a href="http://www.ijesit.com/Volume%202/Issue%205/IJESIT201305_16.pdf">a solar charger for hearing-aid batteries</a> (IJESIT 2013) — received the National Award for the Empowerment of Persons with Disabilities (Govt. of India, 2013).</div>
+    <div class="more">Earlier: <a href="https://www.ijesit.com/Volume%202/Issue%205/IJESIT201305_16.pdf">a solar charger for hearing-aid batteries</a> (IJESIT 2013) — received the National Award for the Empowerment of Persons with Disabilities (Govt. of India, 2013).</div>
   </section>
 
   <hr>
@@ -437,6 +613,8 @@
     <div class="row"><div class="when">Nov 2015</div><div class="what">“iitRACE: A memory efficient engine for fast incremental timing analysis” (Peddawad, Goel, Dheeraj, Chandrachoodan), <a href="https://dblp.org/rec/conf/iccad/2015.html">ICCAD 2015</a> (Austin, Nov 2–6) — international 3rd place in the TAU Contest.</div></div>
     <div class="row"><div class="when">Dec 2013</div><div class="what">Received the <a href="https://depwd.gov.in/en/brief-about-national-awards/">National Award for the Empowerment of Persons with Disabilities</a> (Govt. of India) for a solar charger for hearing-aid devices.</div></div>
   </section>
+
+  </main>
 
   <footer>
     <div class="updated">Last updated July 2026.</div>

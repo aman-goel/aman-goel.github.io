@@ -12,7 +12,14 @@
     if (doc.dataset.theme) return doc.dataset.theme;
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
-  function paint() { if (btn) btn.textContent = currentTheme() === 'dark' ? '☀' : '☾'; }
+  function paint() {
+    if (!btn) return;
+    var dark = currentTheme() === 'dark';
+    btn.textContent = dark ? '☀' : '☾';
+    // expose toggle state + purpose to assistive tech (WCAG 4.1.2)
+    btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+  }
   if (btn) {
     btn.addEventListener('click', function () {
       var next = currentTheme() === 'dark' ? 'light' : 'dark';
@@ -86,7 +93,9 @@
     el.classList.add('typing');
     var i = 0;
     (function tick() {
-      if (!visible) { el.textContent = text; el.classList.remove('typing'); done(); return; }
+      // pause in place when the demo scrolls off-screen; the observer
+      // resumes a fresh cycle once it's visible again (no off-screen work).
+      if (!visible) { el.classList.remove('typing'); running = false; return; }
       el.textContent = text.slice(0, ++i);
       if (i < text.length) { setTimeout(tick, speed); }
       else { el.classList.remove('typing'); done(); }
@@ -101,9 +110,13 @@
     elVerdict.textContent = '…';
     elPolicy.textContent = ex.policy;
     type(elClaim, ex.claim, 26, function () {
+      if (!visible) { running = false; return; }
       setTimeout(function () {
+        if (!visible) { running = false; return; }
         type(elCheck, ex.check, 12, function () {
+          if (!visible) { running = false; return; }
           setTimeout(function () {
+            if (!visible) { running = false; return; }
             elVerdict.className = 'pverdict ' + ex.cls;
             elVerdict.textContent = ex.verdict;
             schedule(4600);
