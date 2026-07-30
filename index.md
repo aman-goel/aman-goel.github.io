@@ -105,8 +105,6 @@ First fully automatic proof of Lamport’s Paxos · 1st place HWMCC 2020 (7 gold
 
 Program committee — CAV 2025; FMCAD 2022 (student forum). Reviewer — TOCL, TCAD. Artifact evaluation — SOSP, CAV, OSDI, MICRO, VMCAI.
 
+## About
+
 I’ve spent ten years on one question: how do you get a machine to prove a system correct? First hardware (AVR), then distributed protocols (IC3PO and the Paxos proof), now LLM outputs (the guardrails behind Amazon Bedrock’s Automated Reasoning checks). PhD from the [University of Michigan](https://cse.engin.umich.edu/) with [Karem Sakallah](https://web.eecs.umich.edu/~karem/); before AWS, SMT solving at SRI (Yices 2) and formal verification at Cadence (JasperGold). Based in Seattle. Email me about neurosymbolic verification, hallucination detection, red teaming, or speaking — [aman@amangoel.ai](mailto:aman@amangoel.ai).
-
----
-
-*Last updated July 2026.*

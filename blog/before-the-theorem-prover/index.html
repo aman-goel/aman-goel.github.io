@@ -1,0 +1,1802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Before the theorem prover: verification is older than the alphabet</title>
+<meta name="description" content="The checksum, the audit, the acceptance test, the signed certificate — none of them is a twentieth-century idea, and the oldest predates writing itself.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Before the theorem prover: verification is older than the alphabet">
+<meta property="og:description" content="The checksum, the audit, the acceptance test, the signed certificate — none of them is a twentieth-century idea, and the oldest predates writing itself.">
+<meta property="og:url" content="https://amangoel.ai/blog/before-the-theorem-prover/">
+<meta property="og:site_name" content="Aman Goel">
+<meta property="og:image" content="https://amangoel.ai/assets/plates/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Before the theorem prover — verification is older than the alphabet. A cuneiform tablet case from Kültepe, ca. 1900 BC.">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Before the theorem prover: verification is older than the alphabet">
+<meta name="twitter:description" content="The checksum, the audit, the acceptance test, the signed certificate — none of them is a twentieth-century idea, and the oldest predates writing itself.">
+<meta name="twitter:image" content="https://amangoel.ai/assets/plates/og-card.jpg">
+<link rel="canonical" href="https://amangoel.ai/blog/before-the-theorem-prover/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article",
+"headline":"Before the theorem prover: verification is older than the alphabet",
+"description":"The checksum, the audit, the acceptance test, the signed certificate — none of them is a twentieth-century idea, and the oldest predates writing itself.",
+"author":{"@type":"Person","name":"Aman Goel","url":"https://amangoel.ai/"},
+"publisher":{"@type":"Person","name":"Aman Goel"},
+"mainEntityOfPage":{"@type":"WebPage","@id":"https://amangoel.ai/blog/before-the-theorem-prover/"},
+"image":"https://amangoel.ai/assets/plates/og-card.jpg",
+"inLanguage":"en"}
+</script>
+<style>
+/* ————— tokens: clay, papyrus, cinnabar ————— */
+:root{
+  --page:#f3ecdd; --surface:#f8f3e8; --surface2:#efe6d2; --surface3:#e9dfc9;
+  --ink:#2b2117; --ink2:#6b5d4c; --muted:#98876f;
+  --hairline:#e0d5bf; --grid:#e6dcc6;
+  --accent:#b43a2a; --accent-ink:#8f2d20; --gold:#8a6d1f; --green:#1c6e45;
+  --c-audit:#35566b; --c-conform:#4e6b43; --c-redun:#9a7513;
+  --c-spec:#6d4b6e; --c-cert:#b1462c; --c-inverse:#8a5a44;
+  --shadow:0 1px 2px rgba(43,33,23,.08),0 8px 28px -12px rgba(43,33,23,.18);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua","Charter",Georgia,serif;
+  --sans:"Avenir Next","Gill Sans","Gill Sans MT","Segoe UI",system-ui,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root{
+  --page:#141110; --surface:#1b1713; --surface2:#231d17; --surface3:#2a231b;
+  --ink:#ede4d4; --ink2:#b3a48d; --muted:#8c7d66;
+  --hairline:#332b23; --grid:#2b241d;
+  --accent:#e0654f; --accent-ink:#ef7f6a; --gold:#c8a53e; --green:#5fbd8c;
+  --c-audit:#7fa8c4; --c-conform:#92b57f; --c-redun:#d0a63f;
+  --c-spec:#b394b5; --c-cert:#e0765a; --c-inverse:#c99277;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px -12px rgba(0,0,0,.55);
+}}
+:root[data-theme="light"]{
+  --page:#f3ecdd; --surface:#f8f3e8; --surface2:#efe6d2; --surface3:#e9dfc9;
+  --ink:#2b2117; --ink2:#6b5d4c; --muted:#98876f;
+  --hairline:#e0d5bf; --grid:#e6dcc6;
+  --accent:#b43a2a; --accent-ink:#8f2d20; --gold:#8a6d1f; --green:#1c6e45;
+  --c-audit:#35566b; --c-conform:#4e6b43; --c-redun:#9a7513;
+  --c-spec:#6d4b6e; --c-cert:#b1462c; --c-inverse:#8a5a44;
+  --shadow:0 1px 2px rgba(43,33,23,.08),0 8px 28px -12px rgba(43,33,23,.18);
+}
+:root[data-theme="dark"]{
+  --page:#141110; --surface:#1b1713; --surface2:#231d17; --surface3:#2a231b;
+  --ink:#ede4d4; --ink2:#b3a48d; --muted:#8c7d66;
+  --hairline:#332b23; --grid:#2b241d;
+  --accent:#e0654f; --accent-ink:#ef7f6a; --gold:#c8a53e; --green:#5fbd8c;
+  --c-audit:#7fa8c4; --c-conform:#92b57f; --c-redun:#d0a63f;
+  --c-spec:#b394b5; --c-cert:#e0765a; --c-inverse:#c99277;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px -12px rgba(0,0,0,.55);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0; background:var(--page); color:var(--ink); font-family:var(--serif);
+  font-size:18.5px; line-height:1.6; -webkit-font-smoothing:antialiased}
+body::before{content:""; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='.05'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E")}
+main{position:relative; z-index:1; max-width:760px; margin:0 auto; padding:0 22px 80px}
+p{margin:0 0 1.15em}
+a{color:var(--accent); text-decoration:none; border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
+::selection{background:color-mix(in srgb,var(--accent) 22%,transparent)}
+
+/* progress bar */
+#pbar{position:fixed; top:0; left:0; height:3px; width:0; background:var(--accent); z-index:60}
+
+/* theme toggle */
+.theme-toggle{position:fixed; top:12px; right:14px; z-index:59; font-family:var(--sans); font-size:12px;
+  letter-spacing:.08em; background:var(--surface); color:var(--ink2); border:1px solid var(--hairline);
+  border-radius:20px; padding:6px 12px; cursor:pointer; box-shadow:var(--shadow)}
+
+/* ————— hero ————— */
+header.hero{max-width:860px; margin:0 auto; padding:52px 22px 6px; position:relative; z-index:1}
+.kicker{font-family:var(--sans); font-size:12px; letter-spacing:.24em; text-transform:uppercase;
+  color:var(--ink2); display:flex; align-items:center; gap:14px; flex-wrap:wrap}
+.kicker .rule{flex:1; height:1px; background:var(--hairline)}
+.draftpill-unused{font-family:var(--sans); font-size:11px; letter-spacing:.14em; color:var(--accent);
+  border:1.5px solid var(--accent); border-radius:3px; padding:2px 8px; transform:rotate(-2deg)}
+h1{font-size:clamp(34px,5.6vw,56px); line-height:1.05; margin:.42em 0 .2em; font-weight:600; letter-spacing:-.015em}
+h1 .thin{display:block; font-size:.5em; font-weight:400; font-style:italic; color:var(--ink2); margin-top:.35em}
+.dek{font-size:20px; line-height:1.5; color:var(--ink2); font-style:italic; max-width:640px}
+.meta{font-family:var(--sans); font-size:12.5px; color:var(--muted); letter-spacing:.05em; margin:16px 0 0;
+  display:flex; gap:8px 16px; flex-wrap:wrap}
+
+/* ————— TL;DR ————— */
+.tldr{margin:30px 0 8px; background:var(--surface); border:1px solid var(--hairline); border-left:4px solid var(--accent);
+  border-radius:6px 14px 14px 6px; padding:22px 24px 8px; box-shadow:var(--shadow)}
+.tldr h2{margin:0 0 12px; font-family:var(--sans); font-size:12px; letter-spacing:.24em; color:var(--accent);
+  text-transform:uppercase; font-weight:700}
+.tldr ul{margin:0 0 12px; padding:0; list-style:none}
+.tldr li{position:relative; padding:0 0 10px 26px; font-size:16.5px; line-height:1.5}
+.tldr li::before{content:"∎"; position:absolute; left:2px; top:1px; color:var(--accent); font-family:var(--mono); font-size:13px}
+.tldr .punch{border-top:1px solid var(--hairline); padding:12px 0 14px; font-style:italic; font-size:17.5px}
+.tldr .punch b{font-style:normal}
+
+/* ————— TOC rail + contents ————— */
+nav.rail{position:fixed; top:110px; left:calc(50% - 380px - 218px); width:190px; z-index:5;
+  font-family:var(--sans); font-size:12.5px; line-height:1.4; display:none}
+@media (min-width:1260px){ nav.rail{display:block} }
+nav.rail .railhead{font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin-bottom:10px}
+nav.rail a{display:block; color:var(--ink2); border:0; padding:4px 0 4px 12px; border-left:2px solid var(--hairline)}
+nav.rail a.on{color:var(--accent); border-left-color:var(--accent); font-weight:600}
+details.contents{margin:22px 0; font-family:var(--sans); font-size:14px; background:var(--surface2);
+  border:1px solid var(--hairline); border-radius:10px; padding:12px 18px}
+@media (min-width:1260px){ details.contents{display:none} }
+details.contents summary{cursor:pointer; letter-spacing:.16em; text-transform:uppercase; font-size:11.5px; color:var(--ink2)}
+details.contents a{display:inline-block; margin:8px 14px 0 0; color:var(--ink2); border-bottom:1px dotted var(--hairline)}
+
+/* ————— chapters ————— */
+section.ch{margin-top:52px; scroll-margin-top:24px}
+.plate{display:flex; align-items:baseline; gap:14px; border-top:3px solid var(--ink); padding-top:14px}
+.plate .no{font-family:var(--mono); font-size:15px; color:var(--accent); letter-spacing:.05em; white-space:nowrap}
+.plate h2{font-size:27px; line-height:1.15; margin:0; font-weight:600; letter-spacing:-.01em}
+.mlabel{display:flex; flex-wrap:wrap; gap:6px 22px; margin:12px 0 4px; font-family:var(--sans);
+  font-size:11.5px; letter-spacing:.06em; color:var(--muted)}
+.mlabel b{color:var(--ink2); font-weight:600; letter-spacing:.14em; font-size:10px; text-transform:uppercase; margin-right:6px}
+.srcs a{display:inline-block; min-width:17px; text-align:center; font-family:var(--mono); font-size:10.5px;
+  color:var(--accent-ink); border:1px solid color-mix(in srgb,var(--accent) 40%,var(--hairline));
+  border-radius:4px; padding:1px 4px; margin:0 2px 2px 0; background:var(--surface)}
+.srcs a:hover{background:color-mix(in srgb,var(--accent) 12%,var(--surface))}
+sup.cite{font-family:var(--mono); font-size:11px; line-height:0}
+sup.cite a{border:0; color:var(--accent-ink)}
+a.cit{border:0; font-family:var(--mono); font-size:.62em; vertical-align:super; color:var(--accent-ink);
+  padding:0 1px; white-space:nowrap}
+a.cit::after{content:"[" attr(data-r) "]"}
+a.cit:hover{color:var(--accent)}
+#refs ol{padding-left:1.4em; font-family:var(--sans); font-size:14px; line-height:1.55; color:var(--ink2)}
+#refs li{margin-bottom:9px; scroll-margin-top:80px}
+#refs li b{color:var(--ink); font-weight:600}
+details.ev{margin:6px 0 4px; font-size:12.5px}
+details.ev summary{cursor:pointer; color:var(--accent-ink); font-size:11px; letter-spacing:.12em; text-transform:uppercase}
+details.ev blockquote{margin:8px 0 6px; padding:8px 12px; border-left:2.5px solid var(--gold);
+  background:var(--surface2); border-radius:0 8px 8px 0; color:var(--ink); font-family:var(--serif);
+  font-size:13.5px; font-style:italic; line-height:1.5}
+details.ev .vt{display:inline-block; font-family:var(--mono); font-style:normal; font-size:10px;
+  color:var(--green); border:1px solid var(--green); border-radius:4px; padding:0 5px; margin-left:8px; vertical-align:1px}
+details.ev .why{color:var(--muted); font-size:12px}
+.rubric{display:flex; gap:6px; align-items:center; font-family:var(--sans); margin:10px 0 18px}
+.rubric .lab{font-size:10.5px; letter-spacing:.18em; color:var(--muted); margin-right:6px; text-transform:uppercase}
+.rubric span.b{width:25px; height:25px; border-radius:6px 8px 6px 7px; display:inline-flex; align-items:center;
+  justify-content:center; font-size:12.5px; font-weight:600; border:1.5px solid var(--hairline); color:var(--muted); background:var(--surface)}
+.rubric span.b.on{background:color-mix(in srgb,var(--accent) 12%,var(--surface)); border-color:var(--accent); color:var(--accent-ink)}
+.rubric span.b.half{background:repeating-linear-gradient(45deg,color-mix(in srgb,var(--accent) 10%,var(--surface)) 0 4px,var(--surface) 4px 8px);
+  border-color:color-mix(in srgb,var(--accent) 55%,var(--hairline)); color:var(--accent-ink)}
+.rubric .note{font-size:11.5px; color:var(--muted); margin-left:8px}
+.lede{font-size:19.5px; line-height:1.58}
+.lede::first-letter{font-size:1.05em; color:var(--accent-ink)}
+
+/* collapsible full prose */
+details.more{margin:6px 0 10px; border:1px dashed var(--hairline); border-radius:10px; background:color-mix(in srgb,var(--surface) 60%,transparent)}
+details.more summary{cursor:pointer; list-style:none; padding:11px 16px; font-family:var(--sans); font-size:12.5px;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--accent-ink); display:flex; align-items:center; gap:10px}
+details.more summary::before{content:"▸"; transition:transform .2s}
+details.more[open] summary::before{transform:rotate(90deg)}
+details.more .body{padding:2px 20px 8px; font-size:17.5px; color:var(--ink); border-top:1px dashed var(--hairline)}
+details.more .body p:first-child{margin-top:14px}
+
+/* ————— figures ————— */
+figure{margin:30px -8px; background:var(--surface); border:1px solid var(--hairline);
+  border-radius:10px 14px 10px 12px; padding:20px 20px 12px; box-shadow:var(--shadow); overflow:hidden}
+figcaption{font-family:var(--sans); font-size:13px; line-height:1.55; color:var(--ink2);
+  border-top:1px solid var(--hairline); margin-top:12px; padding-top:10px}
+figcaption b{color:var(--ink)}
+.fig-kick{font-family:var(--sans); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin:0 0 10px}
+/* ————— photographic plates ————— */
+.plate-fig{margin:32px 0}
+.plate-wrap{position:relative; background:var(--surface3); border:1px solid var(--hairline); border-radius:6px; overflow:hidden}
+.plate-img{width:100%; display:block; mix-blend-mode:multiply}
+.plate-img.crop{height:clamp(300px,50vw,500px); object-fit:cover; object-position:center 46%}
+:root[data-theme="dark"] .plate-img{mix-blend-mode:normal; opacity:.9}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .plate-img{mix-blend-mode:normal; opacity:.9}}
+.plate-ov{position:absolute; inset:0; width:100%; height:100%; pointer-events:none}
+/* annotated plate: image lives INSIDE the svg, so callouts cannot drift with viewport */
+.plate-svg{width:100%; display:block}
+.plate-svg image{mix-blend-mode:multiply}
+:root[data-theme="dark"] .plate-svg image{mix-blend-mode:normal; opacity:.9}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .plate-svg image{mix-blend-mode:normal; opacity:.9}}
+/* leaders scale with the image so they stay on their features; stroke width does not */
+.plate-svg .lead{stroke:var(--accent); stroke-width:1.6; fill:none}
+/* dots and labels are HTML positioned by %, so their weight is identical at every viewport */
+.plate-wrap{position:relative}
+.cdot{position:absolute; width:9px; height:9px; margin:-4.5px 0 0 -4.5px; border-radius:50%;
+  background:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb,var(--page) 78%,transparent);
+  pointer-events:none}
+.clbl{position:absolute; font-family:var(--sans); font-size:11.5px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--accent); white-space:nowrap; pointer-events:none}
+/* under this width there is no room for labels; the figcaption carries both facts */
+@media (max-width:620px){.callouts,.cdot,.clbl{display:none}}
+.plate-ov .lead{stroke:var(--accent); stroke-width:1.6; fill:none}
+.plate-ov .dot{fill:var(--accent)}
+.plate-ov .lbl{font-family:var(--sans); font-size:12px; letter-spacing:.14em; fill:var(--accent); text-transform:uppercase}
+.plate-inset{margin-top:14px; display:flex; gap:22px; align-items:flex-start; flex-wrap:wrap}
+.plate-inset>svg{flex:0 0 300px; max-width:100%; height:auto}
+.plate-credit{display:block; margin-top:9px; font-family:var(--sans); font-size:10.5px; line-height:1.5; letter-spacing:.07em; color:var(--muted); text-transform:uppercase}
+@media (max-width:600px){.plate-ov .lbl{font-size:9px; letter-spacing:.08em}}
+svg{display:block; max-width:100%; height:auto}
+svg text{font-family:var(--sans)}
+.mono{font-family:var(--mono)}
+.reveal{opacity:0; transform:translateY(14px); transition:opacity .7s ease,transform .7s ease}
+.reveal.inview{opacity:1; transform:none}
+
+/* callouts */
+.insight{margin:28px 0; padding:18px 22px 16px 26px; background:var(--surface2); border-left:3px solid var(--accent);
+  border-radius:4px 12px 12px 4px; position:relative}
+.insight .tag{position:absolute; top:-11px; left:16px; font-family:var(--sans); font-size:10.5px; letter-spacing:.22em;
+  text-transform:uppercase; background:var(--accent); color:var(--page); padding:3px 10px; border-radius:2px; transform:rotate(-1.2deg)}
+.insight p{margin:6px 0 0; font-size:16.5px}
+.pull{margin:30px 0; padding:0 0 0 24px; border-left:3px solid var(--gold); font-size:23px; line-height:1.4;
+  font-style:italic; color:var(--ink2)}
+.qed{display:inline-block; font-family:var(--sans); font-size:11px; letter-spacing:.14em; color:var(--accent);
+  border:1.5px double var(--accent); padding:2px 9px; border-radius:3px; transform:rotate(-2deg); margin-left:8px; white-space:nowrap}
+
+/* ————— timeline ————— */
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin:2px 0 12px; font-family:var(--sans)}
+.chip{font-size:12px; letter-spacing:.04em; border:1.5px solid var(--hairline); border-radius:16px; padding:4px 12px;
+  cursor:pointer; color:var(--ink2); background:var(--surface); display:inline-flex; align-items:center; gap:7px; user-select:none}
+.chip .sw{width:10px; height:10px; border-radius:3px}
+.chip.off{opacity:.35}
+.tl-wrap{overflow-x:auto; -webkit-overflow-scrolling:touch; padding-bottom:6px}
+.tl-inner{min-width:920px}
+.tip{position:fixed; z-index:70; max-width:290px; background:var(--ink); color:var(--page); font-family:var(--sans);
+  font-size:12.5px; line-height:1.45; padding:9px 12px; border-radius:8px; pointer-events:none; opacity:0; transition:opacity .15s; box-shadow:var(--shadow)}
+.tip b{display:block; font-size:13px}
+.tip .d{opacity:.75}
+.tip .go{display:block; margin-top:5px; font-size:11px; letter-spacing:.1em; color:color-mix(in srgb,var(--page) 70%,transparent)}
+.tl-dot{cursor:pointer}
+.tl-dot circle{transition:r .15s}
+.tl-dot:hover circle,.tl-dot:focus circle{r:7.5}
+.tl-dot.dim{opacity:.18}
+details.tbl{margin:10px 0 0; font-family:var(--sans); font-size:13.5px}
+details.tbl summary{cursor:pointer; color:var(--ink2); letter-spacing:.04em}
+details.tbl table{border-collapse:collapse; margin-top:10px; width:100%}
+details.tbl th,details.tbl td{border-top:1px solid var(--hairline); text-align:left; padding:7px 10px 7px 0; vertical-align:top}
+details.tbl th{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
+
+/* ————— scoreboard ————— */
+.board{overflow-x:auto}
+.board table{border-collapse:separate; border-spacing:3px; font-family:var(--sans); min-width:560px; width:100%}
+.board th{font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); font-weight:600; text-align:left; padding:4px 8px}
+.board th.c{text-align:center; width:52px}
+.board td.rowlab{font-size:13px; color:var(--ink); padding:6px 10px; background:var(--surface2); border-radius:7px; cursor:pointer; white-space:nowrap}
+.board td.rowlab .era{display:block; font-size:10.5px; color:var(--muted)}
+.board td.cell{width:52px; height:38px; text-align:center; border-radius:7px; background:var(--surface); border:1.5px solid var(--hairline);
+  font-size:14px; font-weight:700; color:var(--muted); cursor:default}
+.board td.cell.on{background:color-mix(in srgb,var(--accent) 14%,var(--surface)); border-color:var(--accent); color:var(--accent-ink)}
+.board td.cell.half{background:repeating-linear-gradient(45deg,color-mix(in srgb,var(--accent) 10%,var(--surface)) 0 4px,var(--surface) 4px 8px);
+  border-color:color-mix(in srgb,var(--accent) 55%,var(--hairline)); color:var(--accent-ink)}
+.board td.cell.no{color:color-mix(in srgb,var(--muted) 55%,transparent)}
+.board td.cell:hover{outline:2px solid var(--gold)}
+.boardnote{font-family:var(--sans); font-size:12.5px; color:var(--ink2); min-height:40px; margin-top:10px;
+  padding:10px 14px; background:var(--surface2); border-radius:8px}
+
+/* ————— nines widget ————— */
+.nines{font-family:var(--sans); display:grid; gap:12px}
+.nines .row{display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+.nines .eq{font-family:var(--mono); font-size:19px; color:var(--ink)}
+.nines input{font-family:var(--mono); font-size:17px; width:96px; padding:7px 10px; border:1.5px solid var(--hairline);
+  border-radius:8px; background:var(--surface); color:var(--ink)}
+.nines button{font-family:var(--sans); font-size:13px; letter-spacing:.06em; padding:8px 16px; border-radius:8px;
+  border:1.5px solid var(--accent); background:transparent; color:var(--accent-ink); cursor:pointer}
+.nines button.ghost{border-color:var(--hairline); color:var(--ink2)}
+.nines .verdict{font-family:var(--mono); font-size:15.5px; min-height:52px; padding:12px 14px; border-radius:9px;
+  background:var(--surface2); color:var(--ink)}
+.nines .verdict.pass{border:1.5px solid var(--green); color:var(--green)}
+.nines .verdict.fooled{border:1.5px solid var(--accent); color:var(--accent-ink); animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-4px)}50%{transform:translateX(4px)}75%{transform:translateX(-2px)}}
+
+/* ————— graveyard + stats ————— */
+.grave{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px; margin:26px 0}
+.gcard{background:var(--surface); border:1px solid var(--hairline); border-radius:10px 12px 10px 11px;
+  padding:18px 16px 14px; position:relative; box-shadow:var(--shadow)}
+.gcard .stamp{position:absolute; top:10px; right:10px; font-family:var(--sans); font-size:10px; font-weight:700;
+  letter-spacing:.18em; color:var(--accent); border:2px double var(--accent); border-radius:4px; padding:3px 8px; transform:rotate(6deg)}
+.gcard h3{margin:0 86px 8px 0; font-size:15px; line-height:1.35; font-family:var(--sans); font-weight:600}
+.gcard p{font-size:13.5px; line-height:1.5; color:var(--ink2); margin:0}
+.gcard .votes{font-family:var(--mono); font-size:11px; color:var(--muted); display:block; margin-top:10px}
+.stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:12px; margin:24px 0}
+.stat{background:var(--surface); border:1px solid var(--hairline); border-radius:12px; padding:16px 16px 12px; box-shadow:var(--shadow)}
+.stat .v{font-family:var(--mono); font-size:30px; font-weight:600; color:var(--ink); line-height:1}
+.stat .v i{font-style:normal; color:var(--accent)}
+.stat .k{font-family:var(--sans); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-top:8px}
+
+footer{max-width:760px; margin:60px auto 0; padding:26px 22px 60px; border-top:1px solid var(--hairline);
+  font-family:var(--sans); font-size:13px; color:var(--muted); position:relative; z-index:1}
+
+/* animations */
+@keyframes drawin{from{stroke-dashoffset:var(--len,300)}to{stroke-dashoffset:0}}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+@keyframes tunnelN{from{width:0}to{width:172px}}
+@keyframes tunnelS{from{width:0}to{width:168px}}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important; transition:none!important}
+  .reveal{opacity:1; transform:none}
+}
+@media (max-width:640px){ body{font-size:17px} figure{margin-left:-10px;margin-right:-10px} .lede{font-size:18px} }
+</style>
+</head>
+<body>
+<div id="pbar" aria-hidden="true"></div>
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">◐ theme</button>
+
+<nav class="rail" id="rail" aria-label="Outline">
+  <div class="railhead">Outline</div>
+  <a href="#tldr">TL;DR</a>
+  <a href="#map">The map · five thousand years</a>
+  <a href="#formal">What counts as “formal”</a>
+  <a href="#mesopotamia">1 · Mesopotamia</a>
+  <a href="#indus">2 · The Indus</a>
+  <a href="#egypt">3 · Egypt</a>
+  <a href="#india">4 · India</a>
+  <a href="#china">5 · China</a>
+  <a href="#greece">6 · Greece</a>
+  <a href="#rome">7 · Rome</a>
+  <a href="#texts">8 · Text checksums</a>
+  <a href="#verdict">9 · The verdict</a>
+  <a href="#scoreboard">Scoreboard</a>
+  <a href="#graveyard">Graveyard</a>
+  <a href="#refs">References</a>
+  <a href="#method">Method</a>
+</nav>
+
+<header class="hero">
+  <div class="kicker">amangoel.ai · essay <span class="rule"></span></div>
+  <h1>Before the theorem prover
+    <span class="thin">verification is older than the alphabet</span>
+  </h1>
+  <p class="dek">The checksum, the audit, the acceptance test, the signed certificate — none of them is a
+  twentieth-century idea, and the oldest of them predates writing itself. What the twentieth century
+  actually invented is smaller, and stranger.</p>
+  <div class="meta"><span>Aman Goel</span><span>·</span><span>12-min skim / 25-min full read</span><span>·</span>
+  </div>
+
+  <!-- HERO: the sealed case (Kültepe) -->
+  <figure class="reveal plate-fig" style="margin-top:30px" aria-label="Photograph of a cuneiform tablet case from Kultepe, its surface carrying rolled cylinder-seal impressions above the contract text in cuneiform.">
+    <p class="fig-kick">Kültepe, ~1900 BC — the container that describes its contents</p>
+    <div class="plate-wrap">
+      <svg class="plate-svg" viewBox="0 0 1600 1230" role="img" aria-label="Cuneiform tablet case: rolled cylinder-seal impressions across the upper register, and the contract text in cuneiform below them, both on the outside of the envelope.">
+        <image href="/assets/plates/hero-kultepe.jpg" x="0" y="0" width="1600" height="1230"/>
+        <g class="callouts">
+          <path class="lead" d="M300 84 L818 334" vector-effect="non-scaling-stroke"/>
+          <path class="lead" d="M1398 704 L1178 748" vector-effect="non-scaling-stroke"/>
+        </g>
+      </svg>
+      <!-- anchors as % of the same 1600x1230 image space the leaders use -->
+      <span class="cdot" style="left:51.88%;top:27.72%"></span>
+      <span class="clbl" style="left:1.9%;top:3.9%">Seal impressions</span>
+      <span class="cdot" style="left:72.81%;top:61.38%"></span>
+      <span class="clbl" style="right:1.9%;top:53.7%">Contract text</span>
+    </div>
+    <figcaption><b>The case is a claim about its own contents.</b> Cylinder seals rolled across the wet
+    clay record who stood behind the document sealed inside; the cuneiform beside them is the contract text,
+    copied onto the envelope so the terms could be read without breaking the seal. Open it only in dispute —
+    the token envelope's trick, fourteen centuries later and in writing.
+    <span class="plate-credit">Cuneiform tablet case · Kültepe (Karum Kanesh) · ca. 1900 BC · The Metropolitan Museum of Art 66.245.16b</span>
+    </figcaption>
+  </figure>
+</header>
+
+<main>
+
+<!-- ============ TL;DR ============ -->
+<div class="tldr reveal" id="tldr">
+  <h2>TL;DR — if you read nothing else</h2>
+  <ul>
+    <li><b>Verification is older than writing.</b> By ~3300 BC, sealed clay envelopes carried a redundant copy
+    of their own contents<a class="cit" data-r="1" href="#ref-1"></a><a class="cit" data-r="2" href="#ref-2"></a> —
+    and on one influential (contested) reading, writing itself grew out of this checking technology.</li>
+    <li><b>The full modern toolkit existed by antiquity:</b> checksums, expected-vs-actual
+    audits<a class="cit" data-r="4" href="#ref-4"></a>, inverse-operation result
+    checks<a class="cit" data-r="6" href="#ref-6"></a>, conformance standards<a class="cit" data-r="9" href="#ref-9"></a>,
+    acceptance tests, split-key authentication, signed + timestamped verification
+    certificates<a class="cit" data-r="23" href="#ref-23"></a>.</li>
+    <li><b>The fullest system, 375/4 BC:</b> Athens carved a complete verification system into marble — written
+    acceptance spec, standing daily verifier (a public slave, tested every day), per-defect verdict→action table, sanctions on the checker
+    himself<a class="cit" data-r="19" href="#ref-19"></a>.</li>
+    <li><b>The ancients even knew their checks' limits:</b> casting-out-nines is provably blind to ±9k
+    errors<a class="cit" data-r="25" href="#ref-25"></a>; the Talmud openly concedes its letter-count expertise
+    had decayed<a class="cit" data-r="24" href="#ref-24"></a>.</li>
+    <li><b>The 20th century added exactly two things:</b> specifications became <em>theorems</em>
+    (all inputs, not this coin), and the checker became an artifact that can itself be checked.</li>
+  </ul>
+  <p class="punch"><b>The theorem prover is new. The job is five thousand years old.</b> Seven well-travelled claims did not survive the fact-check and are not in the essay — six refuted on the evidence, and one that had no evidence to refute. They are in <a href="#graveyard">the graveyard</a>.</p>
+</div>
+
+<details class="contents"><summary>Contents</summary>
+  <a href="#map">The map</a><a href="#formal">What counts as formal?</a><a href="#mesopotamia">1 Mesopotamia</a>
+  <a href="#indus">2 Indus</a><a href="#egypt">3 Egypt</a><a href="#india">4 India</a><a href="#china">5 China</a>
+  <a href="#greece">6 Greece</a><a href="#rome">7 Rome</a><a href="#texts">8 Text checksums</a>
+  <a href="#verdict">9 The verdict</a><a href="#scoreboard">Scoreboard</a><a href="#graveyard">Graveyard</a><a href="#refs">References</a><a href="#method">Method</a>
+</details>
+
+<!-- ============ TIMELINE / MAP ============ -->
+<section class="ch" id="map">
+  <div class="plate"><span class="no">MAP</span><h2>Five thousand years of verification, on one line</h2></div>
+  <figure class="reveal" style="margin-top:18px" aria-label="Interactive timeline of ancient verification practices from 3500 BC to 1000 AD, grouped by modality. Click a dot to jump to its chapter.">
+    <p class="fig-kick">Click any dot to jump to its chapter · click a legend chip to filter</p>
+    <div class="chips" id="tlChips"></div>
+    <div class="tl-wrap"><div class="tl-inner"><svg id="tlsvg" viewBox="0 0 980 330" role="img"></svg></div></div>
+    <details class="tbl"><summary>View as table</summary>
+      <table id="tlTable"><thead><tr><th>Practice</th><th>Modality</th><th>Date</th></tr></thead><tbody></tbody></table>
+    </details>
+    <figcaption><b>The taxonomy was complete before Rome fell.</b> Each dot is a museum object, an inscription,
+    or an edited text.</figcaption>
+  </figure>
+</section>
+
+<!-- ============ RUBRIC ============ -->
+<section class="ch" id="formal">
+  <div class="plate"><span class="no">§0</span><h2>What counts as “formal”?</h2></div>
+  <p class="lede" style="margin-top:14px">"Verification" alone is everywhere in history — every witness oath and
+  market inspection qualifies. To keep the word <em>formal</em> honest, every artifact here is graded on four
+  ingredients. Almost nothing ancient scores four for four. What is remarkable is how much scores three — and how early.</p>
+  <figure class="reveal">
+    <svg viewBox="0 0 720 132" role="img" aria-label="The four-ingredient rubric: Specification, Procedure, Soundness, Institution.">
+      <g font-size="13">
+        <g><rect x="8" y="14" width="164" height="96" rx="10" fill="var(--surface2)" stroke="var(--hairline)"/>
+          <text x="26" y="46" font-size="26" fill="var(--accent)" font-weight="700">S</text>
+          <text x="26" y="72" fill="var(--ink)" font-weight="600">Specification</text>
+          <text x="26" y="93" fill="var(--ink2)" font-size="11.5">an explicit reference,</text>
+          <text x="26" y="107" fill="var(--ink2)" font-size="11.5">distinct from the artifact</text></g>
+        <g><rect x="188" y="14" width="164" height="96" rx="10" fill="var(--surface2)" stroke="var(--hairline)"/>
+          <text x="206" y="46" font-size="26" fill="var(--accent)" font-weight="700">P</text>
+          <text x="206" y="72" fill="var(--ink)" font-weight="600">Procedure</text>
+          <text x="206" y="93" fill="var(--ink2)" font-size="11.5">an algorithm, not an</text>
+          <text x="206" y="107" fill="var(--ink2)" font-size="11.5">expert opinion</text></g>
+        <g><rect x="368" y="14" width="164" height="96" rx="10" fill="var(--surface2)" stroke="var(--hairline)"/>
+          <text x="386" y="46" font-size="26" fill="var(--accent)" font-weight="700">Σ</text>
+          <text x="386" y="72" fill="var(--ink)" font-weight="600">Soundness</text>
+          <text x="386" y="93" fill="var(--ink2)" font-size="11.5">a reason the check catches</text>
+          <text x="386" y="107" fill="var(--ink2)" font-size="11.5">what it claims to</text></g>
+        <g><rect x="548" y="14" width="164" height="96" rx="10" fill="var(--surface2)" stroke="var(--hairline)"/>
+          <text x="566" y="46" font-size="26" fill="var(--accent)" font-weight="700">I</text>
+          <text x="566" y="72" fill="var(--ink)" font-weight="600">Institution</text>
+          <text x="566" y="93" fill="var(--ink2)" font-size="11.5">mandated &amp; repeatable —</text>
+          <text x="566" y="107" fill="var(--ink2)" font-size="11.5">law, office, ritual</text></g>
+      </g>
+    </svg>
+    <figcaption><b>The rubric.</b> Each chapter carries its scorecard; the full <a href="#scoreboard">scoreboard</a>
+    is at the end. Jump ahead if you want the comparative view first.</figcaption>
+  </figure>
+</section>
+
+<!-- ============ 1 MESOPOTAMIA ============ -->
+<section class="ch" id="mesopotamia">
+  <div class="plate"><span class="no">§1</span><h2>Mesopotamia: verification before writing</h2></div>
+  <div class="mlabel"><span><b>Where</b>Susa · Uruk · Drehem</span><span><b>When</b>~3500 BC → 4th c. BC</span>
+    <span><b>Hold in hand</b>Louvre Sb 1932 · Met 11.217.3 · BM 46550</span>
+    <span class="srcs"><b>Sources</b><a href="#ref-1">1</a><a href="#ref-2">2</a><a href="#ref-3">3</a><a href="#ref-4">4</a><a href="#ref-5">5</a><a href="#ref-6">6</a><a href="#ref-7">7</a></span></div>
+  <div class="rubric"><span class="lab">Ur III accounts</span>
+    <span class="b on">S</span><span class="b on">P</span><span class="b on">Σ</span><span class="b on">I</span>
+    <span class="note">four for four, four thousand years ago</span></div>
+
+  <p class="lede">The token envelopes are the earliest physical verification artifacts we have — redundant-count
+  checking<a class="cit" data-r="1" href="#ref-1"></a>, attested even by the leading <em>skeptic</em> of the
+  tokens-to-writing theory<a class="cit" data-r="2" href="#ref-2"></a>. When the envelopes flattened into tablets,
+  the checking structure came along and got stronger: totals on the reverse that anyone can
+  re-add<a class="cit" data-r="2" href="#ref-2"></a>, "theoretical amounts" as
+  specifications<a class="cit" data-r="3" href="#ref-3"></a>, and by 2039 BC the <em>balanced account</em> —
+  expected minus actual, closed to the fraction of a shekel, on a tablet you can visit at the
+  Met<a class="cit" data-r="4" href="#ref-4"></a>.</p>
+
+  <figure class="reveal plate-fig" aria-label="Photograph of the Ur III balanced account tablet of Dugga, beside a bar restatement of its arithmetic: expected 201.42, delivered 140.19, deficit 61.23 carried forward.">
+    <p class="fig-kick">The balanced account · Met 11.217.3 (Ur III, silver, in shekels)</p>
+    <div class="plate-inset" style="gap:26px;align-items:center">
+      <div class="plate-wrap" style="flex:0 0 42%;min-width:220px">
+        <img class="plate-img" src="/assets/plates/dugga-tablet.jpg" alt="Cuneiform tablet recording a balanced account" loading="lazy" decoding="async">
+      </div>
+      <svg viewBox="0 0 380 170" style="flex:1;min-width:280px" role="img">
+        <g font-size="12">
+          <text x="0" y="16" fill="var(--ink2)" class="mono" font-size="10.5" letter-spacing=".1em">DEBIT — EXPECTED</text>
+          <rect x="0" y="26" width="300" height="22" rx="3" fill="var(--c-redun)"/>
+          <text x="310" y="42" fill="var(--ink)" class="mono" font-size="12">201.42</text>
+          <text x="0" y="80" fill="var(--ink2)" class="mono" font-size="10.5" letter-spacing=".1em">CREDIT — DELIVERED</text>
+          <rect x="0" y="90" width="209" height="22" rx="3" fill="var(--c-conform)"/>
+          <rect x="209" y="90" width="91" height="22" rx="3" fill="none" stroke="var(--accent)" stroke-width="1.4" stroke-dasharray="5 4"/>
+          <text x="310" y="106" fill="var(--ink)" class="mono" font-size="12">140.19</text>
+          <text x="0" y="140" fill="var(--accent)" class="mono" font-size="12">la₂-ia₃ (deficit) = 61.23</text>
+          <text x="0" y="158" fill="var(--muted)" font-size="11">carried into next year's debits</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption><b>Debits − credits close exactly.</b> The arithmetic of this tablet balances to the last
+    fraction<a class="cit" data-r="5" href="#ref-5"></a>: state-mandated, periodic, rule-governed, arithmetically
+    sound.<a class="cit" data-r="4" href="#ref-4"></a>
+    <span class="plate-credit">Cuneiform tablet: balanced account of Dugga · Drehem · ca. 2039 BC · The Metropolitan Museum of Art 11.217.3</span>
+    </figcaption>
+  </figure>
+
+  <figure class="reveal" aria-label="Animated loop: compute a reciprocal, invert the result, compare with the input.">
+    <p class="fig-kick">The oldest soundness argument · "the Technique," Old Babylonian → BM 46550</p>
+    <svg viewBox="0 0 720 150" role="img">
+      <defs><marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--ink2)"/></marker></defs>
+      <g font-size="14">
+        <rect x="20" y="52" width="96" height="44" rx="9" fill="var(--surface2)" stroke="var(--hairline)"/>
+        <text x="68" y="79" text-anchor="middle" fill="var(--ink)" class="mono">n</text>
+        <path d="M120 74 h84" stroke="var(--ink2)" stroke-width="1.8" marker-end="url(#arr)"/>
+        <text x="162" y="64" text-anchor="middle" fill="var(--ink2)" font-size="12">compute</text>
+        <rect x="210" y="52" width="120" height="44" rx="9" fill="var(--surface2)" stroke="var(--hairline)"/>
+        <text x="270" y="79" text-anchor="middle" fill="var(--ink)" class="mono">1/n</text>
+        <path d="M334 74 h84" stroke="var(--ink2)" stroke-width="1.8" marker-end="url(#arr)"/>
+        <text x="376" y="64" text-anchor="middle" fill="var(--ink2)" font-size="12">invert</text>
+        <rect x="424" y="52" width="96" height="44" rx="9" fill="var(--surface2)" stroke="var(--hairline)"/>
+        <text x="472" y="79" text-anchor="middle" fill="var(--ink)" class="mono">n′</text>
+        <path d="M524 74 h72" stroke="var(--accent)" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#arr)" class="draw" style="animation-delay:.5s"/>
+        <text x="560" y="64" text-anchor="middle" fill="var(--accent)" font-size="12">compare</text>
+        <rect x="600" y="46" width="104" height="56" rx="9" fill="none" stroke="var(--accent)" stroke-width="2"/>
+        <text x="652" y="72" text-anchor="middle" fill="var(--accent)" class="mono" font-size="15">n′ = n ?</text>
+        <text x="652" y="92" text-anchor="middle" fill="var(--accent)" font-size="11" letter-spacing=".12em">✓ RECOVERED</text>
+        <path d="M472 100 C 460 132 100 138 68 100" fill="none" stroke="var(--hairline)" stroke-width="1.6" stroke-dasharray="4 5"/>
+      </g>
+    </svg>
+    <figcaption><b>Compute, invert, confirm</b> — a verification idiom with a millennium of service life:
+    attested Old Babylonian (~1800 BC), still executed twice-in-succession on Achaemenid-era
+    BM 46550<a class="cit" data-r="6" href="#ref-6"></a>. Any programmer who has round-tripped a serializer
+    knows the move. <span class="qed">mitt pw ∎</span></figcaption>
+  </figure>
+
+  <div class="insight reveal"><span class="tag">Insight</span>
+  <p>Incentives are not procedures. Hammurabi §229 makes the <em>builder</em> bear the cost of failure —
+  outsourcing verification to fear. A procedure makes the <em>check</em> bear it. Modern equivalents of both
+  exist; only one of them is verification.</p></div>
+
+  <details class="more"><summary>Read the full chapter · envelopes → tablets → balanced accounts → Hammurabi</summary><div class="body">
+  <p>The token envelopes (~3500–3300 BC) are the earliest physical verification artifacts we have. What is attested is <em>redundant-count verification</em>: the external marks let
+  you check the number and shape of the sealed tokens<a class="cit" data-r="1" href="#ref-1"></a>. A stronger claim
+  you will sometimes read — that the surface marks were a full semantic mirror of the contents, an exact "golden
+  reference" — does not survive scrutiny; the quote usually cited for it actually describes the solid tablets that
+  <em>replaced</em> envelopes around 3200 BC<a class="cit" data-r="1" href="#ref-1"></a>. That subtlety was caught,
+  on re-reading the source in context — one paragraph further down than the quote usually stops. The difference between the two claims is the difference between a checksum and a full specification.</p>
+  <p>And the reading is not one enthusiast's theory. Robert Englund, the leading <em>skeptic</em> of the grand
+  token-to-writing narrative, granted exactly this much: tokens gathered and sealed into clay balls in the period
+  before proto-cuneiform emerged around 3300 BC, with exterior impressions that "conform exactly" to the numerical
+  signs on the earliest clay tablets<a class="cit" data-r="2" href="#ref-2"></a>.</p>
+  <p>What happened next is the part I find genuinely moving. When the envelopes flattened into tablets — when
+  writing proper arrived — the verification structure came along and grew stronger. Proto-cuneiform accounts of
+  Uruk (c. 3300–3000 BC) routinely carry subtotals and grand totals inscribed on the reverse face, summing the
+  entries on the front<a class="cit" data-r="2" href="#ref-2"></a>. The document checks itself: anyone can re-add
+  it. Modern Assyriologists do exactly that — recomputing the totals is how the decipherment is
+  <em>tested</em><a class="cit" data-r="2" href="#ref-2"></a>.</p>
+  <p>From almost the beginning, these archives distinguish what Assyriologists call <em>theoretical amounts</em> — expected
+  values — the theoretical credits an account was supposed to show — from actual deliveries. That is a
+  specification, in the engineer's sense: the number reality must be checked against.</p>
+  <p>By the Ur III period (2112–2004 BC) this had hardened into one of the most rigorous verification institutions
+  of the ancient world: the <em>balanced account</em>, ni₃-kas₇-aka. A fixed two-part format — a debit section of
+  capital and theoretical credits, a credit section of actual performance — closing with an explicitly computed
+  deficit (<em>la₂-ia₃</em>) or surplus (<em>diri</em>), carried forward into the next
+  period<a class="cit" data-r="5" href="#ref-5"></a>. You can stand in front of one of these — the Metropolitan
+  Museum's tablet 11.217.3, the balanced account of a man named Dugga, from Drehem, dated to the year, month, and
+  day: about 2039 BC<a class="cit" data-r="4" href="#ref-4"></a>.</p>
+  <p>And the scribes verified <em>computations</em>, not just inventories. Old Babylonian mathematics
+  (c. 1800–1600 BC) includes a procedure now called "the Technique" for computing reciprocals in sexagesimal
+  arithmetic — and its texts check the result <em>by inverting it to recover the original
+  number</em><a class="cit" data-r="6" href="#ref-6"></a>. A British Museum tablet, BM 46550, shows the same
+  compute-then-verify routine still being executed — twice in succession, on one tablet — in the Achaemenid era,
+  over a thousand years later<a class="cit" data-r="6" href="#ref-6"></a>.</p>
+  <p>One boundary case belongs here, because it is so often miscast. Hammurabi's laws (~1754 BC, Louvre stele Sb 8)
+  famously prescribe death for a builder whose house collapses and kills the owner (§229), require him to rebuild a
+  buckling wall at his own cost (§233), and even set a one-year warranty on boat caulking
+  (§235)<a class="cit" data-r="7" href="#ref-7"></a>. This is real, and it is on the stone. But it is a
+  verification <em>incentive</em>, not a verification <em>procedure</em>: no Mesopotamian text prescribes an
+  inspection or acceptance test for buildings, and scholars dispute whether the Code was enforced at
+  all<a class="cit" data-r="7" href="#ref-7"></a>. Liability makes builders check their own work; it is not itself a check.</p>
+  </div></details>
+</section>
+
+<!-- ============ 2 INDUS ============ -->
+<section class="ch" id="indus">
+  <div class="plate"><span class="no">§2</span><h2>The Indus: a spec without a visible verifier</h2></div>
+  <div class="mlabel"><span><b>Where</b>Harappa · Mohenjo-daro · 40+ sites</span><span><b>When</b>~2800–1900 BC</span>
+    <span><b>Artifact</b>cubical weights, the "Harappan shekel" ~13.4–13.6 g</span>
+    <span class="srcs"><b>Sources</b><a href="#ref-8">8</a><a href="#ref-9">9</a></span></div>
+  <div class="rubric"><span class="lab">Harappan weights</span>
+    <span class="b on">S</span><span class="b">P</span><span class="b">Σ</span><span class="b">I</span>
+    <span class="note">conformance without a surviving procedure</span></div>
+
+  <p class="lede">Run the weight corpus through cosine quantogram analysis and one exceptionally crisp standard
+  falls out<a class="cit" data-r="9" href="#ref-9"></a> — cleaner, the leading specialist judges, than anything
+  concurrent in Mesopotamia or Syria<a class="cit" data-r="8" href="#ref-8"></a>. Somebody enforced that. But no
+  inspection office, no master weight, no procedural text survives: the essay's standing reminder that sometimes
+  all you can see of verification is its <em>effect</em> — the conformance it produced.</p>
+
+  <figure class="reveal plate-fig" aria-label="Photograph of a Harappan balance with a set of cubical stone weights.">
+    <p class="fig-kick">The Indus weight standard · conformance without a named verifier</p>
+    <div class="plate-wrap">
+      <img class="plate-img crop" src="/assets/plates/indus-weights.jpg" alt="Harappan balance scale with cubical stone weights" loading="lazy" decoding="async">
+    </div>
+    <figcaption><b>A specification with no surviving inspector.</b> Cubical chert weights in a fixed ratio series
+    turn up across the Indus zone, close enough in mass that the standard must have been maintained somewhere — but
+    no text, no office and no procedure for checking them survives. It is the one thread here that scores on
+    specification and fails on institution.
+    <span class="plate-credit">Harappan (Indus Valley) balance and weights · Wikimedia Commons</span>
+    </figcaption>
+  </figure>
+
+  <details class="more"><summary>Read the full chapter · the statistics, and the honest gap</summary><div class="body">
+  <p>The Harappan civilization (urban floruit ~2600–1900 BC) left the opposite fragment of the puzzle: a
+  specification with no surviving procedure. Cubical stone weights appear at more than forty sites across the
+  Indus world, and when you run the corpus through cosine quantogram analysis — the statistician's tool for asking
+  "is there one underlying unit here?" — the answer is an exceptionally clear yes: a single standard, a "Harappan
+  shekel" of about 13.4–13.6 grams<a class="cit" data-r="9" href="#ref-9"></a>. Rahmstorf, the leading specialist,
+  judges it cleaner than the multiple concurrent standards documented across Bronze Age Mesopotamia and
+  Syria<a class="cit" data-r="8" href="#ref-8"></a>; a peer-reviewed 2021 PNAS reanalysis found it statistically inconsistent with having drifted out of those western systems<a class="cit" data-r="9" href="#ref-9"></a>. Weight metrology appears during the transition into the urban
+  phase, around 2800–2600 BC, and holds for centuries<a class="cit" data-r="9" href="#ref-9"></a>.</p>
+  <p>Somebody enforced that. Statistical conformance that tight, across a subcontinent, for that long, does not
+  happen without checking. But no inspection office, no master weight, no procedural text survives — the script is
+  undeciphered and terse. So the Indus thread earns exactly one of the four grades (specification), and stands as
+  the essay's standing reminder: sometimes verification is archaeologically invisible, and all you can see is its
+  <em>effect</em> — the conformance it produced.</p>
+  </div></details>
+</section>
+
+<!-- ============ 3 EGYPT ============ -->
+<section class="ch" id="egypt">
+  <div class="plate"><span class="no">§3</span><h2>Egypt: the audit, the proof, and a modern legend</h2></div>
+  <div class="mlabel"><span><b>Where</b>Thebes</span><span><b>When</b>~1850–1110 BC</span>
+    <span><b>Hold in hand</b>BM EA 10221 (Abbott) · EA 10057/10058 (Rhind)</span>
+    <span class="srcs"><b>Sources</b><a href="#ref-10">10</a><a href="#ref-11">11</a><a href="#ref-12">12</a></span></div>
+  <div class="rubric"><span class="lab">Papyrus Abbott</span>
+    <span class="b on">S</span><span class="b on">P</span><span class="b half">Σ</span><span class="b on">I</span>
+    <span class="note">procedure sound; verifier compromised</span></div>
+
+  <p class="lede">Papyrus Abbott is a 3,100-year-old audit report: a commission walks a defined list of royal
+  tombs, records a formulaic verdict per tomb, closes with an arithmetic tally that cross-checks the
+  list<a class="cit" data-r="10" href="#ref-10"></a><a class="cit" data-r="11" href="#ref-11"></a> — and then
+  turns out to be the world's oldest audit-capture scandal: the commission was not disinterested — it sat
+  inside the very rivalry the robbery charges were fought over<a class="cit" data-r="10" href="#ref-10"></a>. The Rhind papyrus supplies the other half: computed
+  answers <em>proved</em> by substitution, closing with a QED — <em>mitt pw</em>, "that is
+  it."<a class="cit" data-r="12" href="#ref-12"></a></p>
+
+  <figure class="reveal plate-fig" aria-label="A plate from the Rhind Mathematical Papyrus.">
+    <p class="fig-kick">Rhind Mathematical Papyrus · BM EA 10057–10058, copied ~1550 BC</p>
+    <div class="plate-wrap">
+      <img class="plate-img crop" src="/assets/plates/rhind-plate15.jpg" alt="A plate from the Rhind Mathematical Papyrus" loading="lazy" decoding="async">
+    </div>
+    <figcaption><b>Problems that check their own answers.</b> A run of the papyrus's division problems close by
+    computing forward from the result and confirming it reproduces the input — the inverse check, written down as
+    ordinary practice a thousand years before Greek geometry.
+    <span class="plate-credit">Rhind Mathematical Papyrus, Plate XV (Chace facsimile) · British Museum EA 10057–10058</span>
+    </figcaption>
+  </figure>
+
+  <div class="insight reveal"><span class="tag">Insight</span>
+  <p>The oldest audit report we possess already contains the oldest audit-integrity failure: a commission that
+  was not disinterested, and a verdict later falsified by events. The hard problem was never running the check.
+  It was trusting the checker.</p></div>
+
+  <details class="more"><summary>Read the full chapter · the tomb audit, the Rhind proofs, and the cubit legend</summary><div class="body">
+  <p>The Egyptian document I keep returning to is not mathematical at all. Papyrus Abbott (British Museum EA 10221)
+  is the official record of a state audit — of tombs. In Year 16 of Ramesses IX, about 1110 BC, reports of
+  royal-tomb robbery in the Theban necropolis triggered a formal commission: necropolis inspectors, the vizier's
+  scribe, the treasury's scribe. Over four days they walked a defined list of monuments — ten royal tombs, four
+  tombs of the Chantresses, then the Valley of the Queens — and recorded, tomb by tomb, a standardized verdict:
+  <em>examined this day; found intact</em> / <em>found to have been violated by the thieves</em>. Each entry
+  identifies the tomb by location and landmark, one by the depth of its shaft. The itemized list closes with a
+  summary tally — nine intact, one violated, of ten royal tombs — that arithmetically cross-checks the entries<a class="cit" data-r="10" href="#ref-10"></a>.
+  I redid that addition; it closes.</p>
+  <p>The report was deposited in the vizier's archives; integrity in the Queens' Valley was checked against the
+  tomb seals, a tamper-evident reference. Checklist, formulaic verdicts, identifying specifications, arithmetic
+  self-check, archival record. The protocol is thirty-one centuries old and an auditor today would recognise every line of it.<a class="cit" data-r="11" href="#ref-11"></a></p>
+  <p>And then the twist that makes it modern in the uncomfortable way too. T. E. Peet, whose 1930 edition remains
+  canonical<a class="cit" data-r="10" href="#ref-10"></a>, read the day-19 seal inspection as "a carefully staged scene": the audit sat inside a political feud
+  between two officials — Paser, who alleged the robberies, and Paweraa, on whose watch they had happened — the
+  commission was not disinterested, and a queen's tomb the commission passed as intact was proven robbed within a
+  year<a class="cit" data-r="10" href="#ref-10"></a>. The procedure was sound; the verifier was compromised. Every security engineer knows this failure mode: the auditee controls the auditor. It is why SOC 2 has independence requirements, and why a compiler cannot certify itself. The Egyptians invented the audit and the
+  audit-capture scandal in the same document.</p>
+  <p>The Rhind Mathematical Papyrus (British Museum EA 10057/10058, copied by the scribe Ahmose around 1550 BC
+  from a Middle Kingdom original of about 1850 BC) does not just present answers — it <em>checks</em> them.
+  Peet's edition notes that many problems end in an explicit <b>"proof"</b> showing the computed result "actually
+  satisfies the conditions of the problem," by substituting the found answer back through the prescribed
+  operations and closing with a QED-like formula, <em>mitt pw</em> — "that is it"<a class="cit" data-r="12" href="#ref-12"></a>. In Problem 25, a computed
+  quantity of 10⅔ plus its half, 5⅓, is shown to equal the required 16. The false-position problems (guess a trial
+  number, compute forward, scale to fit: Problems 24–27, 30, 32–38) are all verified this way; Problem 31,
+  tellingly, is left unproved<a class="cit" data-r="12" href="#ref-12"></a>. Red auxiliary numbers keep the checking separate from the working. This is the same
+  inverse-operation idiom as the Babylonian reciprocals — The papyrus is roughly 3,500 years old.</p>
+  <p>Egypt is also where I have to kill a beloved story. You will read, in metrology textbooks and standards lore,
+  that Egyptian working cubits were recalibrated against a royal master cubit "at each full moon, on pain of
+  death" — often cited as the first calibration regime in history. The physical standard is real: surviving royal
+  cubit rods (Kha's folding rule and Amenhotep II's gold-leaf rod, both in Turin's Museo Egizio) measure about
+  52.4 cm, and the Great Pyramid's dimensional precision is genuine indirect evidence of a consistently held unit.</p>
+  <p>But the full-moon recalibration story has <em>no primary Egyptian source</em>. Its earliest traceable
+  appearance is a modern metrologists' commentary — popularized by an instruments company — that cites nothing and
+  seems to derive from a 2005 opinion piece. The most-cited fact about the world's first measurement standard is an
+  uncited twenty-first-century embellishment. I verified the cubit; I could not verify the ritual. (And when I
+  pushed the "pyramid proves an enforced standard" claim, the fact-check killed it outright: exquisite
+  construction proves careful work, not necessarily a calibration bureaucracy.)</p>
+  </div></details>
+</section>
+
+<!-- ============ 4 INDIA ============ -->
+<section class="ch" id="india">
+  <div class="plate"><span class="no">§4</span><h2>India: encoded recitation and a rule system</h2></div>
+  <div class="mlabel"><span><b>What</b>Rigveda pāṭhas · Pāṇini's Aṣṭādhyāyī</span><span><b>When</b>Vedic period · ~350 BC</span>
+    <span class="srcs"><b>Sources</b><a href="#ref-13">13</a><a href="#ref-14">14</a><a href="#ref-26">26</a></span></div>
+  <div class="rubric"><span class="lab">Pāṭhas · Pāṇini</span>
+    <span class="b on">S</span><span class="b on">P</span><span class="b on">Σ</span><span class="b half">I</span>
+    <span class="note">an error-detecting code for the voice</span></div>
+
+  <p class="lede">The same text, memorized in eleven rule-fixed orderings — word-by-word, overlapping pairs,
+  elaborate forward–backward weaves — so that a slip in one encoding fails to reconcile with the rest: a purely
+  oral error-detecting code<a class="cit" data-r="13" href="#ref-13"></a>. And in Pāṇini, ~4,000 ordered grammar
+  rules with deterministic conflict resolution, whose derivations the commentarial tradition was actively checking
+  within two centuries<a class="cit" data-r="26" href="#ref-26"></a>.</p>
+
+  <figure class="reveal plate-fig" aria-label="Photograph of a Rigveda manuscript page in Devanagari, with Vedic accent marks in red.">
+    <p class="fig-kick">Rigveda saṃhitā · the accents the recitation modes protected</p>
+    <div class="plate-wrap">
+      <img class="plate-img crop" src="/assets/plates/rigveda-newberry.jpg" alt="A Rigveda manuscript page in Devanagari with red Vedic accent marks" loading="lazy" decoding="async">
+    </div>
+    <figcaption><b>The written copy is the late witness, not the mechanism.</b> Those red strokes are the Vedic
+    accents — the pitch information the recitation modes existed to protect. The text had been carried, and
+    checked, orally for a very long time before anyone wrote it down like this; the manuscript records the output
+    of that system rather than the system itself.
+    <span class="plate-credit">Rigveda saṃhitā, opening at 1.1.1 · Devanagari with Vedic accent marks in red · early 19th century · Newberry Library, Chicago, ORMS 960</span>
+    </figcaption>
+  </figure>
+
+  <figure class="reveal" aria-label="Animated diagram of krama-patha: consecutive word pairs re-encode the same text.">
+    <p class="fig-kick">Krama-pāṭha · the same text, re-encoded in overlapping pairs</p>
+    <svg viewBox="0 0 720 168" role="img">
+      <g font-size="14" class="mono">
+        <g fill="var(--ink)">
+          <rect x="60" y="22" width="70" height="32" rx="7" fill="var(--surface2)" stroke="var(--hairline)"/><text x="95" y="43" text-anchor="middle" fill="var(--ink)">w₁</text>
+          <rect x="200" y="22" width="70" height="32" rx="7" fill="var(--surface2)" stroke="var(--hairline)"/><text x="235" y="43" text-anchor="middle" fill="var(--ink)">w₂</text>
+          <rect x="340" y="22" width="70" height="32" rx="7" fill="var(--surface2)" stroke="var(--hairline)"/><text x="375" y="43" text-anchor="middle" fill="var(--ink)">w₃</text>
+          <rect x="480" y="22" width="70" height="32" rx="7" fill="var(--surface2)" stroke="var(--hairline)"/><text x="515" y="43" text-anchor="middle" fill="var(--ink)">w₄</text>
+          <rect x="620" y="22" width="42" height="32" rx="7" fill="var(--surface2)" stroke="var(--hairline)"/><text x="641" y="43" text-anchor="middle" fill="var(--muted)">…</text>
+        </g>
+        <g fill="none" stroke-width="2.2" stroke-linecap="round">
+          <path class="draw" d="M95 60 C 130 108 200 108 235 60" stroke="var(--c-redun)" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/>
+          <path class="draw" d="M235 60 C 270 116 340 116 375 60" stroke="var(--c-inverse)" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" style="animation-delay:.35s"/>
+          <path class="draw" d="M375 60 C 410 108 480 108 515 60" stroke="var(--c-spec)" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" style="animation-delay:.7s"/>
+        </g>
+        <g font-size="12.5" fill="var(--ink2)" font-family="var(--sans)">
+          <text x="165" y="128" text-anchor="middle">w₁w₂</text>
+          <text x="305" y="136" text-anchor="middle">w₂w₃</text>
+          <text x="445" y="128" text-anchor="middle">w₃w₄</text>
+        </g>
+        <text x="60" y="160" font-size="12" fill="var(--muted)" font-family="var(--sans)">…jaṭā weaves each pair forward–backward–forward; ghana goes further still. Same words, many encodings.</text>
+      </g>
+    </svg>
+    <figcaption><b>Redundancy for the voice.</b> Eleven named modes — three natural, eight permutation
+    (<em>vikṛti</em>), <em>ghana</em> hardest. The tradition credits the pairwise <em>krama</em> to the sages
+    Gārgya and Śākalya.</figcaption>
+  </figure>
+
+  <details class="more"><summary>Read the full chapter · pāṭhas, Pāṇini, and one careful attribution</summary><div class="body">
+  <p>India contributes two threads at opposite ends of the abstraction ladder. The first is a redundancy scheme for
+  <em>oral</em> transmission that has no real parallel anywhere: the Vedic <em>pāṭhas</em>. The same text was
+  memorized and chanted in multiple interleaved orderings — beyond the natural word order (<em>saṁhitā</em>),
+  reciters learned the <em>pada</em> (word-by-word), the <em>krama</em> (each word paired with the next: AB, BC,
+  CD…), and elaborate permutation modes (<em>jaṭā</em>, <em>ghana</em>) that weave the words forward and backward
+  in fixed patterns. Because each mode re-encodes the same words under a different rule, a slip in one ordering
+  fails to reconcile with the others — a purely oral error-detecting code, credited within the tradition to named
+  grammarians<a class="cit" data-r="13" href="#ref-13"></a>. The claim commonly attached to it — that this preserved the Rigveda's word order and phonetics
+  across nearly three millennia — is extraordinary, and I flag it as such<a class="cit" data-r="13" href="#ref-13"></a>.</p>
+  <p>The second is Pāṇini's <em>Aṣṭādhyāyī</em> (~350 BCE), a grammar of Sanskrit written as roughly 4,000 ordered
+  rules with a genuine formal apparatus: a regimented metalanguage, compression devices, metarules, and — the part
+  that matters here — an explicit conflict-resolution metarule (1.4.2, "in conflict, the later rule prevails"), intended to drive a derivation toward a single well-defined result that can be checked step by step — though how completely the architecture achieves that is exactly what modern Pāṇinian scholarship, Kiparsky included, still argues about<a class="cit" data-r="26" href="#ref-26"></a>. That checking was actually
+  practiced: within two centuries, the commentarial tradition (Kātyāyana, Patañjali) was testing the rules against
+  attested usage<a class="cit" data-r="26" href="#ref-26"></a>. I keep this brief, and precise: it verifies <em>language derivations</em>, not artifacts or
+  computations.</p>
+  </div></details>
+</section>
+
+<!-- ============ 5 CHINA ============ -->
+<section class="ch" id="china">
+  <div class="plate"><span class="no">§5</span><h2>China: the standard, the tally, and the state as verifier</h2></div>
+  <div class="mlabel"><span><b>Where</b>Warring States → Qin</span><span><b>When</b>5th c. BC → Han</span>
+    <span><b>Hold in hand</b>Du hufu (Shaanxi History Museum) · Shuihudi slips</span>
+    <span class="srcs"><b>Sources</b><a href="#ref-15">15</a><a href="#ref-16">16</a><a href="#ref-17">17</a><a href="#ref-18">18</a><a href="#ref-27">27</a></span></div>
+  <div class="rubric"><span class="lab">Qin statutes · hufu</span>
+    <span class="b on">S</span><span class="b on">P</span><span class="b on">Σ</span><span class="b on">I</span>
+    <span class="note">a checking bureaucracy, codified in law</span></div>
+
+  <p class="lede">The doctrine: the Mohists state the conformance check as a principle — "what matches the
+  <em>fa</em> is 'this'; what doesn't is 'not'"<a class="cit" data-r="15" href="#ref-15"></a>. The device: a bronze tiger cast in two halves; an order is valid
+  only when they interlock<a class="cit" data-r="27" href="#ref-27"></a>. The bureaucracy: the Shuihudi statutes include the <em>Xiàolǜ</em> — literally
+  "statutes concerning checking" — audits with numerical tolerances<a class="cit" data-r="16" href="#ref-16"></a> and an armoury where every weapon's brand is
+  checked against the register on return<a class="cit" data-r="17" href="#ref-17"></a>.</p>
+
+  <figure class="reveal plate-fig" aria-label="Photograph of a bronze tiger tally with gold-inlaid inscription, beside a schematic showing that only the true mating half seats against it.">
+    <p class="fig-kick">The hufu 虎符 · authentication by physical join</p>
+    <div class="plate-wrap">
+      <img class="plate-img crop" src="/assets/plates/tiger-tally.jpg" alt="Bronze tiger tally with gold-inlaid inscription" loading="lazy" decoding="async">
+    </div>
+    <div class="plate-inset">
+      <svg viewBox="0 0 300 100" aria-hidden="true">
+        <path d="M6 26 h72 v10 h-10 v12 h10 v10 h-72 z" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.3"/>
+        <path d="M82 26 h72 v32 h-72 v-10 h10 v-12 h-10 z" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.3"/>
+        <text x="6" y="80" font-size="8.5" letter-spacing=".1em" fill="var(--muted)">TRUE MATE — SEATS</text>
+        <path d="M196 26 h56 v32 h-56 v-8 h8 v-16 h-8 z" fill="none" stroke="var(--accent)" stroke-width="1.3" stroke-dasharray="4 3"/>
+        <text x="196" y="80" font-size="8.5" letter-spacing=".1em" fill="var(--accent)">FORGERY — NO FIT</text>
+      </svg>
+      <p style="flex:1;min-width:250px;margin:0">Two halves of a single casting. An order moved troops only when the
+      courier's half seated exactly against the one held at the garrison — the break surface is the secret, and it
+      cannot be copied from a description of itself.</p>
+    </div>
+    <figcaption><b>Split-key authentication in bronze.</b> The ruler kept the right half, the commander the left; the
+    Du tally conditions any major troop movement on the match.
+    <span class="plate-credit">Bronze tiger tally with gold inlay · China, 2nd–1st century BC · San Diego Museum of Art</span>
+    </figcaption>
+  </figure>
+
+  <details class="more"><summary>Read the full chapter · Mohist fa, the tallies, the Xiàolǜ, and the assembly-line myth</summary><div class="body">
+  <p>The Mohist canon supplies the doctrine. The <em>Mozi</em>
+  (5th c. BCE) says the hundred artisans make squares with the set-square, circles with the compass, straight lines
+  with the string, verticals with the plumb-line, flats with the level — judging work against explicit physical
+  standards (<em>fa</em>). What makes it strikingly modern is that a <em>fa</em> functions as what we would now call an <b>operator-independent decision procedure</b> — as Chris Fraser glosses the Mohist position, <em>fa</em> are "objective, reliable, and easy to use, so that with minimal training anyone can employ them to perform a task or check the results" — and judgment proceeds by citing a <em>fa</em>, comparing the object to it, and ruling
+  that <b>what matches the <em>fa</em> is "this" (correct) and what does not is "not."</b><a class="cit" data-r="15" href="#ref-15"></a> That is a binary,
+  rule-governed conformance verdict, stated as a principle — the clearest ancient articulation of the idea of
+  checking against a specification.</p>
+  <p>The device is the tiger tally (<em>hufu</em> 虎符): a bronze token cast in two interlocking halves, the ruler
+  keeping the right, the field commander the left. A mobilization order was authenticated by physically matching
+  the two halves — a forged half will not fit the cast mate. The Du tiger tally in the Shaanxi History Museum
+  carries an inscription conditioning troop movements on the match above a threshold of fifty men, with an explicit exemption for beacon-fire emergencies — a scoped authentication requirement with an availability bypass, cast in bronze<a class="cit" data-r="27" href="#ref-27"></a>. It is, precisely, a split-key, dual-control authentication device from the Warring States / Qin era: two halves of one casting are a single factor — possession — held under divided authority.</p>
+  <p>The bureaucracy is documented in the Shuihudi Qin bamboo slips (a tomb sealed around 217 BC, some 1,155 slips
+  — mostly Qin statutes and legal-administrative texts, alongside a personal chronicle and divination almanacs)<a class="cit" data-r="16" href="#ref-16"></a>.
+  Among them is the <em>Xiàolǜ</em> (效律), literally "statutes concerning checking": an audit code that penalizes
+  discrepancies in official accounts, with fines triggered only when errors exceed set numerical thresholds — a
+  rule-governed audit with explicit tolerances<a class="cit" data-r="16" href="#ref-16"></a>. Another statute requires every government weapon to be branded with
+  its issuing office; on return, the physical brand is checked against the register, and a mismatch means
+  confiscation: an artifact checked against a golden recorded reference<a class="cit" data-r="17" href="#ref-17"></a>. There is a graduated schedule of fines
+  cascading down the supervisory hierarchy when manufactured goods fail inspection<a class="cit" data-r="17" href="#ref-17"></a>. This is the legal machinery
+  behind the famous Qin practice of "inscribe the maker's name" (物勒工名) on products for
+  accountability<a class="cit" data-r="17" href="#ref-17"></a>. Specification, procedure, soundness, institution:
+  the Qin checking statutes are the essay's second four-for-four — the only artifact besides the Ur III balanced
+  account to earn all four grades. And the
+  incentive thread from Babylon recurs here on schedule: another Shuihudi statute makes supervising officials
+  liable if a city wall collapses within a year of completion<a class="cit" data-r="16" href="#ref-16"></a> —
+  Hammurabi's boat-caulking warranty, fifteen centuries on and a continent away.</p>
+  <p>A caution the specialists insist on, and so will I: the bronze crossbow triggers of the Terracotta Army, often
+  invoked as proof of Qin "interchangeable parts" and assembly-line mass production, do not support that reading.
+  Metrical analysis shows <em>batch</em> (cellular) production by small workshops, with parts still individually
+  filed to fit and match-marked so co-fabricated pieces stayed together<a class="cit" data-r="18" href="#ref-18"></a><a class="cit" data-r="17" href="#ref-17"></a>. The defensible analogy is
+  accountability-marking and check-against-register, not proto-Fordism.</p>
+  </div></details>
+</section>
+
+<!-- ============ 6 GREECE ============ -->
+<section class="ch" id="greece">
+  <div class="plate"><span class="no">§6</span><h2>Greece: verification carved in marble</h2></div>
+  <div class="mlabel"><span><b>Where</b>Athens · Samos</span><span><b>When</b>~550 – 347/6 BC</span>
+    <span><b>Hold in hand</b>Agora I 7180 · IG II² 1668</span>
+    <span class="srcs"><b>Sources</b><a href="#ref-19">19</a><a href="#ref-20">20</a><a href="#ref-21">21</a><a href="#ref-28">28</a></span></div>
+  <div class="rubric"><span class="lab">Nikophon's law</span>
+    <span class="b on">S</span><span class="b on">P</span><span class="b half">Σ</span><span class="b on">I</span>
+    <span class="note">the fullest ancient verification regime</span></div>
+
+  <p class="lede">A marble stele from a drain in the Agora carries the law of Nikophon, 375/4 BC — structurally, a
+  complete verification system: a written two-condition acceptance spec; a standing expert verifier required to
+  test <em>every day</em>, on penalty of fifty lashes; an enumerated verdict→action table that physically
+  invalidates failures; and a mandate that the law itself be published on stone<a class="cit" data-r="19" href="#ref-19"></a>. Add the Arsenal of Philon's
+  written build-spec, and a tunnel on Samos verified against its geometry from both ends of a mountain.</p>
+
+  <figure class="reveal" aria-label="Flow diagram of Nikophon's coin law: a coin is tested for silver and the public stamp, and each defect class maps to a fixed action.">
+    <p class="fig-kick">Agora I 7180 · the verdict-to-action mapping, 375/4 BC</p>
+    <svg viewBox="0 0 720 272" role="img">
+      <defs><marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--ink2)"/></marker></defs>
+      <g font-size="13">
+        <circle cx="52" cy="136" r="24" fill="var(--surface2)" stroke="var(--gold)" stroke-width="2.5"/>
+        <text x="52" y="141" text-anchor="middle" font-size="15" fill="var(--gold)">A&#920;E</text>
+        <path d="M80 136 h52" stroke="var(--ink2)" stroke-width="1.8" marker-end="url(#arr2)"/>
+        <g><rect x="136" y="106" width="128" height="60" rx="9" fill="var(--surface2)" stroke="var(--hairline)"/>
+          <text x="200" y="131" text-anchor="middle" fill="var(--ink)" font-weight="600">dokimast&#275;s</text>
+          <text x="200" y="150" text-anchor="middle" fill="var(--ink2)" font-size="11.5">tests, every day</text></g>
+        <path d="M268 120 C 320 78 350 60 390 53" stroke="var(--ink2)" stroke-width="1.8" fill="none" marker-end="url(#arr2)"/>
+        <path d="M268 136 h122" stroke="var(--ink2)" stroke-width="1.8" marker-end="url(#arr2)"/>
+        <path d="M268 152 C 320 194 350 214 390 226" stroke="var(--ink2)" stroke-width="1.8" fill="none" marker-end="url(#arr2)"/>
+        <g><rect x="398" y="20" width="308" height="66" rx="9" fill="color-mix(in srgb,var(--c-conform) 14%,var(--surface))" stroke="var(--c-conform)"/>
+          <text x="414" y="40" fill="var(--muted)" font-size="9.5" letter-spacing=".12em">SILVER + PUBLIC STAMP</text>
+          <text x="414" y="59" fill="var(--ink)" font-weight="600">ACCEPT &#8212; must circulate</text>
+          <text x="414" y="76" fill="var(--ink2)" font-size="11.5">sellers are bound by the verdict</text></g>
+        <g><rect x="398" y="103" width="308" height="66" rx="9" fill="color-mix(in srgb,var(--c-audit) 12%,var(--surface))" stroke="var(--c-audit)"/>
+          <text x="414" y="123" fill="var(--muted)" font-size="9.5" letter-spacing=".12em">GOOD FOREIGN IMITATION</text>
+          <text x="414" y="142" fill="var(--ink)" font-weight="600">RETURN to presenter</text>
+          <text x="414" y="159" fill="var(--ink2)" font-size="11.5">genuine silver, foreign die &#8212; not legal tender</text></g>
+        <g><rect x="398" y="186" width="308" height="80" rx="9" fill="color-mix(in srgb,var(--accent) 10%,var(--surface))" stroke="var(--accent)"/>
+          <text x="414" y="206" fill="var(--muted)" font-size="9.5" letter-spacing=".12em">BRONZE OR LEAD CORE</text>
+          <text x="414" y="225" fill="var(--ink)" font-weight="600">CUT THROUGH &#8212; invalidated</text>
+          <text x="414" y="242" fill="var(--ink2)" font-size="11.5">consecrated to the Mother of the Gods,</text>
+          <text x="414" y="256" fill="var(--ink2)" font-size="11.5">deposited with the Council</text>
+          <line x1="666" y1="196" x2="694" y2="252" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" opacity=".85"/></g>
+      </g>
+    </svg>
+    <figcaption><b>Enumerate the defect classes; fix the action for each.</b> The verifier is a standing public
+    expert — permanent where magistrates rotated — sanctioned if he fails to sit, scaled to a second post in
+    Piraeus, his verdict binding on the whole market<a class="cit" data-r="19" href="#ref-19"></a><a class="cit" data-r="20" href="#ref-20"></a>.</figcaption>
+  </figure>
+
+  <figure class="reveal" aria-label="Animated cross-section: two tunnel headings advance from opposite sides of a mountain and meet with a small vertical offset.">
+    <p class="fig-kick">Samos, ~550 BC · two headings, one mountain, one specification</p>
+    <svg viewBox="0 0 720 200" role="img">
+      <path d="M0 168 C 120 60 220 24 360 24 C 500 24 600 60 720 168 Z" fill="var(--surface2)" stroke="var(--hairline)"/>
+      <g font-size="9" fill="var(--muted)" class="mono">
+        <text x="120" y="148">Α</text><text x="164" y="148">Β</text><text x="208" y="148">Γ</text><text x="252" y="148">Δ</text><text x="296" y="148">Ε</text>
+        <text x="420" y="141">Κ</text><text x="464" y="141">Λ</text><text x="508" y="141">Μ</text><text x="552" y="141">Ν</text><text x="596" y="141">Ξ</text>
+        <g stroke="var(--muted)" opacity=".6">
+          <line x1="118" y1="152" x2="118" y2="158"/><line x1="162" y1="152" x2="162" y2="158"/><line x1="206" y1="152" x2="206" y2="158"/><line x1="250" y1="152" x2="250" y2="158"/><line x1="294" y1="152" x2="294" y2="158"/>
+          <line x1="418" y1="145" x2="418" y2="151"/><line x1="462" y1="145" x2="462" y2="151"/><line x1="506" y1="145" x2="506" y2="151"/><line x1="550" y1="145" x2="550" y2="151"/><line x1="594" y1="145" x2="594" y2="151"/>
+        </g>
+      </g>
+      <g>
+        <rect x="96" y="156" height="12" width="0" rx="3" fill="var(--c-spec)" style="animation:tunnelN 2.4s ease .4s forwards"/>
+        <rect x="452" y="149" height="12" width="0" rx="3" fill="var(--c-spec)" opacity=".85" style="animation:tunnelS 2.4s ease .4s forwards; transform-origin:right; transform:scaleX(-1); translate: 168px 0"/>
+      </g>
+      <g opacity="0" style="animation:fadein .6s ease 3s forwards">
+        <rect x="262" y="143" width="66" height="32" rx="6" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-dasharray="5 4"/>
+        <path d="M330 159 h34" stroke="var(--accent)" stroke-width="1.6"/>
+        <text x="368" y="150" font-size="11.5" fill="var(--accent)" font-weight="600">horizontal closure ≈ 60 cm</text>
+        <text x="368" y="165" font-size="11" fill="var(--ink2)">over ~1 km of rock</text>
+      </g>
+      <text x="96" y="190" font-size="11" fill="var(--ink2)">north heading</text>
+      <text x="624" y="190" font-size="11" fill="var(--ink2)" text-anchor="end">south heading</text>
+    </svg>
+    <figcaption><b>Measure against the planned line, or never meet.</b> Herodotus records the double-ended dig;
+    Kienast documented the red-painted lettered reference marks; the geometry shows a detected, corrected drift<a class="cit" data-r="21" href="#ref-21"></a>.
+    Whether the junction zig-zag was planned error-management or a corrected mistake is disputed — either way,
+    verification of work-in-progress against a geometric spec.</figcaption>
+  </figure>
+
+  <details class="more"><summary>Read the full chapter · the coin law's fine print, Philon's arsenal, Eupalinos</summary><div class="body">
+  <p>If you want a single ancient artifact that a verification engineer would recognize as a colleague's work, it
+  is a marble stele dug out of a drain in the Athenian Agora in 1970. It carries the law of Nikophon, 375/4 BC, on
+  silver coinage. <b>The specification:</b> Attic silver currency <em>must be accepted</em> when it is determined
+  to be silver and bears the public stamp — the <em>dēmosios charaktēr</em>. Two conditions, conjoined, written
+  down<a class="cit" data-r="19" href="#ref-19"></a>. <b>The verifier:</b> a standing public official — the <em>dokimastēs</em>, a state-owned slave, expert and
+  permanent where magistrates rotated — required to sit among the bankers' tables and test coins <em>every day</em>,
+  under penalty of fifty lashes if he fails to appear; the law creates a second post in Piraeus, scaling the
+  service to the port<a class="cit" data-r="19" href="#ref-19"></a>. <b>The verdict-to-action mapping:</b> a good foreign imitation is returned to the presenter;
+  a coin with a bronze or lead core, or otherwise debased, is <em>cut through</em> on the spot, consecrated to the
+  Mother of the Gods, and deposited with the Council — the failed artifact physically invalidated and removed from
+  circulation, in full view of the market<a class="cit" data-r="19" href="#ref-19"></a>. <b>The meta-rules:</b> sellers must accept what the <em>dokimastēs</em>
+  approves, and the law orders its own publication on stone, among the bankers' tables and in Piraeus. The
+  specification of the verification system is itself a public, checkable artifact<a class="cit" data-r="19" href="#ref-19"></a>.</p>
+  <p>The scholarly hedges are minor and worth carrying: one clause's verb is restored; the "test-cut and return"
+  detail for passing imitations follows a 2017 restoration<a class="cit" data-r="19" href="#ref-19"></a>; and Athens likely had a <em>dokimastēs</em> decades
+  before Nikophon, so the law codified and regulated an existing office rather than inventing it<a class="cit" data-r="20" href="#ref-20"></a>. Codifying an
+  existing practice into published, sanction-backed rules is, of course, exactly what writing a specification is.</p>
+  <p>Greece also gives us the written build-spec and the acceptance test. The Arsenal of Philon inscription
+  (IG II² 1668, 347/6 BC) is a marble stele carrying a complete building specification — the <em>syngraphai</em> —
+  for the Piraeus naval arsenal: dimensions, materials, and construction detail prescribed <em>in advance</em><a class="cit" data-r="28" href="#ref-28"></a>. The
+  companion machinery — inspection of delivered materials, acceptance of finished work, penalties for
+  nonconformance, all run by oath-bound overseers — is spelled out in temple-building contracts such as the one
+  from Lebadeia<a class="cit" data-r="28" href="#ref-28"></a>. Together — a written spec from 347/6 BC, the acceptance machinery in a sibling contract from
+  roughly a century later — they show contract-based design with acceptance testing, on stone.</p>
+  <p>And there is a tunnel. On Samos, around 550 BC, the engineer Eupalinos drove a kilometre-long aqueduct tunnel
+  from <em>both ends of the mountain at once</em>, to meet in the middle — a feat Herodotus thought worth recording
+  (Histories 3.60)<a class="cit" data-r="21" href="#ref-21"></a>. What makes it a verification story rather than a lucky guess is the physical evidence Hermann
+  Kienast documented on the walls: a system of red-painted, alphabetically-lettered measuring marks laid down as a
+  reference grid, and geometric evidence that the diggers detected a drift in one heading and corrected it. The two
+  headings met with a horizontal offset of about 60 cm over a kilometre — and a vertical error of a few centimetres<a class="cit" data-r="21" href="#ref-21"></a>.</p>
+  <p>Here the evidence is thinner than the story wants: the wall marks are the <em>reference grid</em>, and
+  the course-correction is <em>inferred from the tunnel's geometry</em>, not read directly off the marks; and
+  whether the famous zig-zag near the junction was a planned catching manoeuvre or a corrected mistake is genuinely
+  disputed. Either way, it is measurement against a planned line — verification of a work-in-progress against a
+  geometric specification.</p>
+  </div></details>
+</section>
+
+<!-- ============ 7 ROME ============ -->
+<section class="ch" id="rome">
+  <div class="plate"><span class="no">§7</span><h2>Rome: certifying the coin, auditing the water</h2></div>
+  <div class="mlabel"><span><b>Where</b>Rome · Vienna (KHM III 183)</span><span><b>When</b>96 BC – AD 98</span>
+    <span><b>Read it</b>Frontinus, De aquaeductu</span>
+    <span class="srcs"><b>Sources</b><a href="#ref-22">22</a><a href="#ref-23">23</a></span></div>
+  <div class="rubric"><span class="lab">Frontinus · tesserae</span>
+    <span class="b on">S</span><span class="b on">P</span><span class="b half">Σ</span><span class="b on">I</span>
+    <span class="note">audit against the ledger; certificates in bone</span></div>
+
+  <p class="lede">A <em>tessera nummularia</em> is a verification certificate in bone: the checker's name, the verb
+  <b>spectavit</b> — "has inspected" — and the date, tied to the sealed bag he tested. One in Vienna reads
+  <em>Hilario, slave of Caecilius, inspected, 30 October 26 BC</em><a class="cit" data-r="23" href="#ref-23"></a>. And in AD 97 Frontinus, handed Rome's water
+  supply, refused to trust the books: ledger vs independent gauging, a 1,263-quinariae discrepancy flagged, root
+  causes classified, certified bronze nozzles physically checked<a class="cit" data-r="22" href="#ref-22"></a>.</p>
+
+  <figure class="reveal" aria-label="Bar chart: Aqua Appia recorded 841, gauged 1825, delivered 704 quinariae; aggregate records said 12,755 credited vs 14,018 delivered.">
+    <p class="fig-kick">De aquaeductu, AD 97 · don't trust the books — gauge the water</p>
+    <svg viewBox="0 0 720 210" role="img">
+      <g font-size="12.5">
+        <text x="16" y="24" fill="var(--ink)" font-weight="600" font-size="13.5">Aqua Appia — three measurements of one aqueduct (quinariae)</text>
+        <g><text x="16" y="58" fill="var(--ink2)">in the records</text>
+          <rect x="150" y="44" width="0" height="20" rx="4" fill="var(--c-audit)"><animate class="anim" attributeName="width" from="0" to="216" dur="1s" begin="indefinite" fill="freeze"/></rect>
+          <text x="374" y="59" fill="var(--ink)" class="mono">841</text></g>
+        <g><text x="16" y="92" fill="var(--ink2)">gauged at conduit</text>
+          <rect x="150" y="78" width="0" height="20" rx="4" fill="var(--c-conform)"><animate class="anim" attributeName="width" from="0" to="470" dur="1s" begin="indefinite" fill="freeze"/></rect>
+          <text x="628" y="93" fill="var(--ink)" class="mono">1,825</text></g>
+        <g><text x="16" y="126" fill="var(--ink2)">delivered</text>
+          <rect x="150" y="112" width="0" height="20" rx="4" fill="var(--c-spec)"><animate class="anim" attributeName="width" from="0" to="181" dur="1s" begin="indefinite" fill="freeze"/></rect>
+          <text x="339" y="127" fill="var(--ink)" class="mono">704</text></g>
+        <line x1="150" y1="40" x2="150" y2="136" stroke="var(--hairline)"/>
+        <g font-size="12" fill="var(--ink2)">
+          <text x="16" y="172">System-wide, the ledger credited</text>
+          <text x="236" y="172" class="mono" fill="var(--ink)">12,755</text>
+          <text x="292" y="172">but accounted</text>
+          <text x="392" y="172" class="mono" fill="var(--ink)">14,018</text>
+          <text x="450" y="172">delivered — a</text>
+          <text x="545" y="172" class="mono" fill="var(--accent)" font-weight="700">1,263</text>
+          <text x="590" y="172">gap he investigated;</text>
+          <text x="16" y="192">independent gauging found supply exceeding the records by ~10,000 more.</text>
+        </g>
+      </g>
+    </svg>
+    <figcaption><b>The three-point cross-check.</b> Recorded vs gauged vs delivered, per aqueduct — then root-cause
+    classification: arithmetic blunders, water-men gauging small at the reservoir, illegal taps. Hardware layer
+    included: every legal grant ran through a stamped bronze <em>calix</em> of certified bore — and he found
+    oversized ones installed<a class="cit" data-r="22" href="#ref-22"></a>.</figcaption>
+  </figure>
+
+  <details class="more"><summary>Read the full chapter · the bone certificates, and the audit in full</summary><div class="body">
+  <p>Rome's contribution is the verification certificate as a physical object. A <em>tessera nummularia</em> is a
+  small bone or ivory tag that a professional coin-tester — a <em>nummularius</em> — attached to a sealed bag of
+  coins he had checked. It carries his name, his master's name, the verb <b>spectavit</b> ("has inspected"), and a
+  date. One in the Kunsthistorisches Museum in Vienna reads <em>Hilario Caecili sp(ectavit)</em> — Hilario, slave
+  of Caecilius, inspected — followed by the day and consular year: 30 October, 26 BC<a class="cit" data-r="23" href="#ref-23"></a>. Over a thousand survive; more than 160 carry consular dates. Of these
+  survive, all datable between 96 BC and AD 88<a class="cit" data-r="23" href="#ref-23"></a>. It is a signed, timestamped attestation that a specific artifact
+  passed a specific check by a specific, named verifier — a build attestation in bone, two thousand years old.
+  (The one thing the tags do not preserve is the exact test the <em>nummularius</em> ran; that is scholarly
+  reconstruction.)</p>
+  <p>And in AD 97 the emperor Nerva handed Sextus Julius Frontinus the curatorship of Rome's water supply, and
+  Frontinus did something that would look startlingly modern to any auditor today: he refused to trust the books. His <em>De aquaeductu</em>
+  records the audit. The official records credited the system with 12,755 <em>quinariae</em> of water; downstream,
+  the same records accounted for 14,018 being delivered — a discrepancy of 1,263 he flags and investigates<a class="cit" data-r="22" href="#ref-22"></a>. Rather
+  than reconcile paper against paper, he sent gaugers to measure each aqueduct as close to its source as the works
+  allowed, and found reality exceeding the ledger substantially (<em>De aq.</em> 64–73)<a class="cit" data-r="22" href="#ref-22"></a>. Per aqueduct he ran a
+  three-point cross-check — recorded versus gauged versus delivered — and then classified the failures: arithmetic
+  blunders in the original records; water-men fraudulently using a smaller gauge at the reservoir than at the
+  intake; landowners tapping the conduits illegally. Every legal water grant, moreover, ran through a stamped
+  bronze nozzle — the <em>calix</em> — of certified bore, and he physically found oversized ones installed<a class="cit" data-r="22" href="#ref-22"></a>.</p>
+  <p>Ledger versus measurement, quantified discrepancy, classified root causes, hardware checked against its
+  certificate. The one thing hydraulic historians flag is that the <em>quinaria</em>
+  measured cross-sectional area, not flow, so his unit is not hydrodynamically sound. Frontinus ran the audit
+  right; he just measured in the wrong unit. There is a lesson in that pairing too.</p>
+  </div></details>
+</section>
+
+<!-- ============ 8 TEXTS ============ -->
+<section class="ch" id="texts">
+  <div class="plate"><span class="no">§8</span><h2>The last thread: texts that check their copyists</h2></div>
+  <div class="mlabel"><span><b>What</b>Masorah · casting out nines</span><span><b>When</b>Talmudic era → ~1020 AD</span>
+    <span><b>Hold in hand</b>Aleppo Codex ~925 · Leningrad Codex 1008</span>
+    <span class="srcs"><b>Sources</b><a href="#ref-24">24</a><a href="#ref-25">25</a></span></div>
+  <div class="rubric"><span class="lab">Masorah · nines</span>
+    <span class="b on">S</span><span class="b on">P</span><span class="b half">Σ</span><span class="b on">I</span>
+    <span class="note">checksums — and the honesty about their limits</span></div>
+
+  <p class="lede">The scribes who transmitted the Hebrew Bible were called <em>soferim</em> — literally
+  "counters": letter, word, and verse tallies as a running checksum over the text, with the middle letter of the
+  Torah pinned as a golden midpoint<a class="cit" data-r="24" href="#ref-24"></a>. And the era's arithmetic check, casting out nines, is <em>provably unsound</em>
+  — it cannot see any error that shifts a result by a multiple of nine<a class="cit" data-r="25" href="#ref-25"></a>. Try it yourself:</p>
+
+  <figure class="reveal" aria-label="Interactive demo: casting out nines accepts a wrong answer that differs from the true product by nine.">
+    <p class="fig-kick">Casting out nines · fool an ancient checksum, live</p>
+    <div class="nines" id="nines">
+      <div class="row"><span class="eq">5 × 7 = </span><input id="ninesIn" inputmode="numeric" value="35" aria-label="Proposed answer">
+        <button id="ninesCheck">Run the check</button>
+        <button class="ghost" id="ninesFool">Fool it (+9)</button>
+        <button class="ghost" id="ninesTruth">Reset to 35</button></div>
+      <div class="verdict" id="ninesOut" aria-live="polite">The digit-sum check compares residues mod 9. Press "Run the check."</div>
+    </div>
+    <figcaption><b>Efficient, ancient in spirit, and blind by construction.</b> First attested as a verification
+    method ~950 AD (Aryabhaṭa II); Ibn Sīnā described "the Hindu method" ~1020<a class="cit" data-r="25" href="#ref-25"></a>. It catches most slips — and
+    silently accepts 44, 53, or 26 as 5 × 7. A verification is only as good as its soundness argument.</figcaption>
+  </figure>
+
+  <figure class="reveal plate-fig" aria-label="Photograph of a page of the Aleppo Codex, showing the marginal masorah notes that record letter and word counts.">
+    <p class="fig-kick">The masorah · a text that ships with its own checksums</p>
+    <div class="plate-wrap">
+      <img class="plate-img crop" src="/assets/plates/aleppo-codex.jpg" alt="A page of the Aleppo Codex with marginal masoretic notes" loading="lazy" decoding="async">
+    </div>
+    <figcaption><b>The counts live in the margin.</b> Masoretic scribes recorded verse, word and letter totals
+    alongside the text itself, so a copy could be checked against its own apparatus rather than against a trusted
+    master. A scribe who dropped a word would find the tally no longer closed.
+    <span class="plate-credit">Aleppo Codex, Genesis 26:35–27:30 · photographed by William Wickes, 1887. These folios have been missing since 1947; the page survives as this photograph and as the counts in its own margin.</span>
+    </figcaption>
+  </figure>
+
+  <figure class="reveal" aria-label="Diagram: counting from both ends of the Torah text to the pinned middle letter.">
+    <p class="fig-kick">The soferim count to the middle letter</p>
+    <svg viewBox="0 0 720 108" role="img">
+      <g font-size="13">
+                <g fill="var(--ink2)" opacity=".55">
+          <rect x="30" y="34" width="9" height="16" rx="1.5"/><rect x="46" y="34" width="9" height="16" rx="1.5"/>
+          <rect x="62" y="34" width="9" height="16" rx="1.5"/><rect x="78" y="34" width="9" height="16" rx="1.5"/>
+          <rect x="94" y="34" width="9" height="16" rx="1.5"/><rect x="110" y="34" width="9" height="16" rx="1.5"/>
+          <rect x="126" y="34" width="9" height="16" rx="1.5"/><rect x="142" y="34" width="9" height="16" rx="1.5"/>
+          <rect x="158" y="34" width="9" height="16" rx="1.5"/><rect x="174" y="34" width="9" height="16" rx="1.5"/>
+        </g>
+        <rect x="192" y="30" width="12" height="24" rx="2" fill="var(--accent)"/>
+        <g fill="var(--ink2)" opacity=".55">
+          <rect x="232" y="34" width="9" height="16" rx="1.5"/><rect x="248" y="34" width="9" height="16" rx="1.5"/>
+          <rect x="264" y="34" width="9" height="16" rx="1.5"/><rect x="280" y="34" width="9" height="16" rx="1.5"/>
+          <rect x="296" y="34" width="9" height="16" rx="1.5"/><rect x="312" y="34" width="9" height="16" rx="1.5"/>
+          <rect x="328" y="34" width="9" height="16" rx="1.5"/><rect x="344" y="34" width="9" height="16" rx="1.5"/>
+          <rect x="360" y="34" width="9" height="16" rx="1.5"/>
+        </g>
+        <path d="M30 58 H 196" stroke="var(--c-redun)" stroke-width="2" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="draw"/>
+        <path d="M380 58 H 232" stroke="var(--c-redun)" stroke-width="2" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="draw" style="animation-delay:.4s"/>
+        <text x="30" y="82" fill="var(--muted)" font-size="11.5">count from both ends: the vav of gaḥon (Lev 11:42) must land in the middle</text>
+        <text x="428" y="46" fill="var(--ink2)" font-size="12.5">A dropped or added letter shifts every count</text>
+        <text x="428" y="64" fill="var(--ink2)" font-size="12.5">after it — and betrays itself.</text>
+      </g>
+    </svg>
+    <figcaption><b>A checksum maintained for a millennium.</b> The caveat matters: the Talmud's own midpoint
+    values no longer match the received text, and it concedes that the expertise to run the check had been lost<a class="cit" data-r="24" href="#ref-24"></a>. An
+    ancient system openly admitting its soundness had decayed.</figcaption>
+  </figure>
+
+  <details class="more"><summary>Read the full chapter · the counters, the codices, the blind spot</summary><div class="body">
+  <p>The subtlest ancient verification is the one that guards a text against its own copyists. The scribes who
+  transmitted the Hebrew Bible were called <em>soferim</em> — literally "counters" — and the Talmud (Kiddushin 30a)
+  explains why: they counted the letters, words, and verses of the Torah, and marked its exact midpoints (the
+  middle letter is fixed as the <em>vav</em> of <em>gaḥon</em> in Leviticus 11:42)<a class="cit" data-r="24" href="#ref-24"></a>. Those counts became a marginal
+  apparatus, the Masorah, carried in the great codices (the Aleppo Codex, ~925 AD; the Leningrad Codex, 1008 AD)<a class="cit" data-r="24" href="#ref-24"></a> —
+  a running redundancy over the consonantal text. To check a new scroll you recounted it against the reference
+  totals; a dropped or added letter shifts a count and betrays itself. It is a checksum maintained for a millennium. The caveat matters: the Talmud's own midpoint values no longer match the received text, and it concedes that the expertise to run the check had been lost — an ancient verification system recording that its own procedure had become unrunnable.</p>
+  <p>Which brings the arc, fittingly, to a check that is <em>provably</em> unsound. Casting out nines — verify an
+  arithmetic result by comparing digit-sums modulo nine — is the conceptual ancestor of the checksum every network packet carries. Its earliest attestation as a verification method is surprisingly late (an Indian text of about 950 AD;
+  the Persian polymath Ibn Sina gave full details around 1020, calling it "the Hindu method")<a class="cit" data-r="25" href="#ref-25"></a>, even though the
+  underlying digit-sum was known to Greco-Roman writers centuries earlier without being used to check anything. And
+  it is <em>unsound</em>: because it only sees the residue mod nine, it silently accepts any error that is a
+  multiple of nine — it would pass 44, 53, or 26 as the product of 5 and 7 (53 being the one a tired scribe actually produces: 35 with its digits transposed). Unsound as a <em>verifier</em>, though perfectly sound as a <em>refuter</em>: when the check fails the answer is definitely wrong; when it passes, nothing follows<a class="cit" data-r="25" href="#ref-25"></a>. The ancients had not only checks but checks we can now show to be unsound, though nothing in the record suggests Aryabhata or Ibn Sina ever flagged the mod-nine blind spot. The Masoretes are the stronger case: they watched their own check become unrunnable, and said so.</p>
+  </div></details>
+</section>
+
+<!-- ============ 9 VERDICT ============ -->
+<section class="ch" id="verdict">
+  <div class="plate"><span class="no">§9</span><h2>What the ancients had — and what the twentieth century added</h2></div>
+  <p class="lede" style="margin-top:14px">Line the artifacts up and the taxonomy is complete: specification, golden reference, redundancy, inverse checks, audits, certification, split-key authentication —
+  even sanctions on the verifier and a frank grasp of unsoundness. So what, exactly, did the twentieth century
+  add? Two things.</p>
+  <p><b>First, the specification became formal in the logician's sense</b> — a mathematical object, not a rule of
+  practice, so that "the artifact meets the spec" became a <em>theorem</em>. The ancients verified
+  <em>instances</em>: this envelope, this coin, this account. We verify <em>universals</em>: all executions, all
+  inputs. That leap required logic itself. Antiquity had both halves and never joined them: Euclid had universal proof about mathematical objects, Nikophon had instance-checking of physical artifacts, and the two traditions never met. The modern move is making an <em>engineered artifact</em> the subject of a universal theorem.</p>
+  <p><b>Second — the genuine twentieth-century invention — the checker became an artifact that can itself be
+  checked.</b> Antiquity could make the verifier accountable and the procedure public — Nikophon sanctions the <em>dokimastēs</em>, binds his verdict, and publishes the rules on stone. What it could not do was leave a re-checkable trace of the verification <em>act</em><a class="cit" data-r="10" href="#ref-10"></a>. A machine-checked proof is a thing other machines can re-verify; a model checker's verdict can be
+  certified by an independent proof. We did not invent verification. We automated the verifier, and then made the
+  verifier's own work verifiable.</p>
+
+  <div class="insight reveal"><span class="tag">The thesis</span>
+  <p>The pattern — a cheap, sound, redundant check certifying an expensive, fallible computation — is the oldest
+  trick in the administrative book. When I attach a proof certificate to a compiler's output, I am doing what a
+  Susa accountant did pressing tokens into wet clay: making the artifact carry the evidence of its own correctness,
+  so that trust does not require breaking it open.</p>
+  </div>
+</section>
+
+<!-- ============ SCOREBOARD ============ -->
+<section class="ch" id="scoreboard">
+  <div class="plate"><span class="no">Σ/4</span><h2>The scoreboard</h2></div>
+  <p style="margin-top:12px; font-family:var(--sans); font-size:14px; color:var(--ink2)">Every thread, graded on
+  the four ingredients. Hover any cell for the reason; click a row to jump to its chapter.</p>
+  <figure class="reveal">
+    <div class="board"><table id="boardTable" aria-label="Scoreboard: each verification thread graded on Specification, Procedure, Soundness, Institution."></table></div>
+    <div class="boardnote" id="boardNote">Hover a cell…</div>
+    <figcaption><b>Reading the board:</b> ✓ attested · ◐ partial or qualified · — absent/unattested. Grades follow
+    the verified dossier; the two 4-for-4 rows are the Ur III balanced accounts and the Qin checking statutes.</figcaption>
+  </figure>
+</section>
+
+<!-- ============ GRAVEYARD ============ -->
+<section class="ch" id="graveyard">
+  <div class="plate"><span class="no">✗</span><h2>The graveyard</h2></div>
+  <p style="margin-top:12px">Well-travelled claims that did not hold up, and so are not in the essay above.
+  Seven in all: six refuted by re-reading the sources, and the full-moon cubit, which had no source to refute.
+  Each was a correction to an overreach rather than the collapse of a thread — but several of them were among the
+  most quotable things I had.</p>
+  <div class="grave reveal">
+    <div class="gcard"><span class="stamp">MISATTRIBUTED</span>
+      <h3>"Sanskritists compare Pāṇini to Backus-Naur Form"</h3>
+      <p>The comparison belongs to the computer scientist P. Z. Ingerman, who in 1967 proposed calling BNF
+      "Panini-Backus Form." It is not a claim Sanskritists make about Pāṇini.<a class="cit" data-r="14" href="#ref-14"></a></p>
+      <span class="votes">a correction, not a kill</span></div>
+    <div class="gcard"><span class="stamp">NO SOURCE</span>
+      <h3>"Cubits were recalibrated at each full moon, on pain of death"</h3>
+      <p>No primary Egyptian source exists. Earliest traceable appearance: modern metrology-industry commentary,
+      apparently from a 2005 opinion piece. The most-cited fact about the first measurement standard is a
+      21st-century embellishment.</p><span class="votes">metrology folklore · the essay's star exhibit</span></div>
+    <div class="gcard"><span class="stamp">REFUTED</span>
+      <h3>"The envelope marks were a semantic mirror of the sealed tokens"</h3>
+      <p>The quote cited for the strong "golden reference" reading describes the solid tablets that <em>replaced</em>
+      envelopes (~3200 BC). The defensible claim is redundant-count verification only.</p>
+      <span class="votes">refuted on re-reading the source</span></div>
+    <div class="gcard"><span class="stamp">REFUTED</span>
+      <h3>"The Great Pyramid proves an enforced length standard"</h3>
+      <p>Petrie's precision figures are genuine — and prove careful construction, not a calibration bureaucracy.
+      The cubit <em>rods</em> are the evidence for the standard.</p><span class="votes">unanimous kill</span></div>
+    <div class="gcard"><span class="stamp">REFUTED</span>
+      <h3>"Egyptian division is inherently self-checking"</h3>
+      <p>The doubling-table method is an algorithm, not a check. The real verification is the explicit
+      <em>proof</em> sections (Problems 24–27, 30, 32–38) with their closing "that is it."</p>
+      <span class="votes">unanimous kill</span></div>
+    <div class="gcard"><span class="stamp">REFUTED</span>
+      <h3>Three Eupalinos over-readings</h3>
+      <p>The wall marks are a reference grid — the course-correction is inferred from geometry, not read off the
+      marks; the zig-zag's intent is disputed; the 60 cm offset evidences the dig, not a procedure. The anchored
+      facts survived on other claims.</p><span class="votes">precision kills; thread intact</span></div>
+  </div>
+</section>
+
+<!-- ============ METHOD ============ -->
+<section class="ch" id="method">
+  <div class="plate"><span class="no">∎</span><h2>Method &amp; colophon</h2></div>
+  <p style="font-size:16px;color:var(--ink2)">Written with Claude — including the fact-checking, which ran three
+  independent adversarial passes over each claim, every pass re-reading the primary source; two refutations killed
+  a claim. I adjudicated, and the kills are in the graveyard above.</p>
+  <p style="font-size:16px;color:var(--ink2)">Every claim here is anchored to a museum object, an inscription, or a
+  scholarly edition wherever one exists. Four entries in the references are survey links rather than scholarship,
+  and one — the early history of casting out nines — I could not pin to a scholarly edition at all. Remaining
+  errors are mine.</p>
+</section>
+
+<!-- ============ REFERENCES ============ -->
+<section class="ch" id="refs">
+  <div class="plate"><span class="no">[·]</span><h2>References</h2></div>
+  <p style="margin-top:12px; font-family:var(--sans); font-size:13.5px; color:var(--ink2)">Every entry below was
+  fetched and quote-checked during this essay's verification passes; print editions were verified via their
+  published excerpts. Numbers match the inline [n] markers — click a marker to open its source directly. Each entry links the passage it was checked against.</p>
+  <details class="refbox" id="refbox"><summary style="cursor:pointer;font-family:var(--sans);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-ink);padding:8px 0">Show all 28 references</summary>
+  <ol>
+    <li id="ref-1"><b>Schmandt-Besserat, D.</b> "The Evolution of Writing." University of Texas at Austin.
+      <a href="https://sites.utexas.edu/dsb/tokens/the-evolution-of-writing/">sites.utexas.edu/dsb/tokens</a>
+      <details class="ev"><summary>source passage</summary>
+        <blockquote>"Some accountants, therefore, impressed the tokens on the surface of the envelope before
+        enclosing them inside, so that the shape and number of counters held inside could be verified at all
+        times."</blockquote>
+        <p class="why">The same page also shows that the "same meaning as the tokens" wording
+        describes the later solid tablets — which killed this essay's overclaim (see graveyard).</p>
+      </details></li>
+    <li id="ref-2"><b>Englund, R. K.</b> "Accounting in Proto-cuneiform," in <i>The Oxford Handbook of Cuneiform
+      Culture</i> (2011). <a href="https://cdli.earth/files-up/publications/englund2011a.pdf">cdli.earth (PDF)</a>
+      <details class="ev"><summary>source passage</summary>
+        <blockquote>"…the simple tokens were gathered in discrete assemblages and encased in clay balls in the
+        periods immediately before the emergence of proto-cuneiform c. 3300 BC… the plastic tokens were themselves
+        impressed on the outer surfaces of some balls, leaving marks which… conform exactly to the impressed
+        numerical signs of the early so-called numerical tablets…"</blockquote>
+        <blockquote>"As is usually the case with proto-cuneiform accounts, eventual subtotals and totals are
+        inscribed on the reverse face."</blockquote>
+      </details></li>
+    <li id="ref-3"><b>Nissen, H., Damerow, P. &amp; Englund, R.</b> <i>Archaic Bookkeeping</i> (Univ. of Chicago
+      Press, 1993). <a href="https://www.academia.edu/88331225/Archaic_Bookkeeping">academia.edu</a>
+      <details class="ev"><summary>source note</summary>
+        <p class="why">The standard survey of the archaic archives, cited for the general expected-vs-actual
+        ("theoretical amounts") framing — which is independently attested in the Ur III balanced-account thread
+        (refs 4–5). The passages of this online copy were not run through the essay's own verification
+        pass, so no vote is claimed for them.</p>
+      </details></li>
+    <li id="ref-4"><b>Metropolitan Museum of Art</b>, cuneiform tablet 11.217.3 — "balanced account of Dugga,"
+      Drehem, ca. 2039 BC. <a href="https://www.metmuseum.org/art/collection/search/322447">metmuseum.org</a>
+      <details class="ev"><summary>source passage</summary>
+        <blockquote>Catalog record: "Cuneiform tablet: balanced account of Dugga" · accession 11.217.3 ·
+        Neo-Sumerian, Ur III · ca. 2039 BCE · clay · Drehem (Puzrish-Dagan).</blockquote>
+        <p class="why">The museum's collection API confirms every catalog field, and gives
+        2039 BC from the tablet's internal date (Amar-Suen year 8) under middle chronology.</p>
+      </details></li>
+    <li id="ref-5"><b>D'Agostino, F. &amp; Pomponio, F.</b> on Ur III balanced accounts (ni₃-kas₇-aka),
+      <i>Rivista di storia economica</i> (2007).
+      <a href="https://ideas.repec.org/a/mul/jrkmxm/doi10.1410-24582y2007i1p7-32.html">ideas.repec.org</a>
+      <details class="ev"><summary>source passage</summary>
+        <p class="why">Verified: the fixed two-part debit/credit format closing in an explicit deficit
+        (<i>la₂-ia₃</i>) or surplus (<i>diri</i>), with deficits carried into the next period. A reviewer
+        independently recomputed Louvre TCL 5, 6056 — debits ≈201.42 shekels − credits ≈140.19 = recorded deficit
+        ≈61.23 — and it balances exactly.</p>
+      </details></li>
+    <li id="ref-6"><b>Fincke, J. C. &amp; Ossendrijver, M.</b> "BM 46550 — a Late Babylonian mathematical tablet,"
+      <i>Zeitschrift für Assyriologie</i> 106 (2016).
+      <a href="https://www.degruyterbrill.com/document/doi/10.1515/za-2016-0016/html">doi:10.1515/za-2016-0016</a> ·
+      artifact: <a href="https://cdli.earth/artifacts/499419">CDLI P499419</a>
+      <details class="ev"><summary>source passage</summary>
+        <blockquote>"…offers the first evidence that a method for computing and verifying reciprocal numbers thus
+        far attested only in the Old Babylonian era, continued to be applied, in a similar manner, in the Neo- or
+        Late Babylonian era."</blockquote>
+        <p class="why">The strongest counter-source (Friberg 1999) was checked and rejected by a reviewer: a
+        reconstructed algorithm, not an attested executed compute-then-verify procedure.</p>
+      </details></li>
+    <li id="ref-7"><b>Laws of Hammurabi</b> §§229–235, §108 — Louvre stele Sb 8; trans. M. Roth,
+      <i>Law Collections from Mesopotamia and Asia Minor</i> (1995). Print.
+      <details class="ev"><summary>source passage</summary>
+        <p class="why">Verified against the standard translation: §229 (builder executed if the house collapses
+        and kills the owner), §233 (rebuild a buckling wall at own cost), §235 (one-year warranty on boat
+        caulking), §108 (false-measure fraud). Graded as verification <i>incentive</i>, not
+        procedure — no Mesopotamian inspection procedure for buildings surfaced, and enforcement in practice is
+        disputed.</p>
+      </details></li>
+    <li id="ref-8"><b>Rahmstorf, L.</b> "Weight metrology in the Harappan Civilization."
+      <a href="https://www.academia.edu/42176412/Weight_metrology_in_the_Harappan_Civilization">academia.edu</a>
+      <details class="ev"><summary>source passage</summary>
+        <p class="why">Verified: cubical weights attested at 40+ sites; cosine quantogram analysis (Kendall's
+        formula) yields an exceptionally clear single standard — judged cleaner than the multiple concurrent
+        Bronze Age Syro-Mesopotamian standards; onset dated by a Kot Diji-phase weight
+        (~2800–2600 BC).</p>
+      </details></li>
+    <li id="ref-9"><b>Ialongo, N., Hermann, R. &amp; Rahmstorf, L.</b> "Bronze Age weight systems as a measure of
+      market integration," <i>PNAS</i> 118 (2021).
+      <a href="https://www.pnas.org/doi/10.1073/pnas.2105873118">doi:10.1073/pnas.2105873118</a>
+      <details class="ev"><summary>source passage</summary>
+        <blockquote>Verbatim-confirmed: the "Harappan shekel" figure of ~13.4–13.6 g, and weighing equipment onset
+        "in the late Early Harappan period (~2800 to 2600 BCE)."</blockquote>
+        <p class="why">A reviewer hunting for the "cleaner than Mesopotamia" phrasing found the paper instead shows
+        the Indus standard numerically isolated from the western systems — the essay's wording was corrected to
+        attribute each claim to its actual source.</p>
+      </details></li>
+    <li id="ref-10"><b>Peet, T. E.</b> <i>The Great Tomb-Robberies of the Twentieth Egyptian Dynasty</i> (1930).
+      <a href="https://archive.org/stream/THEGREATTOMBROBBERIESOFTHETWENTIETHEGYPTIANDYNASTY/THE%20GREAT%20TOMB%20ROBBERIES%20-%20OF%20T%20H%20E-TWENTIETH%20EGYPTIAN%20DYNASTY_djvu.txt">archive.org</a>
+      <details class="ev"><summary>source passage</summary>
+        <p class="why">Verified against Peet's edition: the four-day proceeding in Year 16 of Ramesses IX; the
+        standardized per-tomb verdict formula; the itemized list closing in a tally that a reviewer independently
+        recounted (9 intact + 1 violated = 10 royal tombs); and Peet's own judgment that the day-19 Queens'-Valley
+        seal check "reads like a carefully staged scene" amid the Paser–Paweraa feud.</p>
+      </details></li>
+    <li id="ref-11"><b>Papyrus Abbott</b>, British Museum EA 10221 — overview.
+      <a href="https://en.wikipedia.org/wiki/Abbott_Papyrus">wikipedia.org/wiki/Abbott_Papyrus</a>
+      <details class="ev"><summary>source passage</summary>
+        <p class="why">Verified: BM EA 10221 (registration G63/14, bought 1857, 218 cm); Year 16 of Ramesses IX
+        ≈ 1110 BC; commission of necropolis inspectors plus the vizier's and treasury's scribes; report deposited
+        in the vizier's archives; corroborated by Papyrus Leopold II–Amherst.</p>
+      </details></li>
+    <li id="ref-12"><b>Rhind Mathematical Papyrus</b>, BM EA 10057/10058 — Chace, <i>The Rhind Mathematical
+      Papyrus</i> (1927–29) and Peet (1923), print; British Museum introduction:
+      <a href="https://www.britishmuseum.org/blog/learn-maths-egyptian-secrets-rhind-mathematical-papyrus">britishmuseum.org</a>
+      <details class="ev"><summary>source passage</summary>
+        <blockquote>Peet's edition, verified: many problems end in a "proof" showing the computed result "actually
+        satisfies the conditions of the problem," closing with <i>mitt pw</i> — "that is it."</blockquote>
+        <p class="why">Concrete check-steps confirmed in the text: Problem 25 (10⅔ + its half 5⅓ = 16, matching
+        the required total); explicit proofs indexed at Problems 24–27, 30, 32–38 (Chace); Problem 31 left
+        unproved; red auxiliary numbers separate checking from working.</p>
+      </details></li>
+    <li id="ref-13"><b>Filliozat, P.-S.</b> "Ancient Sanskrit Mathematics: An Oral Tradition and a Written
+      Literature," in Chemla (ed.), <i>History of Science, History of Text</i> (Springer, 2006); survey:
+      <a href="https://en.wikipedia.org/wiki/Vedic_chant">wikipedia.org/wiki/Vedic_chant</a>
+      <details class="ev"><summary>source passage</summary>
+        <blockquote>"Each text was recited in a number of ways, to ensure that the different methods of recitation
+        acted as a cross check on the other."</blockquote>
+        <blockquote>Eleven named modes: "Samhita, Pada, Krama, Jata, Maalaa, Sikha, Rekha, Dhwaja, Danda, Rathaa,
+        Ghana, of which Ghana is usually considered the most difficult."</blockquote>
+        <p class="why">A reviewer traced the cross-check wording to Filliozat's peer-reviewed chapter — an
+        attributed scholarly interpretation, not an anonymous factoid. The krama attribution to Gārgya &amp;
+        Śākalya survived 2–1, with a flagged conflation risk — the essay keeps the "credited to" hedge.</p>
+      </details></li>
+    <li id="ref-14"><b>Ingerman, P. Z.</b> "'Pānini-Backus Form' suggested," <i>Communications of the ACM</i>
+      10(3):137 (1967). <a href="https://dl.acm.org/doi/10.1145/363162.363165">doi:10.1145/363162.363165</a>
+      <details class="ev"><summary>source passage</summary>
+        <p class="why">Verified via the ACM DOI: Ingerman's letter proposes renaming Backus Normal Form
+        "Pānini-Backus Form" in recognition of Pāṇini's earlier equivalent notation — the essay attributes the
+        comparison to him, not to Sanskrit scholarship.</p>
+      </details></li>
+    <li id="ref-15"><b>Fraser, C.</b> "Mohism," <i>Stanford Encyclopedia of Philosophy</i>.
+      <a href="https://plato.stanford.edu/entries/mohism/">plato.stanford.edu/entries/mohism</a>
+      <details class="ev"><summary>source passage</summary>
+        <blockquote>"The hundred artisans make squares with the set square, circles with the compass, straight
+        lines with the string, vertical lines with the plumb line, and flat surfaces with the level."</blockquote>
+        <blockquote>"…drawing distinctions involves citing a fa, comparing something to it, and then judging
+        whether the two are similar… what matches the fa is 'this,' and thus correct; what doesn't is
+        'not.'"</blockquote>
+      </details></li>
+    <li id="ref-16"><b>Shuihudi Qin bamboo texts</b> (incl. the Xiàolǜ 效律, "statutes concerning checking") —
+      overview: <a href="https://en.wikipedia.org/wiki/Shuihudi_Qin_bamboo_texts">wikipedia.org</a>;
+      trans. A. F. P. Hulsewé, <i>Remnants of Ch'in Law</i> (Brill, 1985), print.
+      <details class="ev"><summary>source passage</summary>
+        <blockquote>"…the Xiàolǜ lays out precise penalties for discrepancies in official accounting, including
+        fines in armor or shields for errors exceeding set thresholds."</blockquote>
+        <p class="why">Also verified: ~1,155 slips from Tomb 11 at Shuihudi (Yunmeng, Hubei), deposited c. 217 BC —
+        a mixed corpus of statutes, a personal chronicle, and divination daybooks; and the Yaolü's one-year
+        wall-collapse liability for supervising officials.</p>
+      </details></li>
+    <li id="ref-17"><b>Li, X. et al.</b> "Marking practices and the making of the Qin Terracotta Army,"
+      <i>Journal of Anthropological Archaeology</i> 42 (2016).
+      <a href="https://www.sciencedirect.com/science/article/abs/pii/S0278416516300022">doi:10.1016/j.jaa.2016.04.002</a>
+      <details class="ev"><summary>source passage</summary>
+        <blockquote>Quoting Hulsewé A56: "Government armour and arms are each to be incised [ke 刻] or branded
+        [jiu 久] with the name of the office concerned… when it is not the brand-mark of the office concerned,
+        (such armour and arms) are all to be confiscated by the government…"</blockquote>
+        <blockquote>Quoting Hulsewé C11: "When the quality (of manufactured objects) upon inspection is poor, the
+        Master of Artisans is fined one suit of armour, the Assistant as well as the Head of the work-squad (are
+        fined) one shield and the men (are fined) twenty sets of laces."</blockquote>
+        <p class="why">Also verified: of 1,087 excavated warriors in eastern Pit 1, 283 bear production marks,
+        mostly applied before firing — bureaucratic oversight, not display; the authors explicitly reject the
+        "assembly-line" reading.</p>
+      </details></li>
+    <li id="ref-18"><b>Li, X. et al.</b> "Crossbows and imperial craft organisation: the bronze triggers of
+      China's Terracotta Army," <i>Antiquity</i> 88 (2014).
+      <a href="https://www.cambridge.org/core/journals/antiquity/article/crossbows-and-imperial-craft-organisation-the-bronze-triggers-of-chinas-terracotta-army/DB32EADD77493B84692756138D21D036">cambridge.org</a>
+      <details class="ev"><summary>source passage</summary>
+        <blockquote>"A metrical and spatial analysis of these triggers reveals that they were produced in batches
+        and that these separate batches were thereafter possibly stored in an arsenal…"</blockquote>
+        <p class="why">Trigger parts were cast in standardised moulds but still individually filed and match-marked
+        to keep co-fabricated parts together — evidence against full interchangeable-parts
+        manufacture.</p>
+      </details></li>
+    <li id="ref-19"><b>Law of Nikophon</b> (SEG 26.72 = RO 25), Agora I 7180 — Attic Inscriptions Online, with
+      translation. <a href="https://www.atticinscriptions.com/inscription/RO/25">atticinscriptions.com/inscription/RO/25</a>
+      <details class="ev"><summary>source passage</summary>
+        <p class="why">Six merged claims verified 3–0 against the AIO edition and Stroud's editio princeps: the
+        two-part acceptance spec (silver + <i>dēmosios charaktēr</i>); the dokimastes required to sit among the
+        bankers' tables and test daily, under penalty of fifty lashes; the second post created in Piraeus; the
+        per-defect verdict table — passing foreign imitations returned, plated/debased coins cut through
+        (<i>diakoptetō</i>), consecrated to the Mother of the Gods, deposited with the Council; sellers bound by
+        the verdict; publication on stone mandated.</p>
+      </details></li>
+    <li id="ref-20"><b>Stroud, R.</b> "An Athenian Law on Silver Coinage," <i>Hesperia</i> 43 (1974), print;
+      discussion: Ober, J., <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1432143">ssrn.com/abstract=1432143</a>
+      <details class="ev"><summary>source passage</summary>
+        <p class="why">A reviewer checked the Greek text in Stroud's publication directly: archonship of
+        Hippodamas (375/4 BC), the <i>demosios charakter</i> clause, "cut through," consecration, and deposit with
+        the Boule are on the unrestored stone; the "test-cut and return" detail follows Matthaiou's 2017
+        restoration (flagged "(?)" by AIO); a city dokimastes likely existed by ~398/7 BC.</p>
+      </details></li>
+    <li id="ref-21"><b>Eupalinos tunnel</b> — Herodotus, <i>Histories</i> 3.60; Kienast, H., <i>Samos XIX</i>
+      (1995); Apostol, T., "The Tunnel of Samos," <i>Engineering &amp; Science</i> 67 (2004). Print.
+      <details class="ev"><summary>source passage</summary>
+        <p class="why">Verified: Herodotus attests the double-ended dig; Kienast documented the red-painted
+        alphabetic measuring-mark system (a ~20.59 m reference interval) on the walls; the junction shows a
+        quantified ~60 cm horizontal closure. Three over-strong framings ("the marks show verification in action";
+        "the zig-zag was deliberate per Kienast"; "the 60 cm offset proves a procedure") were killed 1–2 by
+        the fact-check — the essay states only what survives: measurement against the planned line, with the zig-zag's
+        intent disputed (Kienast vs Olson 2012).</p>
+      </details></li>
+    <li id="ref-22"><b>Frontinus</b>, <i>De aquaeductu urbis Romae</i>, trans. Bennett (Loeb, 1925).
+      <a href="https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Frontinus/De_Aquis/text*.html">LacusCurtius</a>
+      <details class="ev"><summary>source passage</summary>
+        <p class="why">Verified verbatim against the primary text: records credited 12,755 quinariae vs 14,018
+        delivered (ch. 64 — a reviewer confirmed 14,018 − 12,755 = 1,263); Aqua Appia recorded 841 / gauged 1,825 /
+        delivered 704 (ch. 65, gauged mid-conduit at "the Twins"); root causes in chs. 74–75 (computation errors,
+        water-men gauging small at the reservoir, illegal taps); stamped <i>calix</i> bores. Modern hydraulic
+        scholarship disputes the quinaria as a discharge measure — the essay says so.</p>
+      </details></li>
+    <li id="ref-23"><b>Tessera nummularia</b> of Hilario (26 BC), Kunsthistorisches Museum Wien, Antikensammlung
+      Inv. III 183; corpus: Herzog, <i>Tesserae nummulariae</i> (1919), print. <a href="https://www.khm.at/en/objectdb/detail/52488/">khm.at/en/objectdb/detail/52488</a>
+      <details class="ev"><summary>source passage</summary>
+        <blockquote>Inscription, from the museum's object record: "Hilario Caecili sp(ectavit) (ante diem) III
+        K(alendas) Nov(embres) Imp(eratore) C(aesare) VIII T(ito) Tau(ro) (consulibus)" — Hilario, slave of
+        Caecilius, inspected, 30 October 26 BC.</blockquote>
+        <p class="why">A reviewer independently re-derived the date: a.d. III Kal. Nov. = 30 October by inclusive
+        counting, and the consular fasti confirm Augustus cos. VIII with T. Statilius Taurus = 26 BC.</p>
+      </details></li>
+    <li id="ref-24"><b>Babylonian Talmud</b>, Kiddushin 30a (soferim as "counters"; the vav of gaḥon).
+      <a href="https://www.sefaria.org/Kiddushin.30a">sefaria.org/Kiddushin.30a</a>
+      <details class="ev"><summary>source passage</summary>
+        <p class="why">Verified against the Sefaria text: the early scribes are called <i>soferim</i> because they
+        counted the letters of the Torah; the vav of <i>gaḥon</i> (Lev 11:42) is fixed as the Torah's middle
+        letter; recounting a scroll is the depicted checking procedure — and the passage concedes the counting
+        expertise had been lost. The fully operational Masorah apparatus is documented in the Aleppo (~925) and
+        Leningrad (1008) codices.</p>
+      </details></li>
+    <li id="ref-25"><b>Casting out nines</b> — history and unsoundness (Aryabhaṭa II, <i>Mahāsiddhānta</i> ~950;
+      Ibn Sīnā ~1020). <a href="https://en.wikipedia.org/wiki/Casting_out_nines">wikipedia.org/wiki/Casting_out_nines</a>
+      <details class="ev"><summary>source passage</summary>
+        <blockquote>"The earliest known surviving work which describes how casting out nines can be used to check
+        the results of arithmetical computations is the Mahâsiddhânta, written around 950 by the Indian
+        mathematician and astronomer Aryabhata II."</blockquote>
+        <p class="why">Also verified: Ibn Sīnā (~1020) detailed "the Hindu method"; the digit-sum was known to
+        Hippolytus and Iamblichus centuries earlier with no attested checking use; and the method provably accepts
+        any error ≡ 0 (mod 9) — e.g., 8, 17, 26 for 5 × 7.</p>
+      </details></li>
+    <li id="ref-26"><b>Pāṇini scholarship</b> — Kiparsky, P., "On the Architecture of Pāṇini's Grammar"; Cardona, G.,
+      <i>Pāṇini: His Work and its Traditions</i> (1997); Bhate, S. &amp; Kak, S., "Pāṇini's Grammar and Computer
+      Science," <i>ABORI</i> 72 (1993). Print.
+      <details class="ev"><summary>source passage</summary>
+        <p class="why">Verified: the Aṣṭādhyāyī's formal apparatus (regimented metalanguage, pratyāhāra
+        compression, paribhāṣā metarules); metarule 1.4.2 <i>vipratiṣedhe paraṁ kāryam</i> is a genuine,
+        primary-attested conflict-resolution rule; derivation-checking was practiced by Kātyāyana and Patañjali
+        within ~two centuries. One reviewer flagged over-reliance on a 2022 reinterpretation of 1.4.2 (survived
+        2–1) — the essay keeps to the uncontested kernel.</p>
+      </details></li>
+    <li id="ref-27"><b>Du tiger tally</b> (杜虎符), bronze, Qin — Shaanxi History Museum, Xi'an. Museum object;
+      inscription conditions troop mobilization on matching the two halves.
+      <details class="ev"><summary>source passage</summary>
+        <p class="why">Verified: a physical, provenanced, museum-held tally cast in two interlocking halves — the
+        ruler retaining the right half, the commander the left — whose inscription conditions mobilizing troops on
+        the two halves being brought together (with a beacon-fire emergency exception).</p>
+      </details></li>
+    <li id="ref-28"><b>Arsenal of Philon</b> inscription, IG II² 1668 (EM 12538, Athens, 347/6 BC); acceptance
+      machinery in the Lebadeia temple contract, IG VII 3073 (= Syll³ 972). Epigraphic editions; cf. de Waele's
+      study of IG II² 1668. Print.
+      <details class="ev"><summary>source passage</summary>
+        <p class="why">Verified: IG II² 1668 is a complete ex-ante building specification (<i>syngraphai</i>) for
+        the Piraeus naval arsenal — dimensions, materials, construction detail; the Lebadeia contract (~220 BC)
+        supplies the explicit material-inspection, acceptance-testing and penalty machinery run by oath-bound
+        overseers. The essay cites each stone for what it actually carries.</p>
+      </details></li>
+  </ol>
+  </details>
+</section>
+
+
+
+</main>
+
+<footer>
+  © Aman Goel
+</footer>
+
+<div class="tip" id="tip" role="tooltip"></div>
+
+<script>
+/* ——— citations: [n] markers open the primary source in a new tab ——— */
+(function(){
+  const U={
+    1:'https://sites.utexas.edu/dsb/tokens/the-evolution-of-writing/',
+    2:'https://cdli.earth/files-up/publications/englund2011a.pdf',
+    3:'https://www.academia.edu/88331225/Archaic_Bookkeeping',
+    4:'https://www.metmuseum.org/art/collection/search/322447',
+    5:'https://ideas.repec.org/a/mul/jrkmxm/doi10.1410-24582y2007i1p7-32.html',
+    6:'https://www.degruyterbrill.com/document/doi/10.1515/za-2016-0016/html',
+    8:'https://www.academia.edu/42176412/Weight_metrology_in_the_Harappan_Civilization',
+    9:'https://www.pnas.org/doi/10.1073/pnas.2105873118',
+    10:'https://archive.org/stream/THEGREATTOMBROBBERIESOFTHETWENTIETHEGYPTIANDYNASTY/THE%20GREAT%20TOMB%20ROBBERIES%20-%20OF%20T%20H%20E-TWENTIETH%20EGYPTIAN%20DYNASTY_djvu.txt',
+    11:'https://en.wikipedia.org/wiki/Abbott_Papyrus',
+    12:'https://www.britishmuseum.org/blog/learn-maths-egyptian-secrets-rhind-mathematical-papyrus',
+    13:'https://en.wikipedia.org/wiki/Vedic_chant',
+    14:'https://dl.acm.org/doi/10.1145/363162.363165',
+    15:'https://plato.stanford.edu/entries/mohism/',
+    16:'https://en.wikipedia.org/wiki/Shuihudi_Qin_bamboo_texts',
+    17:'https://www.sciencedirect.com/science/article/abs/pii/S0278416516300022',
+    18:'https://www.cambridge.org/core/journals/antiquity/article/crossbows-and-imperial-craft-organisation-the-bronze-triggers-of-chinas-terracotta-army/DB32EADD77493B84692756138D21D036',
+    19:'https://www.atticinscriptions.com/inscription/RO/25',
+    20:'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1432143',
+    22:'https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Frontinus/De_Aquis/text*.html',
+    23:'https://www.khm.at/en/objectdb/detail/52488/',
+    24:'https://www.sefaria.org/Kiddushin.30a',
+    25:'https://en.wikipedia.org/wiki/Casting_out_nines',
+  }; /* 7, 21 (+ Stroud, Chace, Hulsewé, Filliozat, Kienast) are print — markers jump to the reference entry */
+  document.querySelectorAll('a.cit').forEach(a=>{
+    const r=a.dataset.r, u=U[+r];
+    if(u){a.href=u; a.target='_blank'; a.rel='noopener';
+      a.title='Open source ['+r+'] in a new tab'; }
+    else {a.href='#ref-'+r; a.title='Reference ['+r+'] (print edition)';}
+  });
+  /* reference-list links open in new tabs too */
+  document.querySelectorAll('#refs a[href^="http"]').forEach(a=>{a.target='_blank';a.rel='noopener'});
+  document.querySelectorAll('.srcs a').forEach(a=>{a.title='Jump to reference '+a.textContent});
+  document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#ref-"]'); if(!a)return;
+    const box=document.getElementById('refbox'); if(box&&!box.open)box.open=true;});
+})();
+
+/* ——— theme toggle ——— */
+(function(){
+  const btn=document.getElementById('themeToggle');
+  btn.addEventListener('click',()=>{
+    const r=document.documentElement;
+    const cur=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    r.dataset.theme=(cur==='dark')?'light':'dark';
+  });
+})();
+
+/* ——— progress bar ——— */
+(function(){
+  const bar=document.getElementById('pbar');
+  const on=()=>{const h=document.documentElement;
+    bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';};
+  addEventListener('scroll',on,{passive:true}); on();
+})();
+
+/* ——— outline rail active state ——— */
+(function(){
+  const links=[...document.querySelectorAll('nav.rail a')];
+  const map=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){
+      links.forEach(a=>a.classList.remove('on'));
+      const a=map.get(e.target.id); if(a)a.classList.add('on');
+    }});
+  },{rootMargin:'-20% 0px -70% 0px'});
+  map.forEach((a,id)=>{const el=document.getElementById(id); if(el)io.observe(el);});
+})();
+
+/* ——— scroll reveal + SMIL triggers ——— */
+(function(){
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(!e.isIntersecting)return;
+      e.target.classList.add('inview');
+      e.target.querySelectorAll('animate.anim').forEach(a=>{try{a.beginElement()}catch(_){}});
+      e.target.querySelectorAll('.draw').forEach(p=>{p.style.animation='drawin 1s ease forwards';});
+      io.unobserve(e.target);
+    });
+  },{threshold:.3});
+  document.querySelectorAll('.reveal').forEach(el=>{
+    if(reduce){el.classList.add('inview');
+      el.querySelectorAll('animate.anim').forEach(a=>{
+        const t=a.parentElement; t.setAttribute(a.getAttribute('attributeName'),a.getAttribute('to'));});
+      el.querySelectorAll('.draw').forEach(p=>{p.style.strokeDashoffset='0'});
+    } else io.observe(el);
+  });
+})();
+
+/* ——— timeline ——— */
+(function(){
+  const MOD={
+    redun:{label:'Redundant encoding / checksum',c:'var(--c-redun)'},
+    audit:{label:'Audit & reconciliation',c:'var(--c-audit)'},
+    conform:{label:'Conformance to a standard',c:'var(--c-conform)'},
+    spec:{label:'Spec + acceptance test',c:'var(--c-spec)'},
+    cert:{label:'Certification & authentication',c:'var(--c-cert)'},
+    inverse:{label:'Inverse-operation check',c:'var(--c-inverse)'},
+  };
+  const D=[
+    {y:-3400,t:'Token envelopes',m:'redun',ch:'mesopotamia',d:'~3500–3300 BC · Susa/Uruk',b:'Tokens impressed on the surface before sealing — the count checkable without breaking the seal.'},
+    {y:-3150,t:'Reverse-face totals',m:'redun',dy:22,ch:'mesopotamia',d:'~3300–3000 BC · Uruk',b:'Proto-cuneiform accounts carry recomputable subtotals and grand totals on the back.'},
+    {y:-2700,t:'Harappan weight standard',m:'conform',ch:'indus',d:'~2800–1900 BC · Indus',b:'One statistically crisp standard across 40+ sites — a spec whose enforcement is archaeologically invisible.'},
+    {y:-2050,t:'Ur III balanced accounts',m:'audit',anchor:'end',dx:-12,ch:'mesopotamia',d:'2112–2004 BC',b:'ni₃-kas₇-aka: expected vs actual, closing with an explicit computed deficit. Four rubric grades of four.'},
+    {y:-1800,t:'Reciprocal “Technique”',m:'inverse',ch:'mesopotamia',d:'~1800–1600 BC · Old Babylonian',b:'Compute the reciprocal, invert it back, confirm the input returns (CBS 1215; VAT 6505).'},
+    {y:-1754,t:'Hammurabi §229–235',m:'none',dy:24,anchor:'start',dx:6,ch:'mesopotamia',d:'~1754 BC · Louvre Sb 8',b:'Builder liability and a one-year warranty — an incentive, not a procedure.'},
+    {y:-1550,t:'Rhind “proofs”',m:'inverse',dy:22,ch:'egypt',d:'copy ~1550 BC of ~1850 BC original',b:'Explicit proof sections substitute the answer back; closing formula mitt pw — “that is it.”'},
+    {y:-1110,t:'Abbott tomb audit',m:'audit',anchor:'end',dx:-10,ch:'egypt',d:'~1110 BC · BM EA 10221',b:'Checklist audit with formulaic verdicts, seal checks, arithmetic tally — and a compromised commission.'},
+    {y:-800,t:'Vedic pāṭhas',m:'redun',ch:'india',d:'Vedic period (fixation; composition earlier)',b:'Eleven recitation encodings of the same text, cross-checking each other — an oral error-detecting code.'},
+    {y:-650,t:'Astronomical Diaries',m:'audit',anchor:'start',dx:8,ch:'mesopotamia',d:'652–61 BC · Babylon',b:'Nightly observations vs computed predictions, provenance-tagged (“I did not watch”). Model validation.'},
+    {y:-550,t:'Eupalinos tunnel',m:'spec',anchor:'end',dx:-10,ch:'greece',d:'~550 BC · Samos',b:'Two headings, a lettered reference grid, a corrected drift, ~60 cm closure over a kilometre.'},
+    {y:-430,t:'Mohist fa',m:'conform',anchor:'end',dx:-10,ch:'china',d:'5th c. BC',b:'“What matches the fa is this; what doesn’t is not” — the conformance check stated as doctrine.'},
+    {y:-375,t:'Nikophon’s coin law',m:'cert',anchor:'end',dx:-10,dy:22,ch:'greece',d:'375/4 BC · Agora I 7180',b:'Written acceptance spec, a standing tester, per-defect actions, sanctions on the verifier — on stone.'},
+    {y:-347,t:'Arsenal of Philon',m:'spec',dy:22,anchor:'end',dx:-8,ch:'greece',d:'347/6 BC · IG II² 1668',b:'A complete written building spec; acceptance machinery in sibling contracts (Lebadeia).'},
+    {y:-350,t:'Pāṇini’s Aṣṭādhyāyī',m:'conform',dy:22,anchor:'start',dx:4,ch:'india',d:'~350 BC',b:'~4,000 ordered rules, deterministic conflict resolution, derivations checked by the commentarial tradition.'},
+    {y:-250,t:'Hufu tiger tallies',m:'cert',dy:22,anchor:'start',dx:4,ch:'china',d:'Warring States → Han',b:'Two cast halves must interlock to authenticate a mobilization order — split-key authentication.'},
+    {y:-217,t:'Qin Xiàolǜ 效律',m:'audit',dy:22,anchor:'start',dx:4,ch:'china',d:'sealed 217 BC · Shuihudi',b:'“Statutes concerning checking”: audits with numerical tolerances; armoury brand-vs-register checks.'},
+    {y:-50,t:'Tesserae nummulariae',m:'cert',anchor:'start',dx:8,ch:'rome',d:'96 BC–AD 88',b:'Bone tags: checker’s name + “spectavit” + date, tied to the sealed bag he verified.'},
+    {y:97,t:'Frontinus’ water audit',m:'audit',anchor:'start',dx:8,ch:'rome',d:'AD 97–98',b:'Ledger vs independent gauging; 12,755 vs 14,018; root causes classified; certified nozzles.'},
+    {y:550,t:'Masoretic counts',m:'redun',ch:'texts',d:'Talmudic era → 10th–11th c. codices',b:'soferim = “counters”: letter/word/verse tallies and midpoints as a text checksum.'},
+    {y:950,t:'Casting out nines',m:'inverse',anchor:'end',dx:6,ch:'texts',d:'~950 AD (Aryabhaṭa II) · Ibn Sīnā ~1020',b:'Digit-sum residue check — efficient, ancient in spirit, and provably blind to ±9k errors.'},
+  ];
+  const svg=document.getElementById('tlsvg'); if(!svg)return;
+  const NS='http://www.w3.org/2000/svg';
+  const X0=54,X1=956,Y0=36,LANEH=40;
+  const yrMin=-3500,yrMax=1000;
+  const x=y=>X0+(y-yrMin)/(yrMax-yrMin)*(X1-X0);
+  const lanes=['redun','audit','conform','spec','cert','inverse'];
+  const el=(n,at,parent)=>{const e=document.createElementNS(NS,n);for(const k in at)e.setAttribute(k,at[k]);(parent||svg).appendChild(e);return e};
+  for(let yr=-3500;yr<=1000;yr+=500){
+    el('line',{x1:x(yr),y1:Y0-8,x2:x(yr),y2:Y0+lanes.length*LANEH+6,stroke:'var(--grid)','stroke-width':1});
+    const t=el('text',{x:x(yr),y:Y0+lanes.length*LANEH+24,'text-anchor':'middle','font-size':11,fill:'var(--muted)'});
+    t.textContent=yr<0?(-yr)+' BC':(yr===0?'0':yr+' AD');
+  }
+  // writing marker
+  el('line',{x1:x(-3300),y1:Y0-14,x2:x(-3300),y2:Y0+lanes.length*LANEH+6,stroke:'var(--gold)','stroke-width':1.5,'stroke-dasharray':'3 4'});
+  const wm=el('text',{x:x(-3300)+5,y:Y0-16,'font-size':10,fill:'var(--gold)','letter-spacing':'.08em'});
+  wm.textContent='writing emerges';
+  lanes.forEach((m,i)=>{
+    const y=Y0+i*LANEH+LANEH/2;
+    el('line',{x1:X0,y1:y,x2:X1,y2:y,stroke:'var(--hairline)','stroke-width':1,'stroke-dasharray':'1 5'});
+  });
+  const tip=document.getElementById('tip');
+  const dots=[];
+  D.forEach(d=>{
+    const laneI=d.m==='none'?1:lanes.indexOf(d.m);
+    const cy=Y0+laneI*LANEH+LANEH/2, cx=x(d.y);
+    const color=d.m==='none'?'var(--muted)':MOD[d.m].c;
+    const g=el('g',{class:'tl-dot',tabindex:0,role:'link','aria-label':d.t});
+    g.dataset.mod=d.m;
+    el('circle',{cx,cy,r:6,fill:color,stroke:'var(--surface)','stroke-width':2},g);
+    if(d.m==='none') el('circle',{cx,cy,r:10,fill:'none',stroke:'var(--muted)','stroke-width':1,'stroke-dasharray':'2 3'},g);
+    const lab=el('text',{x:cx+(d.dx||0),y:cy+(d.dy!==undefined?d.dy:-12),'text-anchor':d.anchor||'middle','font-size':10.5,fill:'var(--ink2)'},g);
+    lab.textContent=d.t;
+    const show=(ev)=>{
+      tip.innerHTML='<b>'+d.t+'</b><span class="d">'+d.d+'</span><div style="margin-top:4px">'+d.b+'</div><span class="go">click → chapter §</span>';
+      tip.style.opacity=1;
+      const r=(ev.touches?ev.touches[0]:ev);
+      const tw=tip.offsetWidth||260;
+      tip.style.left=Math.min(window.innerWidth-tw-12,Math.max(8,r.clientX-tw/2))+'px';
+      tip.style.top=(r.clientY-tip.offsetHeight-16)+'px';
+    };
+    g.addEventListener('mousemove',show);
+    g.addEventListener('mouseleave',()=>tip.style.opacity=0);
+    g.addEventListener('focus',e=>{const b=g.getBoundingClientRect();show({clientX:b.x+b.width/2,clientY:b.y})});
+    g.addEventListener('blur',()=>tip.style.opacity=0);
+    const jump=()=>{tip.style.opacity=0;const t=document.getElementById(d.ch);if(t)t.scrollIntoView({behavior:'smooth'})};
+    g.addEventListener('click',jump);
+    g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();jump()}});
+    dots.push(g);
+  });
+  // legend chips as filters
+  const chips=document.getElementById('tlChips');
+  const mk=(key,label,color)=>{
+    const s=document.createElement('button');s.className='chip';s.type='button';
+    s.innerHTML='<span class="sw" style="background:'+color+'"></span>'+label;
+    s.setAttribute('aria-pressed','true');
+    s.addEventListener('click',()=>{
+      const off=s.classList.toggle('off');
+      s.setAttribute('aria-pressed',String(!off));
+      dots.forEach(g=>{ if(g.dataset.mod===key) g.classList.toggle('dim',off); });
+    });
+    chips.appendChild(s);
+  };
+  lanes.forEach(m=>mk(m,MOD[m].label,MOD[m].c));
+  mk('none','incentive only (boundary case)','var(--muted)');
+  const tb=document.querySelector('#tlTable tbody');
+  D.forEach(d=>{
+    const tr=document.createElement('tr');
+    tr.innerHTML='<td>'+d.t+'</td><td>'+(d.m==='none'?'incentive (boundary)':MOD[d.m].label)+'</td><td>'+d.d+'</td>';
+    tb.appendChild(tr);
+  });
+})();
+
+/* ——— scoreboard ——— */
+(function(){
+  // grade: 2=✓ attested, 1=◐ partial, 0=— absent
+  const ROWS=[
+    {t:'Token envelopes',era:'~3500–3300 BC',ch:'mesopotamia',g:[2,2,2,1],
+     n:['The tokens are the reference; the marks duplicate the count.','Count the marks, compare the contents.','Redundant encoding catches tampering or loss.','“Some accountants” — practice attested, mandate interpretive.']},
+    {t:'Ur III balanced accounts',era:'2112–2004 BC',ch:'mesopotamia',g:[2,2,2,2],
+     n:['Theoretical debit posts = the spec.','Fixed two-part format; arithmetic closure.','Zero-sum arithmetic — it recomputes exactly.','State-mandated, periodic, archived.']},
+    {t:'Babylonian reciprocals + Rhind proofs',era:'~1800 BC → 4th c. BC',ch:'egypt',g:[2,2,2,1],
+     n:['The stated condition of the problem.','Invert / substitute back, step by step.','Inverse-operation check — the oldest soundness argument.','Scribal-school pedagogy; not an office.']},
+    {t:'Harappan weight standard',era:'~2800–1900 BC',ch:'indus',g:[2,0,0,0],
+     n:['One statistically crisp standard (CQA-verified).','No checking procedure survives.','No soundness story survives.','No inspection institution survives — script undeciphered.']},
+    {t:'Papyrus Abbott audit',era:'~1110 BC',ch:'egypt',g:[2,2,1,2],
+     n:['Defined tomb list + seal reference.','Formulaic per-tomb verdicts + arithmetic tally.','Seals tamper-evident — but the verifier was compromised (Peet).','Formal commission; report archived with the vizier.']},
+    {t:'Vedic pāṭhas',era:'Vedic period',ch:'india',g:[2,2,2,1],
+     n:['The saṁhitā text itself is the reference.','Eleven rule-fixed permutation encodings.','Cross-encoding mismatch exposes a slip.','A recitation tradition — strong practice, no office.']},
+    {t:'Pāṇini’s Aṣṭādhyāyī',era:'~350 BC',ch:'india',g:[2,2,2,1],
+     n:['The grammar IS the spec (~4,000 rules).','Derivations proceed mechanically.','Deterministic conflict resolution (metarule 1.4.2).','A commentarial tradition, not a mandated office — graded strictly.']},
+    {t:'Mohist fa',era:'5th c. BC',ch:'china',g:[2,2,1,1],
+     n:['Physical standards: compass, square, string, plumb line, level.','Cite the fa, compare, rule this/not — operator-independent.','A physical standard resists dispute — but no error model is stated.','A doctrine of checking, not a mandated office.']},
+    {t:'Hufu tiger tallies',era:'Warring States → Han',ch:'china',g:[1,2,2,2],
+     n:['The retained half is the reference (no written spec).','Bring the halves together; they must physically seat.','A forged half won’t fit the cast mate.','State military protocol, on the inscription itself.']},
+    {t:'Qin Xiàolǜ statutes',era:'sealed 217 BC',ch:'china',g:[2,2,2,2],
+     n:['Registers + numerical tolerances, in statute.','Brand-vs-register checks; audits on schedule.','Physical brand can’t be re-written to match a false register.','Codified law with graduated fines.']},
+    {t:'Nikophon’s coin law',era:'375/4 BC',ch:'greece',g:[2,2,1,2],
+     n:['Two written acceptance conditions on stone.','A standing tester, testing daily.','The cut exposes the core — for plated coins.','Salaried office, sanctions, mandated publication.']},
+    {t:'Philon arsenal + Lebadeia',era:'347/6 BC · ~220 BC',ch:'greece',g:[2,2,1,2],
+     n:['A complete written building spec (syngraphai).','Inspection + acceptance of work.','Materials inspected against the written spec.','Oath-bound overseers; penalties for nonconformance.']},
+    {t:'Tesserae + Frontinus',era:'96 BC–AD 98',ch:'rome',g:[2,2,1,2],
+     n:['The ledger; the stamped calix bore; the sealed bag.','Gauge independently; compare; classify causes.','Named-checker accountability; but the quinaria ignores flow velocity.','A profession (nummularii) and a curatorship.']},
+    {t:'Masoretic counts',era:'Talmudic → 1008 AD',ch:'texts',g:[2,2,1,2],
+     n:['Letter/word/verse tallies + pinned midpoints.','Recount against the reference totals.','Counts catch insertion/deletion — but the Talmud concedes decay.','A scribal institution across a millennium.']},
+    {t:'Hammurabi §229–235',era:'~1754 BC',ch:'mesopotamia',g:[1,0,0,1],
+     n:['Outcome conditions, not check conditions.','No inspection procedure prescribed.','None: liability fires after failure.','A legal incentive — the boundary case.']},
+  ];
+  const COLS=['S','P','Σ','I'];
+  const NOTE=document.getElementById('boardNote');
+  const tbl=document.getElementById('boardTable'); if(!tbl)return;
+  let h='<thead><tr><th>Thread</th>'+COLS.map(c=>'<th class="c">'+c+'</th>').join('')+'</tr></thead><tbody>';
+  ROWS.forEach((r,ri)=>{
+    h+='<tr><td class="rowlab" data-ch="'+r.ch+'" tabindex="0">'+r.t+'<span class="era">'+r.era+'</span></td>';
+    r.g.forEach((g,ci)=>{
+      const cls=g===2?'on':(g===1?'half':'no');
+      const sym=g===2?'✓':(g===1?'◐':'—');
+      h+='<td class="cell '+cls+'" data-r="'+ri+'" data-c="'+ci+'">'+sym+'</td>';
+    });
+    h+='</tr>';
+  });
+  tbl.innerHTML=h+'</tbody>';
+  tbl.addEventListener('mouseover',e=>{
+    const td=e.target.closest('td.cell'); if(!td)return;
+    const r=ROWS[+td.dataset.r], c=+td.dataset.c;
+    NOTE.innerHTML='<b>'+r.t+' · '+COLS[c]+':</b> '+r.n[c];
+  });
+  tbl.addEventListener('click',e=>{
+    const lab=e.target.closest('td.rowlab'); if(!lab)return;
+    const t=document.getElementById(lab.dataset.ch); if(t)t.scrollIntoView({behavior:'smooth'});
+  });
+  tbl.addEventListener('keydown',e=>{
+    const lab=e.target.closest('td.rowlab'); if(!lab)return;
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();
+      const t=document.getElementById(lab.dataset.ch); if(t)t.scrollIntoView({behavior:'smooth'});}
+  });
+})();
+
+/* ——— casting-out-nines widget ——— */
+(function(){
+  const inp=document.getElementById('ninesIn'), out=document.getElementById('ninesOut');
+  if(!inp)return;
+  const root=n=>{n=Math.abs(n); while(n>9){n=String(n).split('').reduce((a,b)=>a+ +b,0)} return n};
+  const TRUE=35;
+  const run=()=>{
+    const v=parseInt(inp.value,10);
+    if(isNaN(v)){out.className='verdict'; out.textContent='Give me a number.'; return;}
+    const rv=root(v), ok=rv===root(TRUE), truly=v===TRUE;
+    if(ok&&truly){out.className='verdict pass';
+      out.textContent='root(35)=8 = root(5)·root(7) mod 9 → CHECK PASSES ✓ — and 35 is actually correct.';}
+    else if(ok&&!truly){out.className='verdict fooled';
+      out.textContent='root('+v+')='+rv+' matches 8 → CHECK PASSES “✓” — but '+v+' ≠ 35. The check is blind to ±9k. FOOLED.';}
+    else {out.className='verdict';
+      out.textContent='root('+v+')='+rv+' ≠ 8 → CHECK FAILS ✗ — the digit-sum caught this one.';}
+  };
+  document.getElementById('ninesCheck').addEventListener('click',run);
+  document.getElementById('ninesFool').addEventListener('click',()=>{inp.value=(parseInt(inp.value,10)||35)+9; run();});
+  document.getElementById('ninesTruth').addEventListener('click',()=>{inp.value=35; run();});
+  inp.addEventListener('keydown',e=>{if(e.key==='Enter')run()});
+})();
+</script>
+</body>
+</html>

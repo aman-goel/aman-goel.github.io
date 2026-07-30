@@ -100,7 +100,7 @@ Reverse-chronological. Also on [Google Scholar](https://scholar.google.com/citat
 
 Dissertation: [From Finite to Infinite: Scalable Automatic Verification of Hardware Designs and Distributed Protocols](https://deepblue.lib.umich.edu/handle/2027.42/171355) (University of Michigan, 2021).
 
-Earlier: [a solar charger for hearing-aid batteries](http://www.ijesit.com/Volume%202/Issue%205/IJESIT201305_16.pdf) (IJESIT 2013) — received the National Award for the Empowerment of Persons with Disabilities (Govt. of India, 2013).
+Earlier: [a solar charger for hearing-aid batteries](https://www.ijesit.com/Volume%202/Issue%205/IJESIT201305_16.pdf) (IJESIT 2013) — received the National Award for the Empowerment of Persons with Disabilities (Govt. of India, 2013).
 
 ## Software
 
@@ -201,7 +201,3 @@ The complete running log — papers, talks, milestones, awards, 2013–2026. Com
 - **May 2016** — B.Tech in Electrical Engineering (Silver Medalist, branch rank 2) and M.Tech in Microelectronics & VLSI, IIT Madras.
 - **Nov 2015** — “iitRACE: A memory efficient engine for fast incremental timing analysis” (Peddawad, Goel, Dheeraj, Chandrachoodan), [ICCAD 2015](https://dblp.org/rec/conf/iccad/2015.html) (Austin, Nov 2–6) — international 3rd place in the TAU Contest.
 - **Dec 2013** — Received the [National Award for the Empowerment of Persons with Disabilities](https://depwd.gov.in/en/brief-about-national-awards/) (Govt. of India) for a solar charger for hearing-aid devices.
-
----
-
-*Last updated July 2026.*

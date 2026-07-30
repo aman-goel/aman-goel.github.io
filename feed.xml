@@ -6,7 +6,14 @@
   <atom:link href="https://amangoel.ai/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Notes on LLM internals, fine-tuning, evaluation, and formal verification.</description>
   <language>en-us</language>
-  <lastBuildDate>Sun, 05 Jul 2026 00:00:00 GMT</lastBuildDate>
-
+  <lastBuildDate>Thu, 30 Jul 2026 00:00:00 GMT</lastBuildDate>
+  <item>
+    <title>Before the theorem prover: verification is older than the alphabet</title>
+    <link>https://amangoel.ai/blog/before-the-theorem-prover/</link>
+    <guid>https://amangoel.ai/blog/before-the-theorem-prover/</guid>
+    <pubDate>Thu, 30 Jul 2026 00:00:00 GMT</pubDate>
+    <category>formal verification</category>
+    <description>the checksum, the audit, the acceptance test and the signed certificate are all older than the twentieth century — seven museum objects, and what the twentieth century actually added</description>
+  </item>
 </channel>
 </rss>
